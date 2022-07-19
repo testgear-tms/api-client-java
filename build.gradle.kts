@@ -5,7 +5,7 @@ plugins {
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
 }
 
-group = "io.test_gear"
+group = "io.test-gear"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8

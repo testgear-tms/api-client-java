@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-    <groupId>io.test_gear</groupId>
+    <groupId>io.test-gear</groupId>
     <artifactId>testgear-api-client</artifactId>
     <version>LATEST_VERSION</version>
     <scope>compile</scope>
@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-implementation "io.test_gear:testgear-api-client:LATEST_VERSION"
+implementation "io.test-gear:testgear-api-client:LATEST_VERSION"
 ```
 
 ## Examples
