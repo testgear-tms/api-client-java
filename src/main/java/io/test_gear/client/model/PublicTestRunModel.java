@@ -23,9 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
--gear.client.model.AutoTestModel;
--gear.client.model.ConfigurationModel;
--gear.client.model.PublicTestPointModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 

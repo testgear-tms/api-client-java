@@ -21,18 +21,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
--gear.client.model.AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel;
--gear.client.model.AutoTestChangeViewModelArrayWorkItemChangedFieldViewModel;
--gear.client.model.BooleanWorkItemChangedFieldViewModel;
--gear.client.model.GuidWorkItemChangedFieldViewModel;
--gear.client.model.Int32WorkItemChangedFieldViewModel;
--gear.client.model.StringArrayWorkItemChangedFieldViewModel;
--gear.client.model.StringWorkItemChangedFieldViewModel;
--gear.client.model.WorkItemChangedAttributeViewModel;
--gear.client.model.WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel;
--gear.client.model.WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;-gear.client.invoker.JSON;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**

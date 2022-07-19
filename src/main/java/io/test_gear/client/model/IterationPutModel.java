@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;-gear.client.invoker.JSON;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**

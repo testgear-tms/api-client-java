@@ -21,16 +21,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
--gear.client.model.BooleanNullableTestPlanChangedFieldViewModel;
--gear.client.model.BooleanTestPlanChangedFieldViewModel;
--gear.client.model.CustomAttributeChangeModel;
--gear.client.model.PeriodViewModelTestPlanChangedFieldViewModel;
--gear.client.model.StringArrayTestPlanChangedFieldViewModel;
--gear.client.model.StringTestPlanChangedFieldViewModel;
--gear.client.model.TestResultChangeViewModelTestPlanChangedFieldViewModel;
--gear.client.model.TestSuiteChangeViewModelTestPlanChangedFieldViewModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;-gear.client.invoker.JSON;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**

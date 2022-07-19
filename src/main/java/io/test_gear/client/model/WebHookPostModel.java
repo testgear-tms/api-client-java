@@ -23,9 +23,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
--gear.client.model.WebHookEventTypeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;-gear.client.invoker.JSON;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**

@@ -1,5 +1,6 @@
 package io.test_gear.client.invoker;
 
+import io.test_gear.client.invoker.auth.Authentication;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
@@ -57,10 +58,8 @@ import java.text.DateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
--gear.client.invoker.auth.Authentication;
--gear.client.invoker.auth.HttpBasicAuth;
--gear.client.invoker.auth.HttpBearerAuth;
-import io.test_gear.client.invoker.auth.ApiKeyAuth;
+
+import io.test_gear.client.invoker.auth.*;
 
 /**
  * <p>ApiClient class.</p>

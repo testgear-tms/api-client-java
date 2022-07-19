@@ -23,7 +23,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
--gear.client.model.CustomAttributeTypesEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 

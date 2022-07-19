@@ -24,16 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
--gear.client.model.AttachmentPutModel;
--gear.client.model.AutoTestIdModel;
--gear.client.model.IterationPutModel;
--gear.client.model.LinkPostModel;
--gear.client.model.TagShortModel;
--gear.client.model.WorkItemEntityTypes;
--gear.client.model.WorkItemPriorityModel;
--gear.client.model.WorkItemStates;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;-gear.client.invoker.JSON;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**

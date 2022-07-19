@@ -22,11 +22,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
--gear.client.model.TestPlanGroupByStatus;
--gear.client.model.TestPlanGroupByTestSuite;
--gear.client.model.TestPlanGroupByTesterAndStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;-gear.client.invoker.JSON;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**

@@ -22,7 +22,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
--gear.client.model.UserWithRankModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 

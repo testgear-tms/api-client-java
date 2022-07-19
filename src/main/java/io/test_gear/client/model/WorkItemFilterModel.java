@@ -27,8 +27,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
--gear.client.model.WorkItemPriorityModel;
--gear.client.model.WorkItemStates;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
