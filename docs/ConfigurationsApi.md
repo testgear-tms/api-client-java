@@ -1,16 +1,167 @@
 # ConfigurationsApi
 
-All URIs are relative to */*
+All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createConfiguration**](ConfigurationsApi.md#createConfiguration) | **POST** /api/v2/configurations | Create Configuration
-[**getConfigurationById**](ConfigurationsApi.md#getConfigurationById) | **GET** /api/v2/configurations/{configurationId} | Get Configuration by Id or GlobalId
-[**updateConfiguration**](ConfigurationsApi.md#updateConfiguration) | **PUT** /api/v2/configurations | Update Configuration
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**apiV2ConfigurationsCreateByParametersPost**](ConfigurationsApi.md#apiV2ConfigurationsCreateByParametersPost) | **POST** /api/v2/configurations/createByParameters | Create Configurations by parameters |
+| [**apiV2ConfigurationsSearchPost**](ConfigurationsApi.md#apiV2ConfigurationsSearchPost) | **POST** /api/v2/configurations/search | Search for configurations |
+| [**createConfiguration**](ConfigurationsApi.md#createConfiguration) | **POST** /api/v2/configurations | Create Configuration |
+| [**getConfigurationById**](ConfigurationsApi.md#getConfigurationById) | **GET** /api/v2/configurations/{id} | Get configuration by internal or global ID |
+| [**updateConfiguration**](ConfigurationsApi.md#updateConfiguration) | **PUT** /api/v2/configurations | Update Configuration |
+
+
+<a name="apiV2ConfigurationsCreateByParametersPost"></a>
+# **apiV2ConfigurationsCreateByParametersPost**
+> apiV2ConfigurationsCreateByParametersPost(configurationByParametersModel)
+
+Create Configurations by parameters
+
+&lt;br&gt;Use case  &lt;br&gt;User sets request model (listed in the request example)  &lt;br&gt;User runs method execution  &lt;br&gt;System creates configurations  &lt;br&gt;System returns created configuration ids (listed in the response example)
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ConfigurationsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
+    ConfigurationByParametersModel configurationByParametersModel = new ConfigurationByParametersModel(); // ConfigurationByParametersModel | 
+    try {
+      apiInstance.apiV2ConfigurationsCreateByParametersPost(configurationByParametersModel);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsCreateByParametersPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **configurationByParametersModel** | [**ConfigurationByParametersModel**](ConfigurationByParametersModel.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty |  -  |
+| **404** | &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found |  -  |
+| **201** | Created |  -  |
+| **200** | Successful operation |  -  |
+
+<a name="apiV2ConfigurationsSearchPost"></a>
+# **apiV2ConfigurationsSearchPost**
+> List&lt;ConfigurationModel&gt; apiV2ConfigurationsSearchPost(skip, take, orderBy, searchField, searchValue, configurationSelectModel)
+
+Search for configurations
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ConfigurationsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    ConfigurationSelectModel configurationSelectModel = new ConfigurationSelectModel(); // ConfigurationSelectModel | Model containing all the filters
+    try {
+      List<ConfigurationModel> result = apiInstance.apiV2ConfigurationsSearchPost(skip, take, orderBy, searchField, searchValue, configurationSelectModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsSearchPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)| Model containing all the filters | [optional] |
+
+### Return type
+
+[**List&lt;ConfigurationModel&gt;**](ConfigurationModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 <a name="createConfiguration"></a>
 # **createConfiguration**
-> ConfigurationModel createConfiguration(body)
+> ConfigurationModel createConfiguration(configurationPostModel)
 
 Create Configuration
 
@@ -19,36 +170,45 @@ Create Configuration
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ConfigurationsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ConfigurationsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ConfigurationsApi apiInstance = new ConfigurationsApi();
-ConfigurationPostModel body = new ConfigurationPostModel(); // ConfigurationPostModel | 
-try {
-    ConfigurationModel result = apiInstance.createConfiguration(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ConfigurationsApi#createConfiguration");
-    e.printStackTrace();
+    ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
+    ConfigurationPostModel configurationPostModel = new ConfigurationPostModel(); // ConfigurationPostModel | 
+    try {
+      ConfigurationModel result = apiInstance.createConfiguration(configurationPostModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ConfigurationsApi#createConfiguration");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ConfigurationPostModel**](ConfigurationPostModel.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **configurationPostModel** | [**ConfigurationPostModel**](ConfigurationPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -60,50 +220,69 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for configuration required |  -  |
+| **404** | Can&#39;t find project |  -  |
+| **409** | Configuration with the same name already exists! |  -  |
 
 <a name="getConfigurationById"></a>
 # **getConfigurationById**
-> ConfigurationModel getConfigurationById(configurationId)
+> ConfigurationModel getConfigurationById(id)
 
-Get Configuration by Id or GlobalId
+Get configuration by internal or global ID
 
 &lt;br&gt;Use case  &lt;br&gt;User sets configuration internal (guid format) or global (integer format) identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search configuration using the identifier  &lt;br&gt;System returns configuration
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ConfigurationsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ConfigurationsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ConfigurationsApi apiInstance = new ConfigurationsApi();
-String configurationId = "configurationId_example"; // String | Configuration internal (guid format) or global (integer format) identifier
-try {
-    ConfigurationModel result = apiInstance.getConfigurationById(configurationId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ConfigurationsApi#getConfigurationById");
-    e.printStackTrace();
+    ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
+    String id = "id_example"; // String | 
+    try {
+      ConfigurationModel result = apiInstance.getConfigurationById(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ConfigurationsApi#getConfigurationById");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **configurationId** | **String**| Configuration internal (guid format) or global (integer format) identifier |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**|  | |
 
 ### Return type
 
@@ -118,9 +297,17 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Read permission for configuration required |  -  |
+| **404** | Can&#39;t find configuration with id |  -  |
+
 <a name="updateConfiguration"></a>
 # **updateConfiguration**
-> updateConfiguration(body)
+> updateConfiguration(configurationPutModel)
 
 Update Configuration
 
@@ -129,35 +316,44 @@ Update Configuration
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ConfigurationsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ConfigurationsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ConfigurationsApi apiInstance = new ConfigurationsApi();
-ConfigurationPutModel body = new ConfigurationPutModel(); // ConfigurationPutModel | 
-try {
-    apiInstance.updateConfiguration(body);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ConfigurationsApi#updateConfiguration");
-    e.printStackTrace();
+    ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
+    ConfigurationPutModel configurationPutModel = new ConfigurationPutModel(); // ConfigurationPutModel | 
+    try {
+      apiInstance.updateConfiguration(configurationPutModel);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ConfigurationsApi#updateConfiguration");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ConfigurationPutModel**](ConfigurationPutModel.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **configurationPutModel** | [**ConfigurationPutModel**](ConfigurationPutModel.md)|  | [optional] |
 
 ### Return type
 
@@ -169,6 +365,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **422** | Can&#39;t change projectId |  -  |
+| **204** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** |  |  -  |
+| **404** | Can&#39;t find a Configuration with id |  -  |
+| **409** | Configuration with the same name already exists! |  -  |
 

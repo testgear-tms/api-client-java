@@ -1,29 +1,34 @@
+
+
 # WorkItemFilterModel
 
+Collection of filters to apply to search
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**nameOrId** | **String** |  |  [optional]
-**includeIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**excludeIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**name** | **String** |  |  [optional]
-**globalIds** | **List&lt;Long&gt;** |  |  [optional]
-**attributes** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) |  |  [optional]
-**isDeleted** | **Boolean** |  |  [optional]
-**projectIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**sectionIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**createdByIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**modifiedByIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**states** | [**List&lt;WorkItemStates&gt;**](WorkItemStates.md) |  |  [optional]
-**priorities** | [**List&lt;WorkItemPriorityModel&gt;**](WorkItemPriorityModel.md) |  |  [optional]
-**entityTypes** | **List&lt;String&gt;** |  |  [optional]
-**createdDateMinimal** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**createdDateMaximal** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**modifiedDateMinimal** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**modifiedDateMaximal** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**durationMinimal** | **Integer** |  |  [optional]
-**durationMaximal** | **Integer** |  |  [optional]
-**isAutomated** | **Boolean** |  |  [optional]
-**tagNames** | **List&lt;String&gt;** |  |  [optional]
-**autoTestIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**exceptWorkItemIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**nameOrId** | **String** | Name or identifier (UUID) of work item |  [optional] |
+|**includeIds** | **Set&lt;UUID&gt;** | Collection of identifiers of work items which need to be included in result regardless of filtering |  [optional] |
+|**excludeIds** | **Set&lt;UUID&gt;** | Collection of identifiers of work items which need to be excluded from result regardless of filtering |  [optional] |
+|**name** | **String** | Name of work item |  [optional] |
+|**ids** | **Set&lt;UUID&gt;** | Specifies a work item unique IDs to search for |  [optional] |
+|**globalIds** | **Set&lt;Long&gt;** | Collection of global (integer) identifiers |  [optional] |
+|**attributes** | **Map&lt;String, Set&lt;String&gt;&gt;** | Custom attributes of work item |  [optional] |
+|**isDeleted** | **Boolean** | Is result must consist of only actual/deleted work items |  [optional] |
+|**projectIds** | **Set&lt;UUID&gt;** | Collection of project identifiers |  [optional] |
+|**sectionIds** | **Set&lt;UUID&gt;** | Collection of section identifiers |  [optional] |
+|**createdByIds** | **Set&lt;UUID&gt;** | Collection of identifiers of users who created work item |  [optional] |
+|**modifiedByIds** | **Set&lt;UUID&gt;** | Collection of identifiers of users who applied last modification to work item |  [optional] |
+|**states** | **Set&lt;WorkItemStates&gt;** | Collection of states of work item |  [optional] |
+|**priorities** | **Set&lt;WorkItemPriorityModel&gt;** | Collection of priorities of work item |  [optional] |
+|**types** | **Set&lt;WorkItemEntityTypes&gt;** | Collection of types of work item |  [optional] |
+|**createdDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  |  [optional] |
+|**modifiedDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  |  [optional] |
+|**duration** | [**Int32RangeSelectorModel**](Int32RangeSelectorModel.md) |  |  [optional] |
+|**isAutomated** | **Boolean** | Is result must consist of only manual/automated work items |  [optional] |
+|**tags** | **Set&lt;String&gt;** | Collection of tags |  [optional] |
+|**autoTestIds** | **Set&lt;UUID&gt;** | Collection of identifiers of linked autotests |  [optional] |
+
+
+
