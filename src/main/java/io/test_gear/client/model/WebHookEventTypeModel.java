@@ -13,13 +13,20 @@
 
 package io.test_gear.client.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.annotations.SerializedName;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import java.io.IOException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 /**
  * Gets or Sets WebHookEventTypeModel
  */
+@JsonAdapter(WebHookEventTypeModel.Adapter.class)
 public enum WebHookEventTypeModel {
   
   AUTOMATEDTESTRUNCREATED("AutomatedTestRunCreated"),
@@ -32,7 +39,6 @@ public enum WebHookEventTypeModel {
     this.value = value;
   }
 
-  @JsonValue
   public String getValue() {
     return value;
   }
@@ -42,7 +48,6 @@ public enum WebHookEventTypeModel {
     return String.valueOf(value);
   }
 
-  @JsonCreator
   public static WebHookEventTypeModel fromValue(String value) {
     for (WebHookEventTypeModel b : WebHookEventTypeModel.values()) {
       if (b.value.equals(value)) {
@@ -50,6 +55,19 @@ public enum WebHookEventTypeModel {
       }
     }
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
+
+  public static class Adapter extends TypeAdapter<WebHookEventTypeModel> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final WebHookEventTypeModel enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
+    }
+
+    @Override
+    public WebHookEventTypeModel read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return WebHookEventTypeModel.fromValue(value);
+    }
   }
 }
 

@@ -15,35 +15,56 @@ package io.test_gear.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.test_gear.client.invoker.JSON;
 
 /**
  * TestRunGroupByFailureClassModel
  */
-@JsonPropertyOrder({
-  TestRunGroupByFailureClassModel.JSON_PROPERTY_FAILURE_CATEGORY,
-  TestRunGroupByFailureClassModel.JSON_PROPERTY_VALUE
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TestRunGroupByFailureClassModel {
-  public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
-  private JsonNullable<String> failureCategory = JsonNullable.<String>undefined();
+  public static final String SERIALIZED_NAME_FAILURE_CATEGORY = "failureCategory";
+  @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORY)
+  private String failureCategory;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
   private Integer value;
 
-  public TestRunGroupByFailureClassModel() { 
+  public TestRunGroupByFailureClassModel() {
   }
 
   public TestRunGroupByFailureClassModel failureCategory(String failureCategory) {
-    this.failureCategory = JsonNullable.<String>of(failureCategory);
+    
+    this.failureCategory = failureCategory;
     return this;
   }
 
@@ -51,32 +72,21 @@ public class TestRunGroupByFailureClassModel {
    * Get failureCategory
    * @return failureCategory
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public String getFailureCategory() {
-        return failureCategory.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getFailureCategory_JsonNullable() {
     return failureCategory;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
-  public void setFailureCategory_JsonNullable(JsonNullable<String> failureCategory) {
-    this.failureCategory = failureCategory;
-  }
+
 
   public void setFailureCategory(String failureCategory) {
-    this.failureCategory = JsonNullable.<String>of(failureCategory);
+    this.failureCategory = failureCategory;
   }
 
 
   public TestRunGroupByFailureClassModel value(Integer value) {
+    
     this.value = value;
     return this;
   }
@@ -85,26 +95,20 @@ public class TestRunGroupByFailureClassModel {
    * Get value
    * @return value
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getValue() {
     return value;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Integer value) {
     this.value = value;
   }
 
 
-  /**
-   * Return true if this TestRunGroupByFailureClassModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,7 +118,7 @@ public class TestRunGroupByFailureClassModel {
       return false;
     }
     TestRunGroupByFailureClassModel testRunGroupByFailureClassModel = (TestRunGroupByFailureClassModel) o;
-    return equalsNullable(this.failureCategory, testRunGroupByFailureClassModel.failureCategory) &&
+    return Objects.equals(this.failureCategory, testRunGroupByFailureClassModel.failureCategory) &&
         Objects.equals(this.value, testRunGroupByFailureClassModel.value);
   }
 
@@ -124,7 +128,7 @@ public class TestRunGroupByFailureClassModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(failureCategory), value);
+    return Objects.hash(failureCategory, value);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -155,5 +159,92 @@ public class TestRunGroupByFailureClassModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("failureCategory");
+    openapiFields.add("value");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to TestRunGroupByFailureClassModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!TestRunGroupByFailureClassModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunGroupByFailureClassModel is not found in the empty JSON string", TestRunGroupByFailureClassModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!TestRunGroupByFailureClassModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunGroupByFailureClassModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("failureCategory") != null && !jsonObj.get("failureCategory").isJsonNull()) && !jsonObj.get("failureCategory").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failureCategory` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failureCategory").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TestRunGroupByFailureClassModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TestRunGroupByFailureClassModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TestRunGroupByFailureClassModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunGroupByFailureClassModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TestRunGroupByFailureClassModel>() {
+           @Override
+           public void write(JsonWriter out, TestRunGroupByFailureClassModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TestRunGroupByFailureClassModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TestRunGroupByFailureClassModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TestRunGroupByFailureClassModel
+  * @throws IOException if the JSON string is invalid with respect to TestRunGroupByFailureClassModel
+  */
+  public static TestRunGroupByFailureClassModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TestRunGroupByFailureClassModel.class);
+  }
+
+ /**
+  * Convert an instance of TestRunGroupByFailureClassModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

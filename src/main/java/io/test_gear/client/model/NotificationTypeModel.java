@@ -13,13 +13,20 @@
 
 package io.test_gear.client.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.annotations.SerializedName;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import java.io.IOException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 /**
  * Gets or Sets NotificationTypeModel
  */
+@JsonAdapter(NotificationTypeModel.Adapter.class)
 public enum NotificationTypeModel {
   
   MENTIONINCOMMENT("MentionInComment"),
@@ -36,7 +43,6 @@ public enum NotificationTypeModel {
     this.value = value;
   }
 
-  @JsonValue
   public String getValue() {
     return value;
   }
@@ -46,7 +52,6 @@ public enum NotificationTypeModel {
     return String.valueOf(value);
   }
 
-  @JsonCreator
   public static NotificationTypeModel fromValue(String value) {
     for (NotificationTypeModel b : NotificationTypeModel.values()) {
       if (b.value.equals(value)) {
@@ -54,6 +59,19 @@ public enum NotificationTypeModel {
       }
     }
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
+
+  public static class Adapter extends TypeAdapter<NotificationTypeModel> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final NotificationTypeModel enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
+    }
+
+    @Override
+    public NotificationTypeModel read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return NotificationTypeModel.fromValue(value);
+    }
   }
 }
 

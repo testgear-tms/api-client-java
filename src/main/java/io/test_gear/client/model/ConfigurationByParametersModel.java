@@ -15,37 +15,58 @@ package io.test_gear.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.test_gear.client.invoker.JSON;
 
 /**
  * ConfigurationByParametersModel
  */
-@JsonPropertyOrder({
-  ConfigurationByParametersModel.JSON_PROPERTY_PROJECT_ID,
-  ConfigurationByParametersModel.JSON_PROPERTY_PARAMETER_IDS
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConfigurationByParametersModel {
-  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
   private UUID projectId;
 
-  public static final String JSON_PROPERTY_PARAMETER_IDS = "parameterIds";
-  private JsonNullable<Set<UUID>> parameterIds = JsonNullable.<Set<UUID>>undefined();
+  public static final String SERIALIZED_NAME_PARAMETER_IDS = "parameterIds";
+  @SerializedName(SERIALIZED_NAME_PARAMETER_IDS)
+  private Set<UUID> parameterIds = null;
 
-  public ConfigurationByParametersModel() { 
+  public ConfigurationByParametersModel() {
   }
 
   public ConfigurationByParametersModel projectId(UUID projectId) {
+    
     this.projectId = projectId;
     return this;
   }
@@ -54,37 +75,30 @@ public class ConfigurationByParametersModel {
    * This property is used to link configuration with project
    * @return projectId
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ceab5447-3791-4566-954f-8f2f7347a854", value = "This property is used to link configuration with project")
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "This property is used to link configuration with project")
 
   public UUID getProjectId() {
     return projectId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
   public ConfigurationByParametersModel parameterIds(Set<UUID> parameterIds) {
-    this.parameterIds = JsonNullable.<Set<UUID>>of(parameterIds);
+    
+    this.parameterIds = parameterIds;
     return this;
   }
 
   public ConfigurationByParametersModel addParameterIdsItem(UUID parameterIdsItem) {
-    if (this.parameterIds == null || !this.parameterIds.isPresent()) {
-      this.parameterIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
+    if (this.parameterIds == null) {
+      this.parameterIds = new LinkedHashSet<>();
     }
-    try {
-      this.parameterIds.get().add(parameterIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.parameterIds.add(parameterIdsItem);
     return this;
   }
 
@@ -92,34 +106,20 @@ public class ConfigurationByParametersModel {
    * Get parameterIds
    * @return parameterIds
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
 
   public Set<UUID> getParameterIds() {
-        return parameterIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PARAMETER_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Set<UUID>> getParameterIds_JsonNullable() {
     return parameterIds;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PARAMETER_IDS)
-  public void setParameterIds_JsonNullable(JsonNullable<Set<UUID>> parameterIds) {
+
+
+  public void setParameterIds(Set<UUID> parameterIds) {
     this.parameterIds = parameterIds;
   }
 
-  public void setParameterIds(Set<UUID> parameterIds) {
-    this.parameterIds = JsonNullable.<Set<UUID>>of(parameterIds);
-  }
 
 
-  /**
-   * Return true if this ConfigurationByParametersModel object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,7 +130,7 @@ public class ConfigurationByParametersModel {
     }
     ConfigurationByParametersModel configurationByParametersModel = (ConfigurationByParametersModel) o;
     return Objects.equals(this.projectId, configurationByParametersModel.projectId) &&
-        equalsNullable(this.parameterIds, configurationByParametersModel.parameterIds);
+        Objects.equals(this.parameterIds, configurationByParametersModel.parameterIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -139,7 +139,7 @@ public class ConfigurationByParametersModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, hashCodeNullable(parameterIds));
+    return Objects.hash(projectId, parameterIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -170,5 +170,96 @@ public class ConfigurationByParametersModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("projectId");
+    openapiFields.add("parameterIds");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ConfigurationByParametersModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ConfigurationByParametersModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationByParametersModel is not found in the empty JSON string", ConfigurationByParametersModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!ConfigurationByParametersModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationByParametersModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("projectId") != null && !jsonObj.get("projectId").isJsonNull()) && !jsonObj.get("projectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("parameterIds") != null && !jsonObj.get("parameterIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `parameterIds` to be an array in the JSON string but got `%s`", jsonObj.get("parameterIds").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ConfigurationByParametersModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ConfigurationByParametersModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ConfigurationByParametersModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ConfigurationByParametersModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ConfigurationByParametersModel>() {
+           @Override
+           public void write(JsonWriter out, ConfigurationByParametersModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ConfigurationByParametersModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ConfigurationByParametersModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ConfigurationByParametersModel
+  * @throws IOException if the JSON string is invalid with respect to ConfigurationByParametersModel
+  */
+  public static ConfigurationByParametersModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ConfigurationByParametersModel.class);
+  }
+
+ /**
+  * Convert an instance of ConfigurationByParametersModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

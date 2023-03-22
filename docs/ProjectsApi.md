@@ -1,80 +1,1403 @@
 # ProjectsApi
 
-All URIs are relative to */*
+All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**callImport**](ProjectsApi.md#callImport) | **POST** /api/v2/projects/import | Import Project from json file  Project can be imported only once (this method or ImportToExistingProject)  Next import will sync content in previously imported project.
-[**createCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#createCustomAttributeTestPlanProjectRelations) | **POST** /api/v2/projects/{projectId}/testPlans/attributes | Add attributes to project for test plans
-[**createProject**](ProjectsApi.md#createProject) | **POST** /api/v2/projects | Create Project
-[**createProjectsAttribute**](ProjectsApi.md#createProjectsAttribute) | **POST** /api/v2/projects/{projectId}/attributes | Create Projects Attribute
-[**deleteCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#deleteCustomAttributeTestPlanProjectRelations) | **DELETE** /api/v2/projects/{projectId}/testPlans/attribute/{attributeId} | Delete attribute from project for test plans
-[**deleteProject**](ProjectsApi.md#deleteProject) | **DELETE** /api/v2/projects/{projectId} | Delete Project by Id or GlobalId
-[**deleteProjectAutoTests**](ProjectsApi.md#deleteProjectAutoTests) | **DELETE** /api/v2/projects/{projectId}/autoTests | Delete all AutoTests from Project
-[**deleteProjectsAttribute**](ProjectsApi.md#deleteProjectsAttribute) | **DELETE** /api/v2/projects/{projectId}/attributes/{attributeId} | Delete Projects Attribute by Id
-[**export**](ProjectsApi.md#export) | **POST** /api/v2/projects/{projectId}/export | Export Project with tests, sections and configurations in json file
-[**exportWithTestPlansAndConfigurations**](ProjectsApi.md#exportWithTestPlansAndConfigurations) | **POST** /api/v2/projects/{projectId}/export-by-testPlans | Export Project with tests, sections, configurations, testPlans, testSuites and testPoints as json file
-[**getAllProjects**](ProjectsApi.md#getAllProjects) | **GET** /api/v2/projects | Get all Projects (if isDeleted is true, return deleted Projects)
-[**getAttributeByProjectId**](ProjectsApi.md#getAttributeByProjectId) | **GET** /api/v2/projects/{projectId}/attributes/{attributeId} | Get Projects Attribute by Id
-[**getAttributesByProjectId**](ProjectsApi.md#getAttributesByProjectId) | **GET** /api/v2/projects/{projectId}/attributes | Get Projects Attributes by Id or GlobalId
-[**getAutoTestsNamespaces**](ProjectsApi.md#getAutoTestsNamespaces) | **GET** /api/v2/projects/{projectId}/autoTestsNamespaces | Get AutoTests Namespaces for Project by Id or GlobalId
-[**getConfigurationsByProjectId**](ProjectsApi.md#getConfigurationsByProjectId) | **GET** /api/v2/projects/{projectId}/configurations | Get Configurations for Project by Id or GlobalId
-[**getCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#getCustomAttributeTestPlanProjectRelations) | **GET** /api/v2/projects/{projectId}/testPlans/attributes | Get project for test plans attributes
-[**getProjectById**](ProjectsApi.md#getProjectById) | **GET** /api/v2/projects/{projectId} | Get Project by Id or GlobalId
-[**getSectionsByProjectId**](ProjectsApi.md#getSectionsByProjectId) | **GET** /api/v2/projects/{projectId}/sections | Get Sections for Project by Id or GlobalId
-[**getTestPlansByProjectId**](ProjectsApi.md#getTestPlansByProjectId) | **GET** /api/v2/projects/{projectId}/testPlans | Get TestPlans for Project by Id or GlobalId (if isDeleted is true, return deleted TestPlans)
-[**getTestRunsByProjectId**](ProjectsApi.md#getTestRunsByProjectId) | **GET** /api/v2/projects/{projectId}/testRuns | Get TestRuns for Project by Id or GlobalId
-[**getWorkItemsByProjectId**](ProjectsApi.md#getWorkItemsByProjectId) | **GET** /api/v2/projects/{projectId}/workItems | Get WorkItems for Project by Id or GlobalId (if isDeleted is true, return deleted WorkItems)
-[**importToExistingProject**](ProjectsApi.md#importToExistingProject) | **POST** /api/v2/projects/{projectId}/import | Import to existing Project from json file.  Sections can be imported in only one target project!
-[**restoreProject**](ProjectsApi.md#restoreProject) | **POST** /api/v2/projects/{projectId}/restore | Restore Project by Id or GlobalId
-[**updateCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#updateCustomAttributeTestPlanProjectRelations) | **PUT** /api/v2/projects/{projectId}/testPlans/attribute | Update project attribute for test plan
-[**updateProject**](ProjectsApi.md#updateProject) | **PUT** /api/v2/projects | Update Project
-[**updateProjectsAttribute**](ProjectsApi.md#updateProjectsAttribute) | **PUT** /api/v2/projects/{projectId}/attributes | Update Projects Attribute
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**addGlobaAttributesToProject**](ProjectsApi.md#addGlobaAttributesToProject) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project |
+| [**apiV2ProjectsIdAttributesTemplatesSearchPost**](ProjectsApi.md#apiV2ProjectsIdAttributesTemplatesSearchPost) | **POST** /api/v2/projects/{id}/attributes/templates/search | Search for custom attributes templates |
+| [**apiV2ProjectsIdAttributesTemplatesTemplateIdDelete**](ProjectsApi.md#apiV2ProjectsIdAttributesTemplatesTemplateIdDelete) | **DELETE** /api/v2/projects/{id}/attributes/templates/{templateId} | Delete CustomAttributeTemplate from Project |
+| [**apiV2ProjectsIdAttributesTemplatesTemplateIdPost**](ProjectsApi.md#apiV2ProjectsIdAttributesTemplatesTemplateIdPost) | **POST** /api/v2/projects/{id}/attributes/templates/{templateId} | Add CustomAttributeTemplate to Project |
+| [**apiV2ProjectsIdFailureClassesGet**](ProjectsApi.md#apiV2ProjectsIdFailureClassesGet) | **GET** /api/v2/projects/{id}/failureClasses | Get Project FailureClasses |
+| [**apiV2ProjectsIdFavoritePut**](ProjectsApi.md#apiV2ProjectsIdFavoritePut) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite |
+| [**apiV2ProjectsIdFiltersGet**](ProjectsApi.md#apiV2ProjectsIdFiltersGet) | **GET** /api/v2/projects/{id}/filters | Get Project filters |
+| [**apiV2ProjectsIdTestPlansAnalyticsGet**](ProjectsApi.md#apiV2ProjectsIdTestPlansAnalyticsGet) | **GET** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics |
+| [**apiV2ProjectsIdTestPlansNameExistsGet**](ProjectsApi.md#apiV2ProjectsIdTestPlansNameExistsGet) | **GET** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project |
+| [**apiV2ProjectsIdTestPlansSearchPost**](ProjectsApi.md#apiV2ProjectsIdTestPlansSearchPost) | **POST** /api/v2/projects/{id}/testPlans/search | Get Project TestPlans with analytics |
+| [**apiV2ProjectsIdTestRunsActiveGet**](ProjectsApi.md#apiV2ProjectsIdTestRunsActiveGet) | **GET** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns |
+| [**apiV2ProjectsIdTestRunsFullGet**](ProjectsApi.md#apiV2ProjectsIdTestRunsFullGet) | **GET** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models |
+| [**apiV2ProjectsIdWorkItemsSearchIdPost**](ProjectsApi.md#apiV2ProjectsIdWorkItemsSearchIdPost) | **POST** /api/v2/projects/{id}/workItems/search/id | Search for work items and extract IDs only |
+| [**apiV2ProjectsIdWorkItemsSearchPost**](ProjectsApi.md#apiV2ProjectsIdWorkItemsSearchPost) | **POST** /api/v2/projects/{id}/workItems/search | Search for work items |
+| [**apiV2ProjectsIdWorkItemsTagsGet**](ProjectsApi.md#apiV2ProjectsIdWorkItemsTagsGet) | **GET** /api/v2/projects/{id}/workItems/tags | Get WorkItems Tags |
+| [**apiV2ProjectsNameNameExistsGet**](ProjectsApi.md#apiV2ProjectsNameNameExistsGet) | **GET** /api/v2/projects/name/{name}/exists |  |
+| [**apiV2ProjectsSearchPost**](ProjectsApi.md#apiV2ProjectsSearchPost) | **POST** /api/v2/projects/search | Search for projects |
+| [**callImport**](ProjectsApi.md#callImport) | **POST** /api/v2/projects/import | Import project from JSON file |
+| [**createCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#createCustomAttributeTestPlanProjectRelations) | **POST** /api/v2/projects/{id}/testPlans/attributes | Add attributes to project&#39;s test plans |
+| [**createProject**](ProjectsApi.md#createProject) | **POST** /api/v2/projects | Create project |
+| [**createProjectsAttribute**](ProjectsApi.md#createProjectsAttribute) | **POST** /api/v2/projects/{id}/attributes | Create project attribute |
+| [**deleteCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#deleteCustomAttributeTestPlanProjectRelations) | **DELETE** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans |
+| [**deleteProject**](ProjectsApi.md#deleteProject) | **DELETE** /api/v2/projects/{id} | Delete project |
+| [**deleteProjectAutoTests**](ProjectsApi.md#deleteProjectAutoTests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete project |
+| [**deleteProjectsAttribute**](ProjectsApi.md#deleteProjectsAttribute) | **DELETE** /api/v2/projects/{id}/attributes/{attributeId} | Delete project attribute |
+| [**export**](ProjectsApi.md#export) | **POST** /api/v2/projects/{id}/export | Export project as JSON file |
+| [**exportWithTestPlansAndConfigurations**](ProjectsApi.md#exportWithTestPlansAndConfigurations) | **POST** /api/v2/projects/{id}/export-by-testPlans | Export project with test plans, test suites and test points as JSON file |
+| [**getAllProjects**](ProjectsApi.md#getAllProjects) | **GET** /api/v2/projects | Get all projects |
+| [**getAttributeByProjectId**](ProjectsApi.md#getAttributeByProjectId) | **GET** /api/v2/projects/{id}/attributes/{attributeId} | Get project attribute |
+| [**getAttributesByProjectId**](ProjectsApi.md#getAttributesByProjectId) | **GET** /api/v2/projects/{id}/attributes | Get project attributes |
+| [**getAutoTestsNamespaces**](ProjectsApi.md#getAutoTestsNamespaces) | **GET** /api/v2/projects/{id}/autoTestsNamespaces | Get namespaces of autotests in project |
+| [**getConfigurationsByProjectId**](ProjectsApi.md#getConfigurationsByProjectId) | **GET** /api/v2/projects/{id}/configurations | Get project configurations |
+| [**getCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#getCustomAttributeTestPlanProjectRelations) | **GET** /api/v2/projects/{id}/testPlans/attributes | Get project&#39;s test plan attributes |
+| [**getProjectById**](ProjectsApi.md#getProjectById) | **GET** /api/v2/projects/{id} | Get project by ID |
+| [**getSectionsByProjectId**](ProjectsApi.md#getSectionsByProjectId) | **GET** /api/v2/projects/{id}/sections | Get project sections |
+| [**getTestPlansByProjectId**](ProjectsApi.md#getTestPlansByProjectId) | **GET** /api/v2/projects/{id}/testPlans | Get project test plans |
+| [**getTestRunsByProjectId**](ProjectsApi.md#getTestRunsByProjectId) | **GET** /api/v2/projects/{id}/testRuns | Get project test runs |
+| [**getWorkItemsByProjectId**](ProjectsApi.md#getWorkItemsByProjectId) | **GET** /api/v2/projects/{id}/workItems | Get project work items |
+| [**importToExistingProject**](ProjectsApi.md#importToExistingProject) | **POST** /api/v2/projects/{id}/import | Import project from JSON file into existing project |
+| [**restoreProject**](ProjectsApi.md#restoreProject) | **POST** /api/v2/projects/{id}/restore | Restore project |
+| [**searchAttributesInProject**](ProjectsApi.md#searchAttributesInProject) | **POST** /api/v2/projects/{id}/attributes/search | Search for attributes used in the project |
+| [**searchTestPlanAttributesInProject**](ProjectsApi.md#searchTestPlanAttributesInProject) | **POST** /api/v2/projects/{id}/testPlans/attributes/search | Search for attributes used in the project test plans |
+| [**updateCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#updateCustomAttributeTestPlanProjectRelations) | **PUT** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans |
+| [**updateProject**](ProjectsApi.md#updateProject) | **PUT** /api/v2/projects | Update project |
+| [**updateProjectsAttribute**](ProjectsApi.md#updateProjectsAttribute) | **PUT** /api/v2/projects/{id}/attributes | Edit attribute of the project |
 
-<a name="callImport"></a>
-# **callImport**
-> callImport(file, apiVersion, includeAttachments)
 
-Import Project from json file  Project can be imported only once (this method or ImportToExistingProject)  Next import will sync content in previously imported project.
+<a name="addGlobaAttributesToProject"></a>
+# **addGlobaAttributesToProject**
+> addGlobaAttributesToProject(id, UUID)
 
-&lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns no content response
+Add global attributes to project
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attributes identifiers  &lt;br&gt;System search project  &lt;br&gt;System relates global attributes with project  &lt;br&gt;System returns no content response
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-File file = new File("file_example"); // File | 
-String apiVersion = "apiVersion_example"; // String | 
-Boolean includeAttachments = false; // Boolean | 
-try {
-    apiInstance.callImport(file, apiVersion, includeAttachments);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#callImport");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
+    try {
+      apiInstance.addGlobaAttributesToProject(id, UUID);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#addGlobaAttributesToProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **File**|  | [optional]
- **apiVersion** | **String**|  | [optional]
- **includeAttachments** | **Boolean**|  | [optional] [default to false]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **UUID** | [**Set&lt;UUID&gt;**](UUID.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Project with provided ID was not found |  -  |
+| **422** | Client Error |  -  |
+| **200** | Success |  -  |
+| **400** | &lt;br&gt; Attributes must be global  |  -  |
+| **403** | Project admin permission for project settings is required |  -  |
+| **409** | Conflict |  -  |
+
+<a name="apiV2ProjectsIdAttributesTemplatesSearchPost"></a>
+# **apiV2ProjectsIdAttributesTemplatesSearchPost**
+> List&lt;ProjectCustomAttributeTemplateGetModel&gt; apiV2ProjectsIdAttributesTemplatesSearchPost(id, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel)
+
+Search for custom attributes templates
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | 
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel = new ProjectCustomAttributesTemplatesFilterModel(); // ProjectCustomAttributesTemplatesFilterModel | 
+    try {
+      List<ProjectCustomAttributeTemplateGetModel> result = apiInstance.apiV2ProjectsIdAttributesTemplatesSearchPost(id, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdAttributesTemplatesSearchPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**|  | |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **projectCustomAttributesTemplatesFilterModel** | [**ProjectCustomAttributesTemplatesFilterModel**](ProjectCustomAttributesTemplatesFilterModel.md)|  | [optional] |
+
+### Return type
+
+[**List&lt;ProjectCustomAttributeTemplateGetModel&gt;**](ProjectCustomAttributeTemplateGetModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Project admin permission for project settings is required |  -  |
+
+<a name="apiV2ProjectsIdAttributesTemplatesTemplateIdDelete"></a>
+# **apiV2ProjectsIdAttributesTemplatesTemplateIdDelete**
+> apiV2ProjectsIdAttributesTemplatesTemplateIdDelete(id, templateId)
+
+Delete CustomAttributeTemplate from Project
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System delete attribute template from project
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    UUID templateId = UUID.randomUUID(); // UUID | CustomAttributeTemplate internal (UUID) identifier
+    try {
+      apiInstance.apiV2ProjectsIdAttributesTemplatesTemplateIdDelete(id, templateId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdAttributesTemplatesTemplateIdDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **templateId** | **UUID**| CustomAttributeTemplate internal (UUID) identifier | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Can&#39;t find a Project with identifier |  -  |
+| **400** | Bad Request |  -  |
+| **204** | No Content |  -  |
+| **403** | Update project settings permission for project required |  -  |
+
+<a name="apiV2ProjectsIdAttributesTemplatesTemplateIdPost"></a>
+# **apiV2ProjectsIdAttributesTemplatesTemplateIdPost**
+> apiV2ProjectsIdAttributesTemplatesTemplateIdPost(id, templateId)
+
+Add CustomAttributeTemplate to Project
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets attribute template internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System add attribute template to project
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    UUID templateId = UUID.randomUUID(); // UUID | CustomAttributeTemplate internal (UUID) identifier
+    try {
+      apiInstance.apiV2ProjectsIdAttributesTemplatesTemplateIdPost(id, templateId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdAttributesTemplatesTemplateIdPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **templateId** | **UUID**| CustomAttributeTemplate internal (UUID) identifier | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Can&#39;t find a Project with identifier |  -  |
+| **400** | Bad Request |  -  |
+| **200** | Success |  -  |
+| **403** | Update project settings permission for project required |  -  |
+
+<a name="apiV2ProjectsIdFailureClassesGet"></a>
+# **apiV2ProjectsIdFailureClassesGet**
+> List&lt;FailureClassModel&gt; apiV2ProjectsIdFailureClassesGet(id, isDeleted)
+
+Get Project FailureClasses
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project failre classes
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Boolean isDeleted = true; // Boolean | 
+    try {
+      List<FailureClassModel> result = apiInstance.apiV2ProjectsIdFailureClassesGet(id, isDeleted);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdFailureClassesGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **isDeleted** | **Boolean**|  | [optional] |
+
+### Return type
+
+[**List&lt;FailureClassModel&gt;**](FailureClassModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+
+<a name="apiV2ProjectsIdFavoritePut"></a>
+# **apiV2ProjectsIdFavoritePut**
+> apiV2ProjectsIdFavoritePut(id)
+
+Mark Project as favorite
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    try {
+      apiInstance.apiV2ProjectsIdFavoritePut(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdFavoritePut");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+| **204** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
+
+<a name="apiV2ProjectsIdFiltersGet"></a>
+# **apiV2ProjectsIdFiltersGet**
+> List&lt;FilterModel&gt; apiV2ProjectsIdFiltersGet(id)
+
+Get Project filters
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project filters
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    try {
+      List<FilterModel> result = apiInstance.apiV2ProjectsIdFiltersGet(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdFiltersGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+
+### Return type
+
+[**List&lt;FilterModel&gt;**](FilterModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
+| **200** | Success |  -  |
+
+<a name="apiV2ProjectsIdTestPlansAnalyticsGet"></a>
+# **apiV2ProjectsIdTestPlansAnalyticsGet**
+> List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsIdTestPlansAnalyticsGet(id, isDeleted, mustUpdateCache, skip, take, orderBy, searchField, searchValue)
+
+Get TestPlans analytics
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier  &lt;br&gt;User sets query params  &lt;br&gt;User runs method execution  &lt;br&gt;System return analytics
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Project internal (UUID) identifier
+    Boolean isDeleted = true; // Boolean | 
+    Boolean mustUpdateCache = false; // Boolean | 
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    try {
+      List<TestPlanWithAnalyticModel> result = apiInstance.apiV2ProjectsIdTestPlansAnalyticsGet(id, isDeleted, mustUpdateCache, skip, take, orderBy, searchField, searchValue);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansAnalyticsGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Project internal (UUID) identifier | |
+| **isDeleted** | **Boolean**|  | [optional] |
+| **mustUpdateCache** | **Boolean**|  | [optional] [default to false] |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+
+### Return type
+
+[**List&lt;TestPlanWithAnalyticModel&gt;**](TestPlanWithAnalyticModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+
+<a name="apiV2ProjectsIdTestPlansNameExistsGet"></a>
+# **apiV2ProjectsIdTestPlansNameExistsGet**
+> Boolean apiV2ProjectsIdTestPlansNameExistsGet(id, name)
+
+Checks if TestPlan exists with the specified name exists for the project
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System purge delete project workitems
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Project internal (UUID) or global (integer) identifier
+    String name = "name_example"; // String | TestPlan name to check
+    try {
+      Boolean result = apiInstance.apiV2ProjectsIdTestPlansNameExistsGet(id, name);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansNameExistsGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Project internal (UUID) or global (integer) identifier | |
+| **name** | **String**| TestPlan name to check | |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+<a name="apiV2ProjectsIdTestPlansSearchPost"></a>
+# **apiV2ProjectsIdTestPlansSearchPost**
+> List&lt;TestPlanWithAnalyticModel&gt; apiV2ProjectsIdTestPlansSearchPost(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, testPlanSearchQueryModel)
+
+Get Project TestPlans with analytics
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets request body   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project testplans with analytics
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Boolean mustUpdateCache = false; // Boolean | 
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    TestPlanSearchQueryModel testPlanSearchQueryModel = new TestPlanSearchQueryModel(); // TestPlanSearchQueryModel | 
+    try {
+      List<TestPlanWithAnalyticModel> result = apiInstance.apiV2ProjectsIdTestPlansSearchPost(id, mustUpdateCache, skip, take, orderBy, searchField, searchValue, testPlanSearchQueryModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestPlansSearchPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **mustUpdateCache** | **Boolean**|  | [optional] [default to false] |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **testPlanSearchQueryModel** | [**TestPlanSearchQueryModel**](TestPlanSearchQueryModel.md)|  | [optional] |
+
+### Return type
+
+[**List&lt;TestPlanWithAnalyticModel&gt;**](TestPlanWithAnalyticModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+
+<a name="apiV2ProjectsIdTestRunsActiveGet"></a>
+# **apiV2ProjectsIdTestRunsActiveGet**
+> List&lt;PublicTestRunModel&gt; apiV2ProjectsIdTestRunsActiveGet(id)
+
+Get active Project TestRuns
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns active testruns
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    try {
+      List<PublicTestRunModel> result = apiInstance.apiV2ProjectsIdTestRunsActiveGet(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestRunsActiveGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+
+### Return type
+
+[**List&lt;PublicTestRunModel&gt;**](PublicTestRunModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+
+<a name="apiV2ProjectsIdTestRunsFullGet"></a>
+# **apiV2ProjectsIdTestRunsFullGet**
+> List&lt;TestRunModel&gt; apiV2ProjectsIdTestRunsFullGet(id, includeTestResults, mustAggregateTestResults, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue)
+
+Get Project TestRuns full models
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User sets query params   &lt;br&gt;User runs method execution  &lt;br&gt;System returns project test runs full models
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Boolean includeTestResults = false; // Boolean | 
+    Boolean mustAggregateTestResults = true; // Boolean | 
+    Boolean notStarted = true; // Boolean | 
+    Boolean inProgress = true; // Boolean | 
+    Boolean stopped = true; // Boolean | 
+    Boolean completed = true; // Boolean | 
+    OffsetDateTime createdDateFrom = OffsetDateTime.now(); // OffsetDateTime | 
+    OffsetDateTime createdDateTo = OffsetDateTime.now(); // OffsetDateTime | 
+    UUID testPlanId = UUID.randomUUID(); // UUID | 
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    try {
+      List<TestRunModel> result = apiInstance.apiV2ProjectsIdTestRunsFullGet(id, includeTestResults, mustAggregateTestResults, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestRunsFullGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **includeTestResults** | **Boolean**|  | [optional] [default to false] |
+| **mustAggregateTestResults** | **Boolean**|  | [optional] [default to true] |
+| **notStarted** | **Boolean**|  | [optional] |
+| **inProgress** | **Boolean**|  | [optional] |
+| **stopped** | **Boolean**|  | [optional] |
+| **completed** | **Boolean**|  | [optional] |
+| **createdDateFrom** | **OffsetDateTime**|  | [optional] |
+| **createdDateTo** | **OffsetDateTime**|  | [optional] |
+| **testPlanId** | **UUID**|  | [optional] |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+
+### Return type
+
+[**List&lt;TestRunModel&gt;**](TestRunModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+
+<a name="apiV2ProjectsIdWorkItemsSearchIdPost"></a>
+# **apiV2ProjectsIdWorkItemsSearchIdPost**
+> List&lt;UUID&gt; apiV2ProjectsIdWorkItemsSearchIdPost(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel)
+
+Search for work items and extract IDs only
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Unique or global ID of the project
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | 
+    try {
+      List<UUID> result = apiInstance.apiV2ProjectsIdWorkItemsSearchIdPost(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdWorkItemsSearchIdPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Unique or global ID of the project | |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] |
+
+### Return type
+
+[**List&lt;UUID&gt;**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for test library is required |  -  |
+
+<a name="apiV2ProjectsIdWorkItemsSearchPost"></a>
+# **apiV2ProjectsIdWorkItemsSearchPost**
+> List&lt;WorkItemShortModel&gt; apiV2ProjectsIdWorkItemsSearchPost(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel)
+
+Search for work items
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Unique or global ID of the project
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | 
+    try {
+      List<WorkItemShortModel> result = apiInstance.apiV2ProjectsIdWorkItemsSearchPost(id, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdWorkItemsSearchPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Unique or global ID of the project | |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] |
+
+### Return type
+
+[**List&lt;WorkItemShortModel&gt;**](WorkItemShortModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for test library is required |  -  |
+
+<a name="apiV2ProjectsIdWorkItemsTagsGet"></a>
+# **apiV2ProjectsIdWorkItemsTagsGet**
+> List&lt;TagShortModel&gt; apiV2ProjectsIdWorkItemsTagsGet(id, isDeleted)
+
+Get WorkItems Tags
+
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System returns work items tags
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Project internal (UUID) identifier
+    Boolean isDeleted = true; // Boolean | 
+    try {
+      List<TagShortModel> result = apiInstance.apiV2ProjectsIdWorkItemsTagsGet(id, isDeleted);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdWorkItemsTagsGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Project internal (UUID) identifier | |
+| **isDeleted** | **Boolean**|  | [optional] |
+
+### Return type
+
+[**List&lt;TagShortModel&gt;**](TagShortModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
+| **200** | Success |  -  |
+
+<a name="apiV2ProjectsNameNameExistsGet"></a>
+# **apiV2ProjectsNameNameExistsGet**
+> Boolean apiV2ProjectsNameNameExistsGet(name)
+
+
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String name = "name_example"; // String | 
+    try {
+      Boolean result = apiInstance.apiV2ProjectsNameNameExistsGet(name);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsNameNameExistsGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+<a name="apiV2ProjectsSearchPost"></a>
+# **apiV2ProjectsSearchPost**
+> List&lt;ProjectModel&gt; apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, projectsFilterModel)
+
+Search for projects
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    ProjectsFilterModel projectsFilterModel = new ProjectsFilterModel(); // ProjectsFilterModel | 
+    try {
+      List<ProjectModel> result = apiInstance.apiV2ProjectsSearchPost(skip, take, orderBy, searchField, searchValue, projectsFilterModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#apiV2ProjectsSearchPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **projectsFilterModel** | [**ProjectsFilterModel**](ProjectsFilterModel.md)|  | [optional] |
+
+### Return type
+
+[**List&lt;ProjectModel&gt;**](ProjectModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+
+<a name="callImport"></a>
+# **callImport**
+> callImport(includeAttachments, _file)
+
+Import project from JSON file
+
+&lt;br&gt;    &lt;b&gt;A project can only be exported to another TMS instance, different from the one it was imported from.&lt;/b&gt;    &lt;br&gt;This method imports a &#x60;.json&#x60; file with a project to the test management system.  &lt;br&gt;In the body of the request, send the &#x60;.json&#x60; file received by the &#x60;POST /api/v2/projects/export&#x60; method:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain.com}/api/v2/projects/import\&quot; \\              -H \&quot;accept: /\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: multipart/form-data\&quot; \\              -F \&quot;file&#x3D;@import.txt;type&#x3D;text/plain\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;              In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                &lt;br&gt;Test plan execution history from the first instance of TMS cannot be transferred.
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    Boolean includeAttachments = false; // Boolean | Enables attachment import.
+    File _file = new File("/path/to/file"); // File | Select file
+    try {
+      apiInstance.callImport(includeAttachments, _file);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#callImport");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **includeAttachments** | **Boolean**| Enables attachment import. | [optional] [default to false] |
+| **_file** | **File**| Select file | [optional] |
 
 ### Return type
 
@@ -89,48 +1412,66 @@ null (empty response body)
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Project creator or admin system role is required |  -  |
+| **400** | Bad Request |  -  |
+| **204** | No Content |  -  |
+| **409** | Entity with the same ID was already imported in other project |  -  |
+| **413** | Multipart body length limit exceeded |  -  |
+
 <a name="createCustomAttributeTestPlanProjectRelations"></a>
 # **createCustomAttributeTestPlanProjectRelations**
-> createCustomAttributeTestPlanProjectRelations(projectId, body)
+> createCustomAttributeTestPlanProjectRelations(id, UUID)
 
-Add attributes to project for test plans
+Add attributes to project&#39;s test plans
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attributes identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and add attributes to project for test plans  &lt;br&gt;System returns no content response
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | 
-List<UUID> body = Arrays.asList(new UUID()); // List<UUID> | 
-try {
-    apiInstance.createCustomAttributeTestPlanProjectRelations(projectId, body);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#createCustomAttributeTestPlanProjectRelations");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
+    try {
+      apiInstance.createCustomAttributeTestPlanProjectRelations(id, UUID);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#createCustomAttributeTestPlanProjectRelations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**|  |
- **body** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **UUID** | [**Set&lt;UUID&gt;**](UUID.md)|  | [optional] |
 
 ### Return type
 
@@ -142,50 +1483,66 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for project settings is required |  -  |
+| **204** | No Content |  -  |
+| **400** | &lt;br&gt; Attributes must be global  |  -  |
 
 <a name="createProject"></a>
 # **createProject**
-> ProjectModel createProject(body)
+> ProjectModel createProject(projectPostModel)
 
-Create Project
+Create project
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System creates project  &lt;br&gt;System returns project model (example listed in response parameters)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-ProjectPostModel body = new ProjectPostModel(); // ProjectPostModel | 
-try {
-    ProjectModel result = apiInstance.createProject(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#createProject");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    ProjectPostModel projectPostModel = new ProjectPostModel(); // ProjectPostModel | 
+    try {
+      ProjectModel result = apiInstance.createProject(projectPostModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#createProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -197,52 +1554,69 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **409** | Project with the same name already exists |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Project creator or admin system role is required |  -  |
 
 <a name="createProjectsAttribute"></a>
 # **createProjectsAttribute**
-> CustomAttributeModel createProjectsAttribute(projectId, body)
+> CustomAttributeModel createProjectsAttribute(id, customAttributePostModel)
 
-Create Projects Attribute
+Create project attribute
 
 &lt;br&gt;Use case  &lt;br&gt;User sets attribute parameters (listed in request example) and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System creates attribute and relates it to the project  &lt;br&gt;System returns project attribute properties (example listed in response parameters)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-CustomAttributePostModel body = new CustomAttributePostModel(); // CustomAttributePostModel | 
-try {
-    CustomAttributeModel result = apiInstance.createProjectsAttribute(projectId, body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#createProjectsAttribute");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    CustomAttributePostModel customAttributePostModel = new CustomAttributePostModel(); // CustomAttributePostModel | 
+    try {
+      CustomAttributeModel result = apiInstance.createProjectsAttribute(id, customAttributePostModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#createProjectsAttribute");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **body** | [**CustomAttributePostModel**](CustomAttributePostModel.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **customAttributePostModel** | [**CustomAttributePostModel**](CustomAttributePostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -254,51 +1628,70 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **409** | &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; |  -  |
+| **400** | &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; |  -  |
+| **403** | Update permission for project settings is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
+| **201** | Created |  -  |
+| **422** | Cannot add new attribute from template which is in use |  -  |
 
 <a name="deleteCustomAttributeTestPlanProjectRelations"></a>
 # **deleteCustomAttributeTestPlanProjectRelations**
-> deleteCustomAttributeTestPlanProjectRelations(projectId, attributeId)
+> deleteCustomAttributeTestPlanProjectRelations(id, attributeId)
 
-Delete attribute from project for test plans
+Delete attribute from project&#39;s test plans
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and delete attribute from project for test plans  &lt;br&gt;System returns no content response
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | 
-UUID attributeId = new UUID(); // UUID | 
-try {
-    apiInstance.deleteCustomAttributeTestPlanProjectRelations(projectId, attributeId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#deleteCustomAttributeTestPlanProjectRelations");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    UUID attributeId = UUID.randomUUID(); // UUID | 
+    try {
+      apiInstance.deleteCustomAttributeTestPlanProjectRelations(id, attributeId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#deleteCustomAttributeTestPlanProjectRelations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**|  |
- **attributeId** | [**UUID**](.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **attributeId** | **UUID**|  | |
 
 ### Return type
 
@@ -313,46 +1706,61 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for project settings is required |  -  |
+| **204** | No Content |  -  |
+
 <a name="deleteProject"></a>
 # **deleteProject**
-> deleteProject(projectId)
+> deleteProject(id)
 
-Delete Project by Id or GlobalId
+Delete project
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search and delete project  &lt;br&gt;System returns no content response
+&lt;br&gt;Use case:  &lt;br&gt;1. User sets project internal or global identifier and runs method execution  &lt;br&gt;2. System searches and moves requested project to archive  &lt;br&gt;3. System responds with no content (204) result
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-try {
-    apiInstance.deleteProject(projectId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#deleteProject");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    try {
+      apiInstance.deleteProject(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#deleteProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 
 ### Return type
 
@@ -367,46 +1775,62 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Delete permission for projects is required |  -  |
+| **404** | Project with provided ID does not exists |  -  |
+
 <a name="deleteProjectAutoTests"></a>
 # **deleteProjectAutoTests**
-> deleteProjectAutoTests(projectId)
+> deleteProjectAutoTests(id)
 
-Delete all AutoTests from Project
+Delete project
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier   &lt;br&gt;User runs method execution  &lt;br&gt;System delete all autotests from project  &lt;br&gt;System returns no content response
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | 
-try {
-    apiInstance.deleteProjectAutoTests(projectId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#deleteProjectAutoTests");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    try {
+      apiInstance.deleteProjectAutoTests(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#deleteProjectAutoTests");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 
 ### Return type
 
@@ -421,48 +1845,64 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Delete permission for AutoTest required |  -  |
+| **404** | Can&#39;t find a Project with identifier |  -  |
+
 <a name="deleteProjectsAttribute"></a>
 # **deleteProjectsAttribute**
-> deleteProjectsAttribute(projectId, attributeId)
+> deleteProjectsAttribute(id, attributeId)
 
-Delete Projects Attribute by Id
+Delete project attribute
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project identifier and runs method execution  &lt;br&gt;User sets attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search and delete attribute  &lt;br&gt;System returns no content response
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-UUID attributeId = new UUID(); // UUID | Project attribute internal(guid format)  identifier
-try {
-    apiInstance.deleteProjectsAttribute(projectId, attributeId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#deleteProjectsAttribute");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    UUID attributeId = UUID.randomUUID(); // UUID | Project attribute internal (UUID)
+    try {
+      apiInstance.deleteProjectsAttribute(id, attributeId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#deleteProjectsAttribute");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **attributeId** | [**UUID**](.md)| Project attribute internal(guid format)  identifier |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **attributeId** | **UUID**| Project attribute internal (UUID) | |
 
 ### Return type
 
@@ -477,51 +1917,68 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty |  -  |
+| **403** | Update permission for project settings is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
+| **204** | Successful operation |  -  |
+
 <a name="export"></a>
 # **export**
-> File export(projectId, body, includeAttachments)
+> File export(id, includeAttachments, projectExportQueryModel)
 
-Export Project with tests, sections and configurations in json file
+Export project as JSON file
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      System returns project data as json file, containing project data, related attributes, sections and                      workitems                  
+&lt;br&gt;This method exports the selected project or its part (sections, work items) to a &#x60;.json&#x60; file.  &lt;br&gt;In the request body, you can specify sections and test cases to be exported.  &lt;br&gt;Example of a request to export two sections and two test cases:  &lt;br&gt;    &#x60;&#x60;&#x60;              curl -X POST \&quot;http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\&quot; \\              -H \&quot;accept: application/json\&quot; -H \&quot;Authorization: PrivateToken {token}\&quot; -H \&quot;Content-Type: application/json-patch+json\&quot; \\              -d \&quot;{\\\&quot;sectionIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;9fa85f64-5717-4562-b3fc-2c963f66a000\\\&quot;],\\\&quot;workItemIds\\\&quot;:[\\\&quot;3fa85f64-5717-4562-b3fc-2c963f66afa6\\\&quot;,\\\&quot;90085f64-5717-4562-b3fc-2c963f66a000\\\&quot;]}\&quot;              &#x60;&#x60;&#x60;    &lt;br&gt;In the response, you get:  &lt;br&gt;              - A &#x60;.zip&#x60; file with attachments and a.json file if you enable attachments export.&lt;br /&gt;              - A &#x60;.json&#x60; file with the project if you do not enable attachments export.              
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-ProjectExportQueryModel body = new ProjectExportQueryModel(); // ProjectExportQueryModel | 
-Boolean includeAttachments = false; // Boolean | 
-try {
-    File result = apiInstance.export(projectId, body, includeAttachments);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#export");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Specifies the ID of the project you want to export.
+    Boolean includeAttachments = false; // Boolean | Enables attachment export.
+    ProjectExportQueryModel projectExportQueryModel = new ProjectExportQueryModel(); // ProjectExportQueryModel | 
+    try {
+      File result = apiInstance.export(id, includeAttachments, projectExportQueryModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#export");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **body** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional]
- **includeAttachments** | **Boolean**|  | [optional] [default to false]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Specifies the ID of the project you want to export. | |
+| **includeAttachments** | **Boolean**| Enables attachment export. | [optional] [default to false] |
+| **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional] |
 
 ### Return type
 
@@ -533,54 +1990,71 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Root section was not found |  -  |
+| **403** | Update permission for project settings is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
 
 <a name="exportWithTestPlansAndConfigurations"></a>
 # **exportWithTestPlansAndConfigurations**
-> File exportWithTestPlansAndConfigurations(projectId, body, includeAttachments)
+> File exportWithTestPlansAndConfigurations(id, includeAttachments, projectExportWithTestPlansPostModel)
 
-Export Project with tests, sections, configurations, testPlans, testSuites and testPoints as json file
+Export project with test plans, test suites and test points as JSON file
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      System returns project data as json file, containing project data, related attributes, sections, workitems,                      test plans, test suites, test points and configurations                  
+&lt;br&gt;    &lt;b&gt;You cannot export test cases execution history.&lt;/b&gt;    &lt;br&gt;This method exports the project with the test library and specified test plans to another TMS instance.  &lt;br&gt;              After sending a correct request, the project is exported to a &#x60;.json&#x60; file.              If you enable attachment export, the &#x60;.json&#x60; file and the attachments are placed in a &#x60;.zip&#x60; file.              You can import such a project by using the &#x60;POST /api/v2/projects/import&#x60; method.              
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-ProjectExportWithTestPlansPostModel body = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
-Boolean includeAttachments = false; // Boolean | 
-try {
-    File result = apiInstance.exportWithTestPlansAndConfigurations(projectId, body, includeAttachments);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#exportWithTestPlansAndConfigurations");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Specifies the ID of the project you want to export.
+    Boolean includeAttachments = false; // Boolean | Enables attachment export.
+    ProjectExportWithTestPlansPostModel projectExportWithTestPlansPostModel = new ProjectExportWithTestPlansPostModel(); // ProjectExportWithTestPlansPostModel | 
+    try {
+      File result = apiInstance.exportWithTestPlansAndConfigurations(id, includeAttachments, projectExportWithTestPlansPostModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#exportWithTestPlansAndConfigurations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **body** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional]
- **includeAttachments** | **Boolean**|  | [optional] [default to false]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Specifies the ID of the project you want to export. | |
+| **includeAttachments** | **Boolean**| Enables attachment export. | [optional] [default to false] |
+| **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional] |
 
 ### Return type
 
@@ -592,62 +2066,79 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for project settings is required |  -  |
+| **200** | Success |  -  |
+| **400** | Root section was not found |  -  |
+| **404** | Project with provided ID was not found |  -  |
 
 <a name="getAllProjects"></a>
 # **getAllProjects**
-> List&lt;ProjectModel&gt; getAllProjects(isDeleted, projectName, , , , , )
+> List&lt;ProjectModel&gt; getAllProjects(isDeleted, projectName, skip, take, orderBy, searchField, searchValue)
 
-Get all Projects (if isDeleted is true, return deleted Projects)
+Get all projects
 
 &lt;br&gt;Use case  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted projects  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all projects  &lt;br&gt;System returns array of all found projects(listed in response model)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-Boolean isDeleted = true; // Boolean | Boolean flag which defines if search must include deleted projects
-String projectName = "projectName_example"; // String | 
-  = new null(); //  | Amount of items to be skipped (offset)
-  = new null(); //  | Amount of items to be taken (limit)
-  = new null(); //  | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-  = new null(); //  | Property name for searching
-  = new null(); //  | Value for searching
-try {
-    List<ProjectModel> result = apiInstance.getAllProjects(isDeleted, projectName, , , , , );
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getAllProjects");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    Boolean isDeleted = true; // Boolean | If result must consist of only actual/deleted parameters
+    String projectName = "projectName_example"; // String | 
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    try {
+      List<ProjectModel> result = apiInstance.getAllProjects(isDeleted, projectName, skip, take, orderBy, searchField, searchValue);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getAllProjects");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **isDeleted** | **Boolean**| Boolean flag which defines if search must include deleted projects | [optional]
- **projectName** | **String**|  | [optional]
- **** | [****](.md)| Amount of items to be skipped (offset) | [optional]
- **** | [****](.md)| Amount of items to be taken (limit) | [optional]
- **** | [****](.md)| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **** | [****](.md)| Property name for searching | [optional]
- **** | [****](.md)| Value for searching | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **isDeleted** | **Boolean**| If result must consist of only actual/deleted parameters | [optional] |
+| **projectName** | **String**|  | [optional] |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
 
 ### Return type
 
@@ -662,49 +2153,64 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Invalid user permissions |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+
 <a name="getAttributeByProjectId"></a>
 # **getAttributeByProjectId**
-> CustomAttributeModel getAttributeByProjectId(projectId, attributeId)
+> CustomAttributeModel getAttributeByProjectId(id, attributeId)
 
-Get Projects Attribute by Id
+Get project attribute
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User sets project attribute identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search project attribute   &lt;br&gt;System returns project attribute (listed in response model)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-UUID attributeId = new UUID(); // UUID | Project attribute internal(guid format)  identifier
-try {
-    CustomAttributeModel result = apiInstance.getAttributeByProjectId(projectId, attributeId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getAttributeByProjectId");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    UUID attributeId = UUID.randomUUID(); // UUID | Project attribute internal (UUID) or global (integer) identifier
+    try {
+      CustomAttributeModel result = apiInstance.getAttributeByProjectId(id, attributeId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getAttributeByProjectId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **attributeId** | [**UUID**](.md)| Project attribute internal(guid format)  identifier |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **attributeId** | **UUID**| Project attribute internal (UUID) or global (integer) identifier | |
 
 ### Return type
 
@@ -719,49 +2225,66 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found |  -  |
+| **403** | Read permission for test library is required |  -  |
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+
 <a name="getAttributesByProjectId"></a>
 # **getAttributesByProjectId**
-> List&lt;CustomAttributeModel&gt; getAttributesByProjectId(projectId, isDeleted)
+> List&lt;CustomAttributeModel&gt; getAttributesByProjectId(id, isDeleted)
 
-Get Projects Attributes by Id or GlobalId
+Get project attributes
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to                      project                    &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all attributes related to project which                      are not deleted                    &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all attributes related to project  &lt;br&gt;System returns array of found attributes (listed in response model)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-Boolean isDeleted = false; // Boolean | Boolean flag which defines if search must include deleted attributes
-try {
-    List<CustomAttributeModel> result = apiInstance.getAttributesByProjectId(projectId, isDeleted);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getAttributesByProjectId");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Boolean isDeleted = false; // Boolean | If result must consist of only actual/deleted work items
+    try {
+      List<CustomAttributeModel> result = apiInstance.getAttributesByProjectId(id, isDeleted);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getAttributesByProjectId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **isDeleted** | **Boolean**| Boolean flag which defines if search must include deleted attributes | [optional] [default to false]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **isDeleted** | **Boolean**| If result must consist of only actual/deleted work items | [optional] [default to false] |
 
 ### Return type
 
@@ -776,47 +2299,64 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
+| **404** | Project with provided ID was not found |  -  |
+| **403** | Read permission for test library is required |  -  |
+| **200** | Success |  -  |
+
 <a name="getAutoTestsNamespaces"></a>
 # **getAutoTestsNamespaces**
-> List&lt;AutoTestNamespaceModel&gt; getAutoTestsNamespaces(projectId)
+> List&lt;AutoTestNamespaceModel&gt; getAutoTestsNamespaces(id)
 
-Get AutoTests Namespaces for Project by Id or GlobalId
+Get namespaces of autotests in project
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all autotest related to the project  &lt;br&gt;System returns array of autotest with namespaces and classnames (listed in response)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-try {
-    List<AutoTestNamespaceModel> result = apiInstance.getAutoTestsNamespaces(projectId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getAutoTestsNamespaces");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    try {
+      List<AutoTestNamespaceModel> result = apiInstance.getAutoTestsNamespaces(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getAutoTestsNamespaces");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 
 ### Return type
 
@@ -831,47 +2371,63 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Read permission for test library is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
+| **200** | Success |  -  |
+
 <a name="getConfigurationsByProjectId"></a>
 # **getConfigurationsByProjectId**
-> List&lt;ConfigurationModel&gt; getConfigurationsByProjectId(projectId)
+> List&lt;ConfigurationModel&gt; getConfigurationsByProjectId(id)
 
-Get Configurations for Project by Id or GlobalId
+Get project configurations
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all configurations related to project  &lt;br&gt;System returns array of found configurations (listed in response model)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-try {
-    List<ConfigurationModel> result = apiInstance.getConfigurationsByProjectId(projectId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getConfigurationsByProjectId");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    try {
+      List<ConfigurationModel> result = apiInstance.getConfigurationsByProjectId(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getConfigurationsByProjectId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 
 ### Return type
 
@@ -886,47 +2442,64 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Project with provided ID was not found |  -  |
+| **403** | Read permission for configurations required |  -  |
+| **400** | Bad Request |  -  |
+| **200** | Success |  -  |
+
 <a name="getCustomAttributeTestPlanProjectRelations"></a>
 # **getCustomAttributeTestPlanProjectRelations**
-> List&lt;CustomAttributeModel&gt; getCustomAttributeTestPlanProjectRelations(projectId)
+> List&lt;CustomAttributeModel&gt; getCustomAttributeTestPlanProjectRelations(id)
 
-Get project for test plans attributes
+Get project&#39;s test plan attributes
 
 &lt;br&gt;Use case  &lt;br&gt;User runs method execution  &lt;br&gt;System returns project for test plans attributes by project identifier
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-try {
-    List<CustomAttributeModel> result = apiInstance.getCustomAttributeTestPlanProjectRelations(projectId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getCustomAttributeTestPlanProjectRelations");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    try {
+      List<CustomAttributeModel> result = apiInstance.getCustomAttributeTestPlanProjectRelations(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getCustomAttributeTestPlanProjectRelations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 
 ### Return type
 
@@ -941,47 +2514,62 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Read permission for project settings is required |  -  |
+| **200** | Success |  -  |
+
 <a name="getProjectById"></a>
 # **getProjectById**
-> ProjectModel getProjectById(projectId)
+> ProjectModel getProjectById(id)
 
-Get Project by Id or GlobalId
+Get project by ID
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System returns project (example listed in response parameters)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-try {
-    ProjectModel result = apiInstance.getProjectById(projectId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getProjectById");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    try {
+      ProjectModel result = apiInstance.getProjectById(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getProjectById");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 
 ### Return type
 
@@ -996,57 +2584,74 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | ID is invalid |  -  |
+| **404** | Project with provided ID was not found |  -  |
+| **403** | Read permission for projects is required |  -  |
+| **200** | Success |  -  |
+
 <a name="getSectionsByProjectId"></a>
 # **getSectionsByProjectId**
-> List&lt;SectionModel&gt; getSectionsByProjectId(projectId, , , , , )
+> List&lt;SectionModel&gt; getSectionsByProjectId(id, skip, take, orderBy, searchField, searchValue)
 
-Get Sections for Project by Id or GlobalId
+Get project sections
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all sections related to the project  &lt;br&gt;System returns array of sections (listed in response)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-  = new null(); //  | Amount of items to be skipped (offset)
-  = new null(); //  | Amount of items to be taken (limit)
-  = new null(); //  | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-  = new null(); //  | Property name for searching
-  = new null(); //  | Value for searching
-try {
-    List<SectionModel> result = apiInstance.getSectionsByProjectId(projectId, , , , , );
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getSectionsByProjectId");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    try {
+      List<SectionModel> result = apiInstance.getSectionsByProjectId(id, skip, take, orderBy, searchField, searchValue);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getSectionsByProjectId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **** | [****](.md)| Amount of items to be skipped (offset) | [optional]
- **** | [****](.md)| Amount of items to be taken (limit) | [optional]
- **** | [****](.md)| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **** | [****](.md)| Property name for searching | [optional]
- **** | [****](.md)| Value for searching | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
 
 ### Return type
 
@@ -1061,49 +2666,66 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **403** | Read permission for test library is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
+
 <a name="getTestPlansByProjectId"></a>
 # **getTestPlansByProjectId**
-> List&lt;TestPlanModel&gt; getTestPlansByProjectId(projectId, isDeleted)
+> List&lt;TestPlanModel&gt; getTestPlansByProjectId(id, isDeleted)
 
-Get TestPlans for Project by Id or GlobalId (if isDeleted is true, return deleted TestPlans)
+Get project test plans
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                      project                    &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                      are not deleted                    &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  &lt;br&gt;[Optional] If User did not set isDeleted field value, System search all v related to project  &lt;br&gt;System returns array of found test plans (listed in response model)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-Boolean isDeleted = true; // Boolean | Boolean flag which defines if search must include deleted test plans
-try {
-    List<TestPlanModel> result = apiInstance.getTestPlansByProjectId(projectId, isDeleted);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getTestPlansByProjectId");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Boolean isDeleted = true; // Boolean | If result must consist of only actual/archived test plans
+    try {
+      List<TestPlanModel> result = apiInstance.getTestPlansByProjectId(id, isDeleted);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getTestPlansByProjectId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **isDeleted** | **Boolean**| Boolean flag which defines if search must include deleted test plans | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **isDeleted** | **Boolean**| If result must consist of only actual/archived test plans | [optional] |
 
 ### Return type
 
@@ -1118,71 +2740,87 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Read permission for test library is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
+| **200** | Success |  -  |
+
 <a name="getTestRunsByProjectId"></a>
 # **getTestRunsByProjectId**
-> List&lt;TestRunV2GetModel&gt; getTestRunsByProjectId(projectId, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, , , , , )
+> List&lt;TestRunV2GetModel&gt; getTestRunsByProjectId(id, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue)
 
-Get TestRuns for Project by Id or GlobalId
+Get project test runs
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;System search all test runs related to project  &lt;br&gt;System returns array of found test runs (listed in response model)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-Boolean notStarted = true; // Boolean | 
-Boolean inProgress = true; // Boolean | 
-Boolean stopped = true; // Boolean | 
-Boolean completed = true; // Boolean | 
-OffsetDateTime createdDateFrom = new OffsetDateTime(); // OffsetDateTime | 
-OffsetDateTime createdDateTo = new OffsetDateTime(); // OffsetDateTime | 
-UUID testPlanId = new UUID(); // UUID | 
-  = new null(); //  | Amount of items to be skipped (offset)
-  = new null(); //  | Amount of items to be taken (limit)
-  = new null(); //  | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-  = new null(); //  | Property name for searching
-  = new null(); //  | Value for searching
-try {
-    List<TestRunV2GetModel> result = apiInstance.getTestRunsByProjectId(projectId, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, , , , , );
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getTestRunsByProjectId");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Boolean notStarted = true; // Boolean | 
+    Boolean inProgress = true; // Boolean | 
+    Boolean stopped = true; // Boolean | 
+    Boolean completed = true; // Boolean | 
+    OffsetDateTime createdDateFrom = OffsetDateTime.now(); // OffsetDateTime | 
+    OffsetDateTime createdDateTo = OffsetDateTime.now(); // OffsetDateTime | 
+    UUID testPlanId = UUID.randomUUID(); // UUID | 
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    try {
+      List<TestRunV2GetModel> result = apiInstance.getTestRunsByProjectId(id, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getTestRunsByProjectId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **notStarted** | **Boolean**|  | [optional]
- **inProgress** | **Boolean**|  | [optional]
- **stopped** | **Boolean**|  | [optional]
- **completed** | **Boolean**|  | [optional]
- **createdDateFrom** | **OffsetDateTime**|  | [optional]
- **createdDateTo** | **OffsetDateTime**|  | [optional]
- **testPlanId** | [**UUID**](.md)|  | [optional]
- **** | [****](.md)| Amount of items to be skipped (offset) | [optional]
- **** | [****](.md)| Amount of items to be taken (limit) | [optional]
- **** | [****](.md)| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **** | [****](.md)| Property name for searching | [optional]
- **** | [****](.md)| Value for searching | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **notStarted** | **Boolean**|  | [optional] |
+| **inProgress** | **Boolean**|  | [optional] |
+| **stopped** | **Boolean**|  | [optional] |
+| **completed** | **Boolean**|  | [optional] |
+| **createdDateFrom** | **OffsetDateTime**|  | [optional] |
+| **createdDateTo** | **OffsetDateTime**|  | [optional] |
+| **testPlanId** | **UUID**|  | [optional] |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
 
 ### Return type
 
@@ -1197,63 +2835,79 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Project with provided ID was not found |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for test result is required |  -  |
+
 <a name="getWorkItemsByProjectId"></a>
 # **getWorkItemsByProjectId**
-> List&lt;WorkItemShortModel&gt; getWorkItemsByProjectId(projectId, isDeleted, tagNames, includeIterations, , , , , )
+> List&lt;WorkItemShortModel&gt; getWorkItemsByProjectId(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue)
 
-Get WorkItems for Project by Id or GlobalId (if isDeleted is true, return deleted WorkItems)
+Get project work items
 
-&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  &lt;br&gt;                      [Optional] If User sets isDeleted field value as false, System search all workitems related to project which                      are not deleted                    &lt;br&gt;If User did not set isDeleted field value, System search all  workitems related to project  &lt;br&gt;System returns array of found workitems (listed in response model)
+&lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier  &lt;br&gt;[Optional] User sets isDeleted field value  &lt;br&gt;User runs method execution  &lt;br&gt;System search project  &lt;br&gt;[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  &lt;br&gt;[Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  &lt;br&gt;If User did not set isDeleted field value, System search all  workitems related to project  &lt;br&gt;System returns array of found workitems (listed in response model)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-Boolean isDeleted = false; // Boolean | Boolean flag which defines if search must include deleted workitems
-List<String> tagNames = Arrays.asList("tagNames_example"); // List<String> | Array of workitem tag names
-Boolean includeIterations = true; // Boolean | 
-  = new null(); //  | Amount of items to be skipped (offset)
-  = new null(); //  | Amount of items to be taken (limit)
-  = new null(); //  | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-  = new null(); //  | Property name for searching
-  = new null(); //  | Value for searching
-try {
-    List<WorkItemShortModel> result = apiInstance.getWorkItemsByProjectId(projectId, isDeleted, tagNames, includeIterations, , , , , );
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#getWorkItemsByProjectId");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Boolean isDeleted = false; // Boolean | If result must consist of only actual/deleted work items
+    List<String> tagNames = Arrays.asList(); // List<String> | List of tags to filter by
+    Boolean includeIterations = true; // Boolean | 
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    try {
+      List<WorkItemShortModel> result = apiInstance.getWorkItemsByProjectId(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getWorkItemsByProjectId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **isDeleted** | **Boolean**| Boolean flag which defines if search must include deleted workitems | [optional] [default to false]
- **tagNames** | [**List&lt;String&gt;**](String.md)| Array of workitem tag names | [optional]
- **includeIterations** | **Boolean**|  | [optional] [default to true]
- **** | [****](.md)| Amount of items to be skipped (offset) | [optional]
- **** | [****](.md)| Amount of items to be taken (limit) | [optional]
- **** | [****](.md)| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **** | [****](.md)| Property name for searching | [optional]
- **** | [****](.md)| Value for searching | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **isDeleted** | **Boolean**| If result must consist of only actual/deleted work items | [optional] [default to false] |
+| **tagNames** | [**List&lt;String&gt;**](String.md)| List of tags to filter by | [optional] |
+| **includeIterations** | **Boolean**|  | [optional] [default to true] |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
 
 ### Return type
 
@@ -1268,52 +2922,67 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Project with provided ID was not found |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for test library is required |  -  |
+| **400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
+
 <a name="importToExistingProject"></a>
 # **importToExistingProject**
-> importToExistingProject(projectId, file, apiVersion, includeAttachments)
+> importToExistingProject(id, includeAttachments, _file)
 
-Import to existing Project from json file.  Sections can be imported in only one target project!
+Import project from JSON file into existing project
 
 &lt;br&gt;Use case  &lt;br&gt;User attaches project as json file taken from export or export-by-testPlans method  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns no content response
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | 
-File file = new File("file_example"); // File | 
-String apiVersion = "apiVersion_example"; // String | 
-Boolean includeAttachments = false; // Boolean | 
-try {
-    apiInstance.importToExistingProject(projectId, file, apiVersion, includeAttachments);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#importToExistingProject");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    Boolean includeAttachments = true; // Boolean | 
+    File _file = new File("/path/to/file"); // File | Select file
+    try {
+      apiInstance.importToExistingProject(id, includeAttachments, _file);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#importToExistingProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**|  |
- **file** | **File**|  | [optional]
- **apiVersion** | **String**|  | [optional]
- **includeAttachments** | **Boolean**|  | [optional] [default to false]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **includeAttachments** | **Boolean**|  | [optional] |
+| **_file** | **File**| Select file | [optional] |
 
 ### Return type
 
@@ -1328,46 +2997,64 @@ null (empty response body)
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | File not found |  -  |
+| **204** | No Content |  -  |
+| **403** | Update permission for project settings required |  -  |
+| **413** | Multipart body length limit exceeded |  -  |
+| **409** | Entity with same id already imported in other project |  -  |
+
 <a name="restoreProject"></a>
 # **restoreProject**
-> restoreProject(projectId)
+> restoreProject(id)
 
-Restore Project by Id or GlobalId
+Restore project
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and runs method execution  &lt;br&gt;System search and restores deleted project  &lt;br&gt;System returns no content response
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-try {
-    apiInstance.restoreProject(projectId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#restoreProject");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    try {
+      apiInstance.restoreProject(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#restoreProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
 
 ### Return type
 
@@ -1382,48 +3069,224 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Project with provided ID was not found |  -  |
+| **403** | Update permission for projects is required |  -  |
+| **204** | No Content |  -  |
+
+<a name="searchAttributesInProject"></a>
+# **searchAttributesInProject**
+> List&lt;CustomAttributeGetModel&gt; searchAttributesInProject(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel)
+
+Search for attributes used in the project
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Unique or global project ID
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    ProjectAttributesFilterModel projectAttributesFilterModel = new ProjectAttributesFilterModel(); // ProjectAttributesFilterModel | 
+    try {
+      List<CustomAttributeGetModel> result = apiInstance.searchAttributesInProject(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#searchAttributesInProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Unique or global project ID | |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **projectAttributesFilterModel** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md)|  | [optional] |
+
+### Return type
+
+[**List&lt;CustomAttributeGetModel&gt;**](CustomAttributeGetModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Read permission for project is required |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+
+<a name="searchTestPlanAttributesInProject"></a>
+# **searchTestPlanAttributesInProject**
+> List&lt;CustomAttributeGetModel&gt; searchTestPlanAttributesInProject(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel)
+
+Search for attributes used in the project test plans
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Unique or global project ID
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    ProjectAttributesFilterModel projectAttributesFilterModel = new ProjectAttributesFilterModel(); // ProjectAttributesFilterModel | 
+    try {
+      List<CustomAttributeGetModel> result = apiInstance.searchTestPlanAttributesInProject(id, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#searchTestPlanAttributesInProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Unique or global project ID | |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **projectAttributesFilterModel** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md)|  | [optional] |
+
+### Return type
+
+[**List&lt;CustomAttributeGetModel&gt;**](CustomAttributeGetModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **403** | Read permission for project is required |  -  |
+
 <a name="updateCustomAttributeTestPlanProjectRelations"></a>
 # **updateCustomAttributeTestPlanProjectRelations**
-> updateCustomAttributeTestPlanProjectRelations(projectId, body)
+> updateCustomAttributeTestPlanProjectRelations(id, customAttributeTestPlanProjectRelationPutModel)
 
-Update project attribute for test plan
+Update attribute of project&#39;s test plans
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project internal or global identifier and attribute model  &lt;br&gt;User runs method execution  &lt;br&gt;System updates project and project attribute for test plan  &lt;br&gt;System returns no content response
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | 
-CustomAttributeTestPlanProjectRelationPutModel body = new CustomAttributeTestPlanProjectRelationPutModel(); // CustomAttributeTestPlanProjectRelationPutModel | 
-try {
-    apiInstance.updateCustomAttributeTestPlanProjectRelations(projectId, body);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#updateCustomAttributeTestPlanProjectRelations");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
+    CustomAttributeTestPlanProjectRelationPutModel customAttributeTestPlanProjectRelationPutModel = new CustomAttributeTestPlanProjectRelationPutModel(); // CustomAttributeTestPlanProjectRelationPutModel | 
+    try {
+      apiInstance.updateCustomAttributeTestPlanProjectRelations(id, customAttributeTestPlanProjectRelationPutModel);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#updateCustomAttributeTestPlanProjectRelations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**|  |
- **body** | [**CustomAttributeTestPlanProjectRelationPutModel**](CustomAttributeTestPlanProjectRelationPutModel.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
+| **customAttributeTestPlanProjectRelationPutModel** | [**CustomAttributeTestPlanProjectRelationPutModel**](CustomAttributeTestPlanProjectRelationPutModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1435,49 +3298,64 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for project settings is required |  -  |
+| **204** | No Content |  -  |
 
 <a name="updateProject"></a>
 # **updateProject**
-> updateProject(body)
+> updateProject(projectPutModel)
 
-Update Project
+Update project
 
 &lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System returns updated project model (example listed in response parameters)
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-ProjectPutModel body = new ProjectPutModel(); // ProjectPutModel | 
-try {
-    apiInstance.updateProject(body);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#updateProject");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    ProjectPutModel projectPutModel = new ProjectPutModel(); // ProjectPutModel | 
+    try {
+      apiInstance.updateProject(projectPutModel);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#updateProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ProjectPutModel**](ProjectPutModel.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectPutModel** | [**ProjectPutModel**](ProjectPutModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1489,51 +3367,67 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required |  -  |
+| **404** | Project with provided ID was not found |  -  |
+| **409** | Project with the same name already exists |  -  |
+| **403** | Update permission for projects is required |  -  |
+| **204** | No Content |  -  |
 
 <a name="updateProjectsAttribute"></a>
 # **updateProjectsAttribute**
-> updateProjectsAttribute(projectId, body)
+> updateProjectsAttribute(id, customAttributePutModel)
 
-Update Projects Attribute
-
-&lt;br&gt;Use case  &lt;br&gt;User sets project parameters (listed in request example) and runs method execution  &lt;br&gt;System updates project  &lt;br&gt;System updates attribute related to the project  &lt;br&gt;System returns no content response
+Edit attribute of the project
 
 ### Example
 ```java
 // Import classes:
-//import io.test_gear.invoker.ApiClient;
-//import io.test_gear.invoker.ApiException;
-//import io.test_gear.invoker.Configuration;
-//import io.test_gear.invoker.auth.*;
-//import io.test_gear.client.ProjectsApi;
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ProjectsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-// Configure API key authorization: Bearer or PrivateToken
-ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-Bearer or PrivateToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-ProjectsApi apiInstance = new ProjectsApi();
-String projectId = "projectId_example"; // String | Project internal(guid format) or global(int  format) identifier
-CustomAttributeModel body = new CustomAttributeModel(); // CustomAttributeModel | 
-try {
-    apiInstance.updateProjectsAttribute(projectId, body);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectsApi#updateProjectsAttribute");
-    e.printStackTrace();
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String id = "id_example"; // String | Unique or global project ID
+    CustomAttributePutModel customAttributePutModel = new CustomAttributePutModel(); // CustomAttributePutModel | 
+    try {
+      apiInstance.updateProjectsAttribute(id, customAttributePutModel);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#updateProjectsAttribute");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **String**| Project internal(guid format) or global(int  format) identifier |
- **body** | [**CustomAttributeModel**](CustomAttributeModel.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Unique or global project ID | |
+| **customAttributePutModel** | [**CustomAttributePutModel**](CustomAttributePutModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1545,6 +3439,12 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Update permission for project settings is required |  -  |
 

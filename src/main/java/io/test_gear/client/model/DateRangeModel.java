@@ -14,87 +14,102 @@
 package io.test_gear.client.model;
 
 import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.openapitools.jackson.nullable.JsonNullable;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.test_gear.client.invoker.JSON;
 
 /**
  * DateRangeModel
  */
-@JsonPropertyOrder({
-  DateRangeModel.JSON_PROPERTY_FROM,
-  DateRangeModel.JSON_PROPERTY_TO
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DateRangeModel {
-  public static final String JSON_PROPERTY_FROM = "from";
+  public static final String SERIALIZED_NAME_FROM = "from";
+  @SerializedName(SERIALIZED_NAME_FROM)
   private OffsetDateTime from;
 
-  public static final String JSON_PROPERTY_TO = "to";
+  public static final String SERIALIZED_NAME_TO = "to";
+  @SerializedName(SERIALIZED_NAME_TO)
   private OffsetDateTime to;
 
-  public DateRangeModel() { 
+  public DateRangeModel() {
   }
 
   public DateRangeModel from(OffsetDateTime from) {
+    
     this.from = from;
     return this;
   }
 
    /**
-   * Get from
+   * Minimum date and time
    * @return from
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FROM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Minimum date and time")
 
   public OffsetDateTime getFrom() {
     return from;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FROM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFrom(OffsetDateTime from) {
     this.from = from;
   }
 
 
   public DateRangeModel to(OffsetDateTime to) {
+    
     this.to = to;
     return this;
   }
 
    /**
-   * Get to
+   * Maximum date and time
    * @return to
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Maximum date and time")
 
   public OffsetDateTime getTo() {
     return to;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTo(OffsetDateTime to) {
     this.to = to;
   }
 
 
-  /**
-   * Return true if this DateRangeModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -108,9 +123,20 @@ public class DateRangeModel {
         Objects.equals(this.to, dateRangeModel.to);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(from, to);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -134,5 +160,89 @@ public class DateRangeModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("from");
+    openapiFields.add("to");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to DateRangeModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!DateRangeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DateRangeModel is not found in the empty JSON string", DateRangeModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!DateRangeModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DateRangeModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!DateRangeModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DateRangeModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<DateRangeModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DateRangeModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<DateRangeModel>() {
+           @Override
+           public void write(JsonWriter out, DateRangeModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public DateRangeModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of DateRangeModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of DateRangeModel
+  * @throws IOException if the JSON string is invalid with respect to DateRangeModel
+  */
+  public static DateRangeModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DateRangeModel.class);
+  }
+
+ /**
+  * Convert an instance of DateRangeModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

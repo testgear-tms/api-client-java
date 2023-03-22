@@ -14,32 +14,55 @@
 package io.test_gear.client.model;
 
 import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.io.IOException;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.test_gear.client.invoker.JSON;
 
 /**
  * AutoTestAverageDurationModel
  */
-@JsonPropertyOrder({
-  AutoTestAverageDurationModel.JSON_PROPERTY_PASSED_AVERAGE_DURATION,
-  AutoTestAverageDurationModel.JSON_PROPERTY_FAILED_AVERAGE_DURATION
-})
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AutoTestAverageDurationModel {
-  public static final String JSON_PROPERTY_PASSED_AVERAGE_DURATION = "passedAverageDuration";
+  public static final String SERIALIZED_NAME_PASSED_AVERAGE_DURATION = "passedAverageDuration";
+  @SerializedName(SERIALIZED_NAME_PASSED_AVERAGE_DURATION)
   private Double passedAverageDuration;
 
-  public static final String JSON_PROPERTY_FAILED_AVERAGE_DURATION = "failedAverageDuration";
+  public static final String SERIALIZED_NAME_FAILED_AVERAGE_DURATION = "failedAverageDuration";
+  @SerializedName(SERIALIZED_NAME_FAILED_AVERAGE_DURATION)
   private Double failedAverageDuration;
 
-  public AutoTestAverageDurationModel() { 
+  public AutoTestAverageDurationModel() {
   }
 
   public AutoTestAverageDurationModel passedAverageDuration(Double passedAverageDuration) {
+    
     this.passedAverageDuration = passedAverageDuration;
     return this;
   }
@@ -48,24 +71,21 @@ public class AutoTestAverageDurationModel {
    * Get passedAverageDuration
    * @return passedAverageDuration
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "2.5555", value = "")
-  @JsonProperty(JSON_PROPERTY_PASSED_AVERAGE_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getPassedAverageDuration() {
     return passedAverageDuration;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PASSED_AVERAGE_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassedAverageDuration(Double passedAverageDuration) {
     this.passedAverageDuration = passedAverageDuration;
   }
 
 
   public AutoTestAverageDurationModel failedAverageDuration(Double failedAverageDuration) {
+    
     this.failedAverageDuration = failedAverageDuration;
     return this;
   }
@@ -74,26 +94,20 @@ public class AutoTestAverageDurationModel {
    * Get failedAverageDuration
    * @return failedAverageDuration
   **/
-  @jakarta.annotation.Nullable
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "2.5555", value = "")
-  @JsonProperty(JSON_PROPERTY_FAILED_AVERAGE_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getFailedAverageDuration() {
     return failedAverageDuration;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FAILED_AVERAGE_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFailedAverageDuration(Double failedAverageDuration) {
     this.failedAverageDuration = failedAverageDuration;
   }
 
 
-  /**
-   * Return true if this AutoTestAverageDurationModel object is equal to o.
-   */
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,5 +147,89 @@ public class AutoTestAverageDurationModel {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("passedAverageDuration");
+    openapiFields.add("failedAverageDuration");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AutoTestAverageDurationModel
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AutoTestAverageDurationModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestAverageDurationModel is not found in the empty JSON string", AutoTestAverageDurationModel.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!AutoTestAverageDurationModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestAverageDurationModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AutoTestAverageDurationModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AutoTestAverageDurationModel' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AutoTestAverageDurationModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AutoTestAverageDurationModel.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AutoTestAverageDurationModel>() {
+           @Override
+           public void write(JsonWriter out, AutoTestAverageDurationModel value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AutoTestAverageDurationModel read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AutoTestAverageDurationModel given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AutoTestAverageDurationModel
+  * @throws IOException if the JSON string is invalid with respect to AutoTestAverageDurationModel
+  */
+  public static AutoTestAverageDurationModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AutoTestAverageDurationModel.class);
+  }
+
+ /**
+  * Convert an instance of AutoTestAverageDurationModel to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
