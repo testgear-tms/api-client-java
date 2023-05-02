@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.StepModel;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -69,7 +67,7 @@ public class SharedStepModel {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<StepModel> steps = null;
+  private List<StepModel> steps;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -89,7 +87,6 @@ public class SharedStepModel {
    * @return versionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getVersionId() {
     return versionId;
@@ -112,7 +109,6 @@ public class SharedStepModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "")
 
   public Long getGlobalId() {
     return globalId;
@@ -135,7 +131,6 @@ public class SharedStepModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "First step", value = "")
 
   public String getName() {
     return name;
@@ -154,9 +149,6 @@ public class SharedStepModel {
   }
 
   public SharedStepModel addStepsItem(StepModel stepsItem) {
-    if (this.steps == null) {
-      this.steps = new ArrayList<>();
-    }
     this.steps.add(stepsItem);
     return this;
   }
@@ -168,7 +160,6 @@ public class SharedStepModel {
   **/
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<StepModel> getSteps() {
     return steps;
@@ -191,7 +182,6 @@ public class SharedStepModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;

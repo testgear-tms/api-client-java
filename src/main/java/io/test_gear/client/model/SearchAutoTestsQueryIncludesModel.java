@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
@@ -76,7 +74,6 @@ public class SearchAutoTestsQueryIncludesModel {
    * @return includeSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If autotest steps will be included")
 
   public Boolean getIncludeSteps() {
     return includeSteps;
@@ -99,7 +96,6 @@ public class SearchAutoTestsQueryIncludesModel {
    * @return includeLinks
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If autotest links will be included")
 
   public Boolean getIncludeLinks() {
     return includeLinks;
@@ -122,7 +118,6 @@ public class SearchAutoTestsQueryIncludesModel {
    * @return includeLabels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If autotest labels will be included")
 
   public Boolean getIncludeLabels() {
     return includeLabels;

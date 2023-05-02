@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.AutoTestModel;
 import io.test_gear.client.model.TestPlanModel;
 import io.test_gear.client.model.TestResultModel;
@@ -62,7 +60,7 @@ import io.test_gear.client.invoker.JSON;
 public class TestRunModel {
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestModel> autoTests = null;
+  private List<AutoTestModel> autoTests;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS_COUNT = "autoTestsCount";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS_COUNT)
@@ -70,7 +68,7 @@ public class TestRunModel {
 
   public static final String SERIALIZED_NAME_TEST_SUITE_IDS = "testSuiteIds";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_IDS)
-  private List<UUID> testSuiteIds = null;
+  private List<UUID> testSuiteIds;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
@@ -82,7 +80,7 @@ public class TestRunModel {
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  private List<TestResultModel> testResults = null;
+  private List<TestResultModel> testResults;
 
   public static final String SERIALIZED_NAME_TEST_PLAN = "testPlan";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN)
@@ -170,9 +168,6 @@ public class TestRunModel {
   }
 
   public TestRunModel addAutoTestsItem(AutoTestModel autoTestsItem) {
-    if (this.autoTests == null) {
-      this.autoTests = new ArrayList<>();
-    }
     this.autoTests.add(autoTestsItem);
     return this;
   }
@@ -182,7 +177,6 @@ public class TestRunModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AutoTestModel> getAutoTests() {
     return autoTests;
@@ -205,7 +199,6 @@ public class TestRunModel {
    * @return autoTestsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getAutoTestsCount() {
     return autoTestsCount;
@@ -224,9 +217,6 @@ public class TestRunModel {
   }
 
   public TestRunModel addTestSuiteIdsItem(UUID testSuiteIdsItem) {
-    if (this.testSuiteIds == null) {
-      this.testSuiteIds = new ArrayList<>();
-    }
     this.testSuiteIds.add(testSuiteIdsItem);
     return this;
   }
@@ -236,7 +226,6 @@ public class TestRunModel {
    * @return testSuiteIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<UUID> getTestSuiteIds() {
     return testSuiteIds;
@@ -259,7 +248,6 @@ public class TestRunModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -282,7 +270,6 @@ public class TestRunModel {
    * @return analytic
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestRunAnalyticResultModel getAnalytic() {
     return analytic;
@@ -301,9 +288,6 @@ public class TestRunModel {
   }
 
   public TestRunModel addTestResultsItem(TestResultModel testResultsItem) {
-    if (this.testResults == null) {
-      this.testResults = new ArrayList<>();
-    }
     this.testResults.add(testResultsItem);
     return this;
   }
@@ -313,7 +297,6 @@ public class TestRunModel {
    * @return testResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<TestResultModel> getTestResults() {
     return testResults;
@@ -336,7 +319,6 @@ public class TestRunModel {
    * @return testPlan
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestPlanModel getTestPlan() {
     return testPlan;
@@ -359,7 +341,6 @@ public class TestRunModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -382,7 +363,6 @@ public class TestRunModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -405,7 +385,6 @@ public class TestRunModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -428,7 +407,6 @@ public class TestRunModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -451,7 +429,6 @@ public class TestRunModel {
    * @return createdByUserName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getCreatedByUserName() {
     return createdByUserName;
@@ -474,7 +451,6 @@ public class TestRunModel {
    * @return startedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getStartedDate() {
     return startedDate;
@@ -497,7 +473,6 @@ public class TestRunModel {
    * @return completedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCompletedDate() {
     return completedDate;
@@ -520,7 +495,6 @@ public class TestRunModel {
    * @return build
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getBuild() {
     return build;
@@ -543,7 +517,6 @@ public class TestRunModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -565,8 +538,7 @@ public class TestRunModel {
    * Get stateName
    * @return stateName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public TestRunState getStateName() {
     return stateName;
@@ -589,7 +561,6 @@ public class TestRunModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -612,7 +583,6 @@ public class TestRunModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -635,7 +605,6 @@ public class TestRunModel {
    * @return runByUserId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getRunByUserId() {
     return runByUserId;
@@ -658,7 +627,6 @@ public class TestRunModel {
    * @return stoppedByUserId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getStoppedByUserId() {
     return stoppedByUserId;
@@ -681,7 +649,6 @@ public class TestRunModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -704,7 +671,6 @@ public class TestRunModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getLaunchSource() {
     return launchSource;
@@ -727,7 +693,6 @@ public class TestRunModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -750,7 +715,6 @@ public class TestRunModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -894,6 +858,7 @@ public class TestRunModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("stateName");
   }
 
  /**
@@ -914,6 +879,13 @@ public class TestRunModel {
       for (Entry<String, JsonElement> entry : entries) {
         if (!TestRunModel.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TestRunModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if (jsonObj.get("autoTests") != null && !jsonObj.get("autoTests").isJsonNull()) {

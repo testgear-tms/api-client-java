@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -73,7 +71,6 @@ public class TestResultChronologyModel {
    * @return outcome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Passed", value = "")
 
   public String getOutcome() {
     return outcome;
@@ -96,7 +93,6 @@ public class TestResultChronologyModel {
    * @return count
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getCount() {
     return count;

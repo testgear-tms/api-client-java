@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
@@ -65,11 +63,11 @@ public class ConfigurationModel {
 
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
-  private Map<String, String> capabilities = null;
+  private Map<String, String> capabilities;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters = null;
+  private Map<String, String> parameters;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -125,7 +123,6 @@ public class ConfigurationModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Default configuration", value = "")
 
   public String getDescription() {
     return description;
@@ -148,7 +145,6 @@ public class ConfigurationModel {
    * @return isActive
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsActive() {
     return isActive;
@@ -167,9 +163,6 @@ public class ConfigurationModel {
   }
 
   public ConfigurationModel putCapabilitiesItem(String key, String capabilitiesItem) {
-    if (this.capabilities == null) {
-      this.capabilities = new HashMap<>();
-    }
     this.capabilities.put(key, capabilitiesItem);
     return this;
   }
@@ -181,7 +174,6 @@ public class ConfigurationModel {
   **/
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getCapabilities() {
     return capabilities;
@@ -200,9 +192,6 @@ public class ConfigurationModel {
   }
 
   public ConfigurationModel putParametersItem(String key, String parametersItem) {
-    if (this.parameters == null) {
-      this.parameters = new HashMap<>();
-    }
     this.parameters.put(key, parametersItem);
     return this;
   }
@@ -212,7 +201,6 @@ public class ConfigurationModel {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getParameters() {
     return parameters;
@@ -235,7 +223,6 @@ public class ConfigurationModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "This property is used to link configuration with project")
 
   public UUID getProjectId() {
     return projectId;
@@ -258,7 +245,6 @@ public class ConfigurationModel {
    * @return isDefault
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDefault() {
     return isDefault;
@@ -281,7 +267,6 @@ public class ConfigurationModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Default", value = "")
 
   public String getName() {
     return name;
@@ -304,7 +289,6 @@ public class ConfigurationModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -327,7 +311,6 @@ public class ConfigurationModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -350,7 +333,6 @@ public class ConfigurationModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -373,7 +355,6 @@ public class ConfigurationModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -396,7 +377,6 @@ public class ConfigurationModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "")
 
   public Long getGlobalId() {
     return globalId;
@@ -419,7 +399,6 @@ public class ConfigurationModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -442,7 +421,6 @@ public class ConfigurationModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;

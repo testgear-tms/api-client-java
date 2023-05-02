@@ -78,8 +78,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for requested project is required |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for requested project is required |  -  |
 
 <a name="apiV2WebhooksIdDelete"></a>
 # **apiV2WebhooksIdDelete**
@@ -145,8 +145,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Delete permission for webhooks is required |  -  |
 | **204** | No Content |  -  |
+| **403** | Delete permission for webhooks is required |  -  |
 
 <a name="apiV2WebhooksIdGet"></a>
 # **apiV2WebhooksIdGet**

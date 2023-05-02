@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.ParameterShortModel;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -65,7 +63,7 @@ public class PublicTestPointModel {
 
   public static final String SERIALIZED_NAME_AUTO_TEST_IDS = "autoTestIds";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_IDS)
-  private List<UUID> autoTestIds = null;
+  private List<UUID> autoTestIds;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
@@ -73,7 +71,7 @@ public class PublicTestPointModel {
 
   public static final String SERIALIZED_NAME_PARAMETER_MODELS = "parameterModels";
   @SerializedName(SERIALIZED_NAME_PARAMETER_MODELS)
-  private List<ParameterShortModel> parameterModels = null;
+  private List<ParameterShortModel> parameterModels;
 
   public PublicTestPointModel() {
   }
@@ -89,7 +87,6 @@ public class PublicTestPointModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -112,7 +109,6 @@ public class PublicTestPointModel {
    * @return configurationGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getConfigurationGlobalId() {
     return configurationGlobalId;
@@ -131,9 +127,6 @@ public class PublicTestPointModel {
   }
 
   public PublicTestPointModel addAutoTestIdsItem(UUID autoTestIdsItem) {
-    if (this.autoTestIds == null) {
-      this.autoTestIds = new ArrayList<>();
-    }
     this.autoTestIds.add(autoTestIdsItem);
     return this;
   }
@@ -143,7 +136,6 @@ public class PublicTestPointModel {
    * @return autoTestIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<UUID> getAutoTestIds() {
     return autoTestIds;
@@ -166,7 +158,6 @@ public class PublicTestPointModel {
    * @return iterationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getIterationId() {
     return iterationId;
@@ -185,9 +176,6 @@ public class PublicTestPointModel {
   }
 
   public PublicTestPointModel addParameterModelsItem(ParameterShortModel parameterModelsItem) {
-    if (this.parameterModels == null) {
-      this.parameterModels = new ArrayList<>();
-    }
     this.parameterModels.add(parameterModelsItem);
     return this;
   }
@@ -197,7 +185,6 @@ public class PublicTestPointModel {
    * @return parameterModels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<ParameterShortModel> getParameterModels() {
     return parameterModels;

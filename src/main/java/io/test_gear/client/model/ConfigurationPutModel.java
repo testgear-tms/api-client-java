@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -68,11 +66,11 @@ public class ConfigurationPutModel {
 
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
-  private Map<String, String> capabilities = null;
+  private Map<String, String> capabilities;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters = null;
+  private Map<String, String> parameters;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -100,7 +98,6 @@ public class ConfigurationPutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -123,7 +120,6 @@ public class ConfigurationPutModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Default configuration", value = "")
 
   public String getDescription() {
     return description;
@@ -146,7 +142,6 @@ public class ConfigurationPutModel {
    * @return isActive
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsActive() {
     return isActive;
@@ -165,9 +160,6 @@ public class ConfigurationPutModel {
   }
 
   public ConfigurationPutModel putCapabilitiesItem(String key, String capabilitiesItem) {
-    if (this.capabilities == null) {
-      this.capabilities = new HashMap<>();
-    }
     this.capabilities.put(key, capabilitiesItem);
     return this;
   }
@@ -179,7 +171,6 @@ public class ConfigurationPutModel {
   **/
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getCapabilities() {
     return capabilities;
@@ -198,9 +189,6 @@ public class ConfigurationPutModel {
   }
 
   public ConfigurationPutModel putParametersItem(String key, String parametersItem) {
-    if (this.parameters == null) {
-      this.parameters = new HashMap<>();
-    }
     this.parameters.put(key, parametersItem);
     return this;
   }
@@ -210,7 +198,6 @@ public class ConfigurationPutModel {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getParameters() {
     return parameters;
@@ -233,7 +220,6 @@ public class ConfigurationPutModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "This property is used to link configuration with project")
 
   public UUID getProjectId() {
     return projectId;
@@ -256,7 +242,6 @@ public class ConfigurationPutModel {
    * @return isDefault
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDefault() {
     return isDefault;
@@ -279,7 +264,6 @@ public class ConfigurationPutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Default", required = true, value = "")
 
   public String getName() {
     return name;

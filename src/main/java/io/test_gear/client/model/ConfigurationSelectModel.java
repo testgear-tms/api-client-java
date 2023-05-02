@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -56,7 +54,7 @@ import io.test_gear.client.invoker.JSON;
 public class ConfigurationSelectModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds = null;
+  private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -68,7 +66,7 @@ public class ConfigurationSelectModel {
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds = null;
+  private Set<Long> globalIds;
 
   public ConfigurationSelectModel() {
   }
@@ -80,9 +78,6 @@ public class ConfigurationSelectModel {
   }
 
   public ConfigurationSelectModel addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null) {
-      this.projectIds = new LinkedHashSet<>();
-    }
     this.projectIds.add(projectIdsItem);
     return this;
   }
@@ -92,7 +87,6 @@ public class ConfigurationSelectModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of projects from which configurations will be taken")
 
   public Set<UUID> getProjectIds() {
     return projectIds;
@@ -115,7 +109,6 @@ public class ConfigurationSelectModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter to search by name (case-insensitive, partial match)")
 
   public String getName() {
     return name;
@@ -138,7 +131,6 @@ public class ConfigurationSelectModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Is configurations deleted or existing")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -157,9 +149,6 @@ public class ConfigurationSelectModel {
   }
 
   public ConfigurationSelectModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null) {
-      this.globalIds = new LinkedHashSet<>();
-    }
     this.globalIds.add(globalIdsItem);
     return this;
   }
@@ -169,7 +158,6 @@ public class ConfigurationSelectModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of global (integer) identifiers to filter configurations")
 
   public Set<Long> getGlobalIds() {
     return globalIds;

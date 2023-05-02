@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.CustomAttributeOptionModel;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -60,7 +58,7 @@ public class GlobalCustomAttributeUpdateModel {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<CustomAttributeOptionModel> options = null;
+  private List<CustomAttributeOptionModel> options;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
@@ -84,7 +82,6 @@ public class GlobalCustomAttributeUpdateModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of attribute")
 
   public String getName() {
     return name;
@@ -103,9 +100,6 @@ public class GlobalCustomAttributeUpdateModel {
   }
 
   public GlobalCustomAttributeUpdateModel addOptionsItem(CustomAttributeOptionModel optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<>();
-    }
     this.options.add(optionsItem);
     return this;
   }
@@ -115,7 +109,6 @@ public class GlobalCustomAttributeUpdateModel {
    * @return options
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only")
 
   public List<CustomAttributeOptionModel> getOptions() {
     return options;
@@ -138,7 +131,6 @@ public class GlobalCustomAttributeUpdateModel {
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the attribute is available")
 
   public Boolean getIsEnabled() {
     return isEnabled;
@@ -161,7 +153,6 @@ public class GlobalCustomAttributeUpdateModel {
    * @return isRequired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the attribute value is mandatory to specify")
 
   public Boolean getIsRequired() {
     return isRequired;

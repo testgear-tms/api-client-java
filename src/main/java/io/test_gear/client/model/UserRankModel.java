@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
@@ -88,7 +86,6 @@ public class UserRankModel {
    * @return score
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getScore() {
     return score;
@@ -111,7 +108,6 @@ public class UserRankModel {
    * @return workItemsCreated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getWorkItemsCreated() {
     return workItemsCreated;
@@ -134,7 +130,6 @@ public class UserRankModel {
    * @return passedTestPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getPassedTestPoints() {
     return passedTestPoints;
@@ -157,7 +152,6 @@ public class UserRankModel {
    * @return failedTestPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getFailedTestPoints() {
     return failedTestPoints;
@@ -180,7 +174,6 @@ public class UserRankModel {
    * @return skippedTestPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getSkippedTestPoints() {
     return skippedTestPoints;
@@ -203,7 +196,6 @@ public class UserRankModel {
    * @return blockedTestPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getBlockedTestPoints() {
     return blockedTestPoints;

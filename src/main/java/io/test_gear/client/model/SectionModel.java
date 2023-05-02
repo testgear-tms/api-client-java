@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -103,7 +101,6 @@ public class SectionModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -126,7 +123,6 @@ public class SectionModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getParentId() {
     return parentId;
@@ -149,7 +145,6 @@ public class SectionModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -172,7 +167,6 @@ public class SectionModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getId() {
     return id;
@@ -195,7 +189,6 @@ public class SectionModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -218,7 +211,6 @@ public class SectionModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -241,7 +233,6 @@ public class SectionModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -264,7 +255,6 @@ public class SectionModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -287,7 +277,6 @@ public class SectionModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Root section", required = true, value = "")
 
   public String getName() {
     return name;

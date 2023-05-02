@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -82,7 +80,6 @@ public class TestRunV2PutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -105,7 +102,6 @@ public class TestRunV2PutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "First run", required = true, value = "")
 
   public String getName() {
     return name;
@@ -128,7 +124,6 @@ public class TestRunV2PutModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -151,7 +146,6 @@ public class TestRunV2PutModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "By user via API", value = "Once launch source is specified it cannot be updated")
 
   public String getLaunchSource() {
     return launchSource;

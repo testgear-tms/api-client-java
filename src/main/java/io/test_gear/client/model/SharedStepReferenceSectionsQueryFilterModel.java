@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.DateTimeRangeSelectorModel;
 import java.io.IOException;
 import java.util.LinkedHashSet;
@@ -61,11 +59,11 @@ public class SharedStepReferenceSectionsQueryFilterModel {
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds = null;
+  private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -89,7 +87,6 @@ public class SharedStepReferenceSectionsQueryFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of section")
 
   public String getName() {
     return name;
@@ -108,9 +105,6 @@ public class SharedStepReferenceSectionsQueryFilterModel {
   }
 
   public SharedStepReferenceSectionsQueryFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
-    }
     this.createdByIds.add(createdByIdsItem);
     return this;
   }
@@ -120,7 +114,6 @@ public class SharedStepReferenceSectionsQueryFilterModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of users who created work item")
 
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
@@ -139,9 +132,6 @@ public class SharedStepReferenceSectionsQueryFilterModel {
   }
 
   public SharedStepReferenceSectionsQueryFilterModel addModifiedByIdsItem(UUID modifiedByIdsItem) {
-    if (this.modifiedByIds == null) {
-      this.modifiedByIds = new LinkedHashSet<>();
-    }
     this.modifiedByIds.add(modifiedByIdsItem);
     return this;
   }
@@ -151,7 +141,6 @@ public class SharedStepReferenceSectionsQueryFilterModel {
    * @return modifiedByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of users who applied last modification to work item")
 
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
@@ -174,7 +163,6 @@ public class SharedStepReferenceSectionsQueryFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
@@ -197,7 +185,6 @@ public class SharedStepReferenceSectionsQueryFilterModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getModifiedDate() {
     return modifiedDate;

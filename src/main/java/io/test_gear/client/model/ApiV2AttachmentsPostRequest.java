@@ -20,11 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.io.File;
 import java.io.IOException;
-import java.time.OffsetDateTime;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,64 +45,36 @@ import java.util.Set;
 import io.test_gear.client.invoker.JSON;
 
 /**
- * DateRangeModel
+ * ApiV2AttachmentsPostRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class DateRangeModel {
-  public static final String SERIALIZED_NAME_FROM = "from";
-  @SerializedName(SERIALIZED_NAME_FROM)
-  private OffsetDateTime from;
+public class ApiV2AttachmentsPostRequest {
+  public static final String SERIALIZED_NAME_FILE = "file";
+  @SerializedName(SERIALIZED_NAME_FILE)
+  private File _file;
 
-  public static final String SERIALIZED_NAME_TO = "to";
-  @SerializedName(SERIALIZED_NAME_TO)
-  private OffsetDateTime to;
-
-  public DateRangeModel() {
+  public ApiV2AttachmentsPostRequest() {
   }
 
-  public DateRangeModel from(OffsetDateTime from) {
+  public ApiV2AttachmentsPostRequest _file(File _file) {
     
-    this.from = from;
+    this._file = _file;
     return this;
   }
 
    /**
-   * Minimum date and time
-   * @return from
+   * Get _file
+   * @return _file
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum date and time")
 
-  public OffsetDateTime getFrom() {
-    return from;
+  public File getFile() {
+    return _file;
   }
 
 
-  public void setFrom(OffsetDateTime from) {
-    this.from = from;
-  }
-
-
-  public DateRangeModel to(OffsetDateTime to) {
-    
-    this.to = to;
-    return this;
-  }
-
-   /**
-   * Maximum date and time
-   * @return to
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Maximum date and time")
-
-  public OffsetDateTime getTo() {
-    return to;
-  }
-
-
-  public void setTo(OffsetDateTime to) {
-    this.to = to;
+  public void setFile(File _file) {
+    this._file = _file;
   }
 
 
@@ -118,33 +87,20 @@ public class DateRangeModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DateRangeModel dateRangeModel = (DateRangeModel) o;
-    return Objects.equals(this.from, dateRangeModel.from) &&
-        Objects.equals(this.to, dateRangeModel.to);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    ApiV2AttachmentsPostRequest apiV2AttachmentsPostRequest = (ApiV2AttachmentsPostRequest) o;
+    return Objects.equals(this._file, apiV2AttachmentsPostRequest._file);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(_file);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DateRangeModel {\n");
-    sb.append("    from: ").append(toIndentedString(from)).append("\n");
-    sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("class ApiV2AttachmentsPostRequest {\n");
+    sb.append("    _file: ").append(toIndentedString(_file)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -167,8 +123,7 @@ public class DateRangeModel {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("from");
-    openapiFields.add("to");
+    openapiFields.add("file");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -178,20 +133,20 @@ public class DateRangeModel {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to DateRangeModel
+  * @throws IOException if the JSON Object is invalid with respect to ApiV2AttachmentsPostRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!DateRangeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DateRangeModel is not found in the empty JSON string", DateRangeModel.openapiRequiredFields.toString()));
+        if (!ApiV2AttachmentsPostRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiV2AttachmentsPostRequest is not found in the empty JSON string", ApiV2AttachmentsPostRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!DateRangeModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DateRangeModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ApiV2AttachmentsPostRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiV2AttachmentsPostRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
   }
@@ -200,22 +155,22 @@ public class DateRangeModel {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DateRangeModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DateRangeModel' and its subtypes
+       if (!ApiV2AttachmentsPostRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ApiV2AttachmentsPostRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DateRangeModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DateRangeModel.class));
+       final TypeAdapter<ApiV2AttachmentsPostRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ApiV2AttachmentsPostRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DateRangeModel>() {
+       return (TypeAdapter<T>) new TypeAdapter<ApiV2AttachmentsPostRequest>() {
            @Override
-           public void write(JsonWriter out, DateRangeModel value) throws IOException {
+           public void write(JsonWriter out, ApiV2AttachmentsPostRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public DateRangeModel read(JsonReader in) throws IOException {
+           public ApiV2AttachmentsPostRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -226,18 +181,18 @@ public class DateRangeModel {
   }
 
  /**
-  * Create an instance of DateRangeModel given an JSON string
+  * Create an instance of ApiV2AttachmentsPostRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of DateRangeModel
-  * @throws IOException if the JSON string is invalid with respect to DateRangeModel
+  * @return An instance of ApiV2AttachmentsPostRequest
+  * @throws IOException if the JSON string is invalid with respect to ApiV2AttachmentsPostRequest
   */
-  public static DateRangeModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DateRangeModel.class);
+  public static ApiV2AttachmentsPostRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ApiV2AttachmentsPostRequest.class);
   }
 
  /**
-  * Convert an instance of DateRangeModel to an JSON string
+  * Convert an instance of ApiV2AttachmentsPostRequest to an JSON string
   *
   * @return JSON string
   */

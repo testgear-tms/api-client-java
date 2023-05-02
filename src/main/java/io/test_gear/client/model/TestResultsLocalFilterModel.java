@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.FailureCategoryModel;
 import io.test_gear.client.model.TestResultOutcome;
 import java.io.IOException;
@@ -58,15 +56,15 @@ import io.test_gear.client.invoker.JSON;
 public class TestResultsLocalFilterModel {
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  private Set<UUID> configurationIds = null;
+  private Set<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
   @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  private Set<TestResultOutcome> outcomes = null;
+  private Set<TestResultOutcome> outcomes;
 
   public static final String SERIALIZED_NAME_FAILURE_CATEGORIES = "failureCategories";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORIES)
-  private Set<FailureCategoryModel> failureCategories = null;
+  private Set<FailureCategoryModel> failureCategories;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
@@ -86,9 +84,6 @@ public class TestResultsLocalFilterModel {
   }
 
   public TestResultsLocalFilterModel addConfigurationIdsItem(UUID configurationIdsItem) {
-    if (this.configurationIds == null) {
-      this.configurationIds = new LinkedHashSet<>();
-    }
     this.configurationIds.add(configurationIdsItem);
     return this;
   }
@@ -98,7 +93,6 @@ public class TestResultsLocalFilterModel {
    * @return configurationIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result configuration IDs to search for")
 
   public Set<UUID> getConfigurationIds() {
     return configurationIds;
@@ -117,9 +111,6 @@ public class TestResultsLocalFilterModel {
   }
 
   public TestResultsLocalFilterModel addOutcomesItem(TestResultOutcome outcomesItem) {
-    if (this.outcomes == null) {
-      this.outcomes = new LinkedHashSet<>();
-    }
     this.outcomes.add(outcomesItem);
     return this;
   }
@@ -129,7 +120,6 @@ public class TestResultsLocalFilterModel {
    * @return outcomes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result outcomes to search for")
 
   public Set<TestResultOutcome> getOutcomes() {
     return outcomes;
@@ -148,9 +138,6 @@ public class TestResultsLocalFilterModel {
   }
 
   public TestResultsLocalFilterModel addFailureCategoriesItem(FailureCategoryModel failureCategoriesItem) {
-    if (this.failureCategories == null) {
-      this.failureCategories = new LinkedHashSet<>();
-    }
     this.failureCategories.add(failureCategoriesItem);
     return this;
   }
@@ -160,7 +147,6 @@ public class TestResultsLocalFilterModel {
    * @return failureCategories
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result failure categories to search for")
 
   public Set<FailureCategoryModel> getFailureCategories() {
     return failureCategories;
@@ -183,7 +169,6 @@ public class TestResultsLocalFilterModel {
    * @return namespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result namespace to search for")
 
   public String getNamespace() {
     return namespace;
@@ -206,7 +191,6 @@ public class TestResultsLocalFilterModel {
    * @return className
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result class name to search for")
 
   public String getClassName() {
     return className;

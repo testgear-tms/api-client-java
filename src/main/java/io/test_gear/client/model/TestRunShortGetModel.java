@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.TestResultsStatisticsGetModel;
 import io.test_gear.client.model.TestRunState;
 import java.io.IOException;
@@ -117,7 +115,6 @@ public class TestRunShortGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the test run")
 
   public UUID getId() {
     return id;
@@ -140,7 +137,6 @@ public class TestRunShortGetModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the test run")
 
   public String getName() {
     return name;
@@ -163,7 +159,6 @@ public class TestRunShortGetModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of project where test run is located")
 
   public UUID getProjectId() {
     return projectId;
@@ -186,7 +181,6 @@ public class TestRunShortGetModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date when the test run was created")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -209,7 +203,6 @@ public class TestRunShortGetModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of user who created the test run")
 
   public UUID getCreatedById() {
     return createdById;
@@ -232,7 +225,6 @@ public class TestRunShortGetModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date when the test run was modified last time")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -255,7 +247,6 @@ public class TestRunShortGetModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of user who modified the test run last time")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -278,7 +269,6 @@ public class TestRunShortGetModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Is the test run is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -300,8 +290,7 @@ public class TestRunShortGetModel {
    * Get state
    * @return state
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public TestRunState getState() {
     return state;
@@ -324,7 +313,6 @@ public class TestRunShortGetModel {
    * @return startedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date when the test run was started")
 
   public OffsetDateTime getStartedDate() {
     return startedDate;
@@ -347,7 +335,6 @@ public class TestRunShortGetModel {
    * @return autotestsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of autotests run in the test run")
 
   public Integer getAutotestsCount() {
     return autotestsCount;
@@ -369,8 +356,7 @@ public class TestRunShortGetModel {
    * Get statistics
    * @return statistics
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public TestResultsStatisticsGetModel getStatistics() {
     return statistics;
@@ -475,6 +461,8 @@ public class TestRunShortGetModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("state");
+    openapiRequiredFields.add("statistics");
   }
 
  /**
@@ -497,6 +485,13 @@ public class TestRunShortGetModel {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunShortGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TestRunShortGetModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -512,10 +507,8 @@ public class TestRunShortGetModel {
       if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
       }
-      // validate the optional field `statistics`
-      if (jsonObj.get("statistics") != null && !jsonObj.get("statistics").isJsonNull()) {
-        TestResultsStatisticsGetModel.validateJsonObject(jsonObj.getAsJsonObject("statistics"));
-      }
+      // validate the required field `statistics`
+      TestResultsStatisticsGetModel.validateJsonObject(jsonObj.getAsJsonObject("statistics"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

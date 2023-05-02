@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.AttachmentSubGetModel;
 import io.test_gear.client.model.AutotestResultReasonSubGetModel;
 import io.test_gear.client.model.LinkSubGetModel;
@@ -89,7 +87,7 @@ public class TestResultShortGetModel {
 
   public static final String SERIALIZED_NAME_RESULT_REASONS = "resultReasons";
   @SerializedName(SERIALIZED_NAME_RESULT_REASONS)
-  private List<AutotestResultReasonSubGetModel> resultReasons = null;
+  private List<AutotestResultReasonSubGetModel> resultReasons;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -105,11 +103,11 @@ public class TestResultShortGetModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkSubGetModel> links = null;
+  private List<LinkSubGetModel> links;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentSubGetModel> attachments = null;
+  private List<AttachmentSubGetModel> attachments;
 
   public TestResultShortGetModel() {
   }
@@ -125,7 +123,6 @@ public class TestResultShortGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of test result")
 
   public UUID getId() {
     return id;
@@ -148,7 +145,6 @@ public class TestResultShortGetModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of autotest represented by the test result")
 
   public String getName() {
     return name;
@@ -171,7 +167,6 @@ public class TestResultShortGetModel {
    * @return autotestGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Global ID of autotest represented by test result")
 
   public Long getAutotestGlobalId() {
     return autotestGlobalId;
@@ -194,7 +189,6 @@ public class TestResultShortGetModel {
    * @return testRunId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of test run where test result is located")
 
   public UUID getTestRunId() {
     return testRunId;
@@ -217,7 +211,6 @@ public class TestResultShortGetModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of configuration which test result uses")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -240,7 +233,6 @@ public class TestResultShortGetModel {
    * @return configurationName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of configuration which test result uses")
 
   public String getConfigurationName() {
     return configurationName;
@@ -262,8 +254,7 @@ public class TestResultShortGetModel {
    * Get outcome
    * @return outcome
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public TestResultOutcome getOutcome() {
     return outcome;
@@ -282,9 +273,6 @@ public class TestResultShortGetModel {
   }
 
   public TestResultShortGetModel addResultReasonsItem(AutotestResultReasonSubGetModel resultReasonsItem) {
-    if (this.resultReasons == null) {
-      this.resultReasons = new ArrayList<>();
-    }
     this.resultReasons.add(resultReasonsItem);
     return this;
   }
@@ -294,7 +282,6 @@ public class TestResultShortGetModel {
    * @return resultReasons
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of result reasons which test result have")
 
   public List<AutotestResultReasonSubGetModel> getResultReasons() {
     return resultReasons;
@@ -317,7 +304,6 @@ public class TestResultShortGetModel {
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment to test result")
 
   public String getComment() {
     return comment;
@@ -340,7 +326,6 @@ public class TestResultShortGetModel {
    * @return date
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date when test result has been set")
 
   public OffsetDateTime getDate() {
     return date;
@@ -363,7 +348,6 @@ public class TestResultShortGetModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time which it took to run the test")
 
   public Long getDuration() {
     return duration;
@@ -382,9 +366,6 @@ public class TestResultShortGetModel {
   }
 
   public TestResultShortGetModel addLinksItem(LinkSubGetModel linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<>();
-    }
     this.links.add(linksItem);
     return this;
   }
@@ -394,7 +375,6 @@ public class TestResultShortGetModel {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of links attached to test result")
 
   public List<LinkSubGetModel> getLinks() {
     return links;
@@ -413,9 +393,6 @@ public class TestResultShortGetModel {
   }
 
   public TestResultShortGetModel addAttachmentsItem(AttachmentSubGetModel attachmentsItem) {
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
-    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -425,7 +402,6 @@ public class TestResultShortGetModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of files attached to test result")
 
   public List<AttachmentSubGetModel> getAttachments() {
     return attachments;
@@ -533,6 +509,7 @@ public class TestResultShortGetModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("outcome");
   }
 
  /**
@@ -553,6 +530,13 @@ public class TestResultShortGetModel {
       for (Entry<String, JsonElement> entry : entries) {
         if (!TestResultShortGetModel.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TestResultShortGetModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {

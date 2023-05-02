@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -95,7 +93,6 @@ public class WorkItemLikeModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getWorkItemId() {
     return workItemId;
@@ -118,7 +115,6 @@ public class WorkItemLikeModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -141,7 +137,6 @@ public class WorkItemLikeModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -164,7 +159,6 @@ public class WorkItemLikeModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -187,7 +181,6 @@ public class WorkItemLikeModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -210,7 +203,6 @@ public class WorkItemLikeModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -233,7 +225,6 @@ public class WorkItemLikeModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;

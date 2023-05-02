@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.FailureCategoryModel;
 import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -74,7 +72,6 @@ public class AutotestResultReasonSubGetModel {
    * @return failureCategory
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public FailureCategoryModel getFailureCategory() {
     return failureCategory;
@@ -97,7 +94,6 @@ public class AutotestResultReasonSubGetModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;

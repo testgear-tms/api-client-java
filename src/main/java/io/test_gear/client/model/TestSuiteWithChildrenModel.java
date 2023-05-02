@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +54,7 @@ import io.test_gear.client.invoker.JSON;
 public class TestSuiteWithChildrenModel {
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
-  private List<TestSuiteWithChildrenModel> children = null;
+  private List<TestSuiteWithChildrenModel> children;
 
   public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
   @SerializedName(SERIALIZED_NAME_TESTER_ID)
@@ -92,9 +90,6 @@ public class TestSuiteWithChildrenModel {
   }
 
   public TestSuiteWithChildrenModel addChildrenItem(TestSuiteWithChildrenModel childrenItem) {
-    if (this.children == null) {
-      this.children = new ArrayList<>();
-    }
     this.children.add(childrenItem);
     return this;
   }
@@ -104,7 +99,6 @@ public class TestSuiteWithChildrenModel {
    * @return children
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<TestSuiteWithChildrenModel> getChildren() {
     return children;
@@ -127,7 +121,6 @@ public class TestSuiteWithChildrenModel {
    * @return testerId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTesterId() {
     return testerId;
@@ -150,7 +143,6 @@ public class TestSuiteWithChildrenModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getParentId() {
     return parentId;
@@ -173,7 +165,6 @@ public class TestSuiteWithChildrenModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -196,7 +187,6 @@ public class TestSuiteWithChildrenModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -219,7 +209,6 @@ public class TestSuiteWithChildrenModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -242,7 +231,6 @@ public class TestSuiteWithChildrenModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;

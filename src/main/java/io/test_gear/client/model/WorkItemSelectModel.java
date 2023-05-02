@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.WorkItemFilterModel;
 import io.test_gear.client.model.WorkItemsExtractionModel;
 import java.io.IOException;
@@ -50,7 +48,6 @@ import io.test_gear.client.invoker.JSON;
 /**
  * Model containing options to filter work items
  */
-@ApiModel(description = "Model containing options to filter work items")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkItemSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
@@ -75,7 +72,6 @@ public class WorkItemSelectModel {
    * @return filter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WorkItemFilterModel getFilter() {
     return filter;
@@ -98,7 +94,6 @@ public class WorkItemSelectModel {
    * @return extractionModel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WorkItemsExtractionModel getExtractionModel() {
     return extractionModel;

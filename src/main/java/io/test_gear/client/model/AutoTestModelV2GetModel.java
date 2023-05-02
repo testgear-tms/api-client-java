@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.AutoTestStepModel;
 import io.test_gear.client.model.LabelShortModel;
 import io.test_gear.client.model.LinkModel;
@@ -64,7 +62,7 @@ public class AutoTestModelV2GetModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkModel> links = null;
+  private List<LinkModel> links;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -84,15 +82,15 @@ public class AutoTestModelV2GetModel {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<AutoTestStepModel> steps = null;
+  private List<AutoTestStepModel> steps;
 
   public static final String SERIALIZED_NAME_SETUP = "setup";
   @SerializedName(SERIALIZED_NAME_SETUP)
-  private List<AutoTestStepModel> setup = null;
+  private List<AutoTestStepModel> setup;
 
   public static final String SERIALIZED_NAME_TEARDOWN = "teardown";
   @SerializedName(SERIALIZED_NAME_TEARDOWN)
-  private List<AutoTestStepModel> teardown = null;
+  private List<AutoTestStepModel> teardown;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
@@ -116,7 +114,7 @@ public class AutoTestModelV2GetModel {
 
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  private List<LabelShortModel> labels = null;
+  private List<LabelShortModel> labels;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -140,7 +138,6 @@ public class AutoTestModelV2GetModel {
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10001", value = "This property is used to set autotest identifier from client system")
 
   public String getExternalId() {
     return externalId;
@@ -159,9 +156,6 @@ public class AutoTestModelV2GetModel {
   }
 
   public AutoTestModelV2GetModel addLinksItem(LinkModel linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<>();
-    }
     this.links.add(linksItem);
     return this;
   }
@@ -171,7 +165,6 @@ public class AutoTestModelV2GetModel {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<LinkModel> getLinks() {
     return links;
@@ -194,7 +187,6 @@ public class AutoTestModelV2GetModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "This property is used to link autotest with project")
 
   public UUID getProjectId() {
     return projectId;
@@ -217,7 +209,6 @@ public class AutoTestModelV2GetModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "WorkItem valid creation test", value = "")
 
   public String getName() {
     return name;
@@ -240,7 +231,6 @@ public class AutoTestModelV2GetModel {
    * @return namespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "UnitTest.Core", value = "")
 
   public String getNamespace() {
     return namespace;
@@ -263,7 +253,6 @@ public class AutoTestModelV2GetModel {
    * @return classname
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "WorkItemServiceTest.cs", value = "")
 
   public String getClassname() {
     return classname;
@@ -282,9 +271,6 @@ public class AutoTestModelV2GetModel {
   }
 
   public AutoTestModelV2GetModel addStepsItem(AutoTestStepModel stepsItem) {
-    if (this.steps == null) {
-      this.steps = new ArrayList<>();
-    }
     this.steps.add(stepsItem);
     return this;
   }
@@ -294,7 +280,6 @@ public class AutoTestModelV2GetModel {
    * @return steps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AutoTestStepModel> getSteps() {
     return steps;
@@ -313,9 +298,6 @@ public class AutoTestModelV2GetModel {
   }
 
   public AutoTestModelV2GetModel addSetupItem(AutoTestStepModel setupItem) {
-    if (this.setup == null) {
-      this.setup = new ArrayList<>();
-    }
     this.setup.add(setupItem);
     return this;
   }
@@ -325,7 +307,6 @@ public class AutoTestModelV2GetModel {
    * @return setup
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AutoTestStepModel> getSetup() {
     return setup;
@@ -344,9 +325,6 @@ public class AutoTestModelV2GetModel {
   }
 
   public AutoTestModelV2GetModel addTeardownItem(AutoTestStepModel teardownItem) {
-    if (this.teardown == null) {
-      this.teardown = new ArrayList<>();
-    }
     this.teardown.add(teardownItem);
     return this;
   }
@@ -356,7 +334,6 @@ public class AutoTestModelV2GetModel {
    * @return teardown
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AutoTestStepModel> getTeardown() {
     return teardown;
@@ -379,7 +356,6 @@ public class AutoTestModelV2GetModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "")
 
   public Long getGlobalId() {
     return globalId;
@@ -402,7 +378,6 @@ public class AutoTestModelV2GetModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -425,7 +400,6 @@ public class AutoTestModelV2GetModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -448,7 +422,6 @@ public class AutoTestModelV2GetModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -471,7 +444,6 @@ public class AutoTestModelV2GetModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -490,9 +462,6 @@ public class AutoTestModelV2GetModel {
   }
 
   public AutoTestModelV2GetModel addLabelsItem(LabelShortModel labelsItem) {
-    if (this.labels == null) {
-      this.labels = new ArrayList<>();
-    }
     this.labels.add(labelsItem);
     return this;
   }
@@ -502,7 +471,6 @@ public class AutoTestModelV2GetModel {
    * @return labels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<LabelShortModel> getLabels() {
     return labels;
@@ -525,7 +493,6 @@ public class AutoTestModelV2GetModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -548,7 +515,6 @@ public class AutoTestModelV2GetModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;

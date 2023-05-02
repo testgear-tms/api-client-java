@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +90,6 @@ public class TestRunFillByAutoTestsPostModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the GUID of the project, in which a test run will be created.")
 
   public UUID getProjectId() {
     return projectId;
@@ -115,7 +112,6 @@ public class TestRunFillByAutoTestsPostModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the name of the test run.")
 
   public String getName() {
     return name;
@@ -143,7 +139,6 @@ public class TestRunFillByAutoTestsPostModel {
    * @return configurationIds
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.")
 
   public List<UUID> getConfigurationIds() {
     return configurationIds;
@@ -171,7 +166,6 @@ public class TestRunFillByAutoTestsPostModel {
    * @return autoTestExternalIds
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the external ID of the autotest. You can specify several IDs.")
 
   public List<String> getAutoTestExternalIds() {
     return autoTestExternalIds;
@@ -194,7 +188,6 @@ public class TestRunFillByAutoTestsPostModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the test run description.")
 
   public String getDescription() {
     return description;
@@ -217,7 +210,6 @@ public class TestRunFillByAutoTestsPostModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the test run launch source.")
 
   public String getLaunchSource() {
     return launchSource;

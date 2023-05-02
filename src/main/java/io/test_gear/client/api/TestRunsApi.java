@@ -358,8 +358,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestRunsIdTestResultsBulkPutCall(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel, final ApiCallback _callback) throws ApiException {
@@ -428,8 +428,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public void apiV2TestRunsIdTestResultsBulkPut(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel) throws ApiException {
@@ -446,8 +446,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> apiV2TestRunsIdTestResultsBulkPutWithHttpInfo(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel) throws ApiException {
@@ -466,8 +466,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestRunsIdTestResultsBulkPutAsync(UUID id, TestRunTestResultsPartialBulkSetModel testRunTestResultsPartialBulkSetModel, final ApiCallback<Void> _callback) throws ApiException {
@@ -485,8 +485,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestRunsIdTestResultsLastModifiedModificationDateGetCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -554,8 +554,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public OffsetDateTime apiV2TestRunsIdTestResultsLastModifiedModificationDateGet(UUID id) throws ApiException {
@@ -572,8 +572,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<OffsetDateTime> apiV2TestRunsIdTestResultsLastModifiedModificationDateGetWithHttpInfo(UUID id) throws ApiException {
@@ -592,8 +592,8 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test runs is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestRunsIdTestResultsLastModifiedModificationDateGetAsync(UUID id, final ApiCallback<OffsetDateTime> _callback) throws ApiException {
@@ -774,11 +774,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call completeTestRunCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -845,11 +845,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public void completeTestRun(UUID id) throws ApiException {
@@ -865,11 +865,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> completeTestRunWithHttpInfo(UUID id) throws ApiException {
@@ -887,11 +887,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call completeTestRunAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -909,11 +909,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAndFillByAutoTestsCall(TestRunFillByAutoTestsPostModel testRunFillByAutoTestsPostModel, final ApiCallback _callback) throws ApiException {
@@ -976,11 +976,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
      </table>
      */
     public TestRunV2GetModel createAndFillByAutoTests(TestRunFillByAutoTestsPostModel testRunFillByAutoTestsPostModel) throws ApiException {
@@ -997,11 +997,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestRunV2GetModel> createAndFillByAutoTestsWithHttpInfo(TestRunFillByAutoTestsPostModel testRunFillByAutoTestsPostModel) throws ApiException {
@@ -1020,11 +1020,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAndFillByAutoTestsAsync(TestRunFillByAutoTestsPostModel testRunFillByAutoTestsPostModel, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
@@ -1043,11 +1043,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAndFillByConfigurationsCall(TestRunFillByConfigurationsPostModel testRunFillByConfigurationsPostModel, final ApiCallback _callback) throws ApiException {
@@ -1110,11 +1110,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public TestRunV2GetModel createAndFillByConfigurations(TestRunFillByConfigurationsPostModel testRunFillByConfigurationsPostModel) throws ApiException {
@@ -1131,11 +1131,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestRunV2GetModel> createAndFillByConfigurationsWithHttpInfo(TestRunFillByConfigurationsPostModel testRunFillByConfigurationsPostModel) throws ApiException {
@@ -1154,11 +1154,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAndFillByConfigurationsAsync(TestRunFillByConfigurationsPostModel testRunFillByConfigurationsPostModel, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
@@ -1177,11 +1177,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAndFillByWorkItemsCall(TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel, final ApiCallback _callback) throws ApiException {
@@ -1244,11 +1244,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
      </table>
      */
     public TestRunV2GetModel createAndFillByWorkItems(TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel) throws ApiException {
@@ -1265,11 +1265,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestRunV2GetModel> createAndFillByWorkItemsWithHttpInfo(TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel) throws ApiException {
@@ -1288,11 +1288,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAndFillByWorkItemsAsync(TestRunFillByWorkItemsPostModel testRunFillByWorkItemsPostModel, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
@@ -1311,10 +1311,10 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id &#x3D; testRunId </td><td>  -  </td></tr>
      </table>
      */
@@ -1378,10 +1378,10 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id &#x3D; testRunId </td><td>  -  </td></tr>
      </table>
      */
@@ -1399,10 +1399,10 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id &#x3D; testRunId </td><td>  -  </td></tr>
      </table>
      */
@@ -1422,10 +1422,10 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Can&#39;t find a TestRun with id &#x3D; testRunId </td><td>  -  </td></tr>
      </table>
      */
@@ -1446,9 +1446,9 @@ public class TestRunsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestRunByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1517,9 +1517,9 @@ public class TestRunsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
      </table>
      */
     public TestRunV2GetModel getTestRunById(UUID id) throws ApiException {
@@ -1537,9 +1537,9 @@ public class TestRunsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestRunV2GetModel> getTestRunByIdWithHttpInfo(UUID id) throws ApiException {
@@ -1559,9 +1559,9 @@ public class TestRunsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTestRunByIdAsync(UUID id, final ApiCallback<TestRunV2GetModel> _callback) throws ApiException {
@@ -1581,12 +1581,12 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setAutoTestResultsForTestRunCall(UUID id, List<AutoTestResultsForTestRunModel> autoTestResultsForTestRunModel, final ApiCallback _callback) throws ApiException {
@@ -1656,12 +1656,12 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public List<UUID> setAutoTestResultsForTestRun(UUID id, List<AutoTestResultsForTestRunModel> autoTestResultsForTestRunModel) throws ApiException {
@@ -1679,12 +1679,12 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<UUID>> setAutoTestResultsForTestRunWithHttpInfo(UUID id, List<AutoTestResultsForTestRunModel> autoTestResultsForTestRunModel) throws ApiException {
@@ -1704,12 +1704,12 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setAutoTestResultsForTestRunAsync(UUID id, List<AutoTestResultsForTestRunModel> autoTestResultsForTestRunModel, final ApiCallback<List<UUID>> _callback) throws ApiException {
@@ -1729,9 +1729,9 @@ public class TestRunsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
@@ -1800,9 +1800,9 @@ public class TestRunsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
@@ -1820,9 +1820,9 @@ public class TestRunsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
@@ -1842,9 +1842,9 @@ public class TestRunsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
@@ -1863,11 +1863,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call stopTestRunCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1934,11 +1934,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public void stopTestRun(UUID id) throws ApiException {
@@ -1954,11 +1954,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> stopTestRunWithHttpInfo(UUID id) throws ApiException {
@@ -1976,11 +1976,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call stopTestRunAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -1998,11 +1998,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Name is not valid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateEmptyCall(TestRunV2PutModel testRunV2PutModel, final ApiCallback _callback) throws ApiException {
@@ -2064,11 +2064,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Name is not valid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public void updateEmpty(TestRunV2PutModel testRunV2PutModel) throws ApiException {
@@ -2084,11 +2084,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Name is not valid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> updateEmptyWithHttpInfo(TestRunV2PutModel testRunV2PutModel) throws ApiException {
@@ -2106,11 +2106,11 @@ public class TestRunsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> &lt;br&gt;Field is required  &lt;br&gt;Name is not valid </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &lt;br&gt;Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateEmptyAsync(TestRunV2PutModel testRunV2PutModel, final ApiCallback<Void> _callback) throws ApiException {

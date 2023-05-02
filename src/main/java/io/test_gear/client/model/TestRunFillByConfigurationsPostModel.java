@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.TestPointSelector;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -98,7 +96,6 @@ public class TestRunFillByConfigurationsPostModel {
    * @return testPointSelectors
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies an array of work items and configuration to create a test run for.")
 
   public List<TestPointSelector> getTestPointSelectors() {
     return testPointSelectors;
@@ -121,7 +118,6 @@ public class TestRunFillByConfigurationsPostModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the GUID of the project, in which a test run will be created.")
 
   public UUID getProjectId() {
     return projectId;
@@ -144,7 +140,6 @@ public class TestRunFillByConfigurationsPostModel {
    * @return testPlanId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the GUID of the test plan, within which the test run will be created.")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -167,7 +162,6 @@ public class TestRunFillByConfigurationsPostModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the name of the test run.")
 
   public String getName() {
     return name;
@@ -190,7 +184,6 @@ public class TestRunFillByConfigurationsPostModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the test run description.")
 
   public String getDescription() {
     return description;
@@ -213,7 +206,6 @@ public class TestRunFillByConfigurationsPostModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the test run launch source.")
 
   public String getLaunchSource() {
     return launchSource;

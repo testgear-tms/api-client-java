@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.AutoTestStepModel;
 import io.test_gear.client.model.LabelPostModel;
 import io.test_gear.client.model.LinkPutModel;
@@ -65,7 +63,7 @@ public class AutoTestPutModel {
 
   public static final String SERIALIZED_NAME_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST = "workItemIdsForLinkWithAutoTest";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST)
-  private Set<UUID> workItemIdsForLinkWithAutoTest = null;
+  private Set<UUID> workItemIdsForLinkWithAutoTest;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
@@ -73,7 +71,7 @@ public class AutoTestPutModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkPutModel> links = null;
+  private List<LinkPutModel> links;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -93,15 +91,15 @@ public class AutoTestPutModel {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<AutoTestStepModel> steps = null;
+  private List<AutoTestStepModel> steps;
 
   public static final String SERIALIZED_NAME_SETUP = "setup";
   @SerializedName(SERIALIZED_NAME_SETUP)
-  private List<AutoTestStepModel> setup = null;
+  private List<AutoTestStepModel> setup;
 
   public static final String SERIALIZED_NAME_TEARDOWN = "teardown";
   @SerializedName(SERIALIZED_NAME_TEARDOWN)
-  private List<AutoTestStepModel> teardown = null;
+  private List<AutoTestStepModel> teardown;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -113,7 +111,7 @@ public class AutoTestPutModel {
 
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  private List<LabelPostModel> labels = null;
+  private List<LabelPostModel> labels;
 
   public static final String SERIALIZED_NAME_IS_FLAKY = "isFlaky";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY)
@@ -133,7 +131,6 @@ public class AutoTestPutModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId")
 
   public UUID getId() {
     return id;
@@ -152,9 +149,6 @@ public class AutoTestPutModel {
   }
 
   public AutoTestPutModel addWorkItemIdsForLinkWithAutoTestItem(UUID workItemIdsForLinkWithAutoTestItem) {
-    if (this.workItemIdsForLinkWithAutoTest == null) {
-      this.workItemIdsForLinkWithAutoTest = new LinkedHashSet<>();
-    }
     this.workItemIdsForLinkWithAutoTest.add(workItemIdsForLinkWithAutoTestItem);
     return this;
   }
@@ -164,7 +158,6 @@ public class AutoTestPutModel {
    * @return workItemIdsForLinkWithAutoTest
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<UUID> getWorkItemIdsForLinkWithAutoTest() {
     return workItemIdsForLinkWithAutoTest;
@@ -187,7 +180,6 @@ public class AutoTestPutModel {
    * @return externalId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "External ID of the autotest")
 
   public String getExternalId() {
     return externalId;
@@ -206,9 +198,6 @@ public class AutoTestPutModel {
   }
 
   public AutoTestPutModel addLinksItem(LinkPutModel linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<>();
-    }
     this.links.add(linksItem);
     return this;
   }
@@ -218,7 +207,6 @@ public class AutoTestPutModel {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the autotest links")
 
   public List<LinkPutModel> getLinks() {
     return links;
@@ -241,7 +229,6 @@ public class AutoTestPutModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID of the autotest project")
 
   public UUID getProjectId() {
     return projectId;
@@ -264,7 +251,6 @@ public class AutoTestPutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the autotest")
 
   public String getName() {
     return name;
@@ -287,7 +273,6 @@ public class AutoTestPutModel {
    * @return namespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the autotest namespace")
 
   public String getNamespace() {
     return namespace;
@@ -310,7 +295,6 @@ public class AutoTestPutModel {
    * @return classname
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the autotest class")
 
   public String getClassname() {
     return classname;
@@ -329,9 +313,6 @@ public class AutoTestPutModel {
   }
 
   public AutoTestPutModel addStepsItem(AutoTestStepModel stepsItem) {
-    if (this.steps == null) {
-      this.steps = new ArrayList<>();
-    }
     this.steps.add(stepsItem);
     return this;
   }
@@ -341,7 +322,6 @@ public class AutoTestPutModel {
    * @return steps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the autotest steps")
 
   public List<AutoTestStepModel> getSteps() {
     return steps;
@@ -360,9 +340,6 @@ public class AutoTestPutModel {
   }
 
   public AutoTestPutModel addSetupItem(AutoTestStepModel setupItem) {
-    if (this.setup == null) {
-      this.setup = new ArrayList<>();
-    }
     this.setup.add(setupItem);
     return this;
   }
@@ -372,7 +349,6 @@ public class AutoTestPutModel {
    * @return setup
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the autotest setup steps")
 
   public List<AutoTestStepModel> getSetup() {
     return setup;
@@ -391,9 +367,6 @@ public class AutoTestPutModel {
   }
 
   public AutoTestPutModel addTeardownItem(AutoTestStepModel teardownItem) {
-    if (this.teardown == null) {
-      this.teardown = new ArrayList<>();
-    }
     this.teardown.add(teardownItem);
     return this;
   }
@@ -403,7 +376,6 @@ public class AutoTestPutModel {
    * @return teardown
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the autotest teardown steps")
 
   public List<AutoTestStepModel> getTeardown() {
     return teardown;
@@ -426,7 +398,6 @@ public class AutoTestPutModel {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the autotest in autotest's card")
 
   public String getTitle() {
     return title;
@@ -449,7 +420,6 @@ public class AutoTestPutModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the autotest in autotest's card")
 
   public String getDescription() {
     return description;
@@ -468,9 +438,6 @@ public class AutoTestPutModel {
   }
 
   public AutoTestPutModel addLabelsItem(LabelPostModel labelsItem) {
-    if (this.labels == null) {
-      this.labels = new ArrayList<>();
-    }
     this.labels.add(labelsItem);
     return this;
   }
@@ -480,7 +447,6 @@ public class AutoTestPutModel {
    * @return labels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the autotest labels")
 
   public List<LabelPostModel> getLabels() {
     return labels;
@@ -503,7 +469,6 @@ public class AutoTestPutModel {
    * @return isFlaky
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the autotest is marked as flaky")
 
   public Boolean getIsFlaky() {
     return isFlaky;

@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -98,7 +96,6 @@ public class TestPointShortModel {
    * @return testSuiteId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getTestSuiteId() {
     return testSuiteId;
@@ -121,7 +118,6 @@ public class TestPointShortModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getId() {
     return id;
@@ -144,7 +140,6 @@ public class TestPointShortModel {
    * @return testerId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getTesterId() {
     return testerId;
@@ -167,7 +162,6 @@ public class TestPointShortModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getWorkItemId() {
     return workItemId;
@@ -190,7 +184,6 @@ public class TestPointShortModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -213,7 +206,6 @@ public class TestPointShortModel {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "NoResult", value = "Applies one of these values: Blocked, NoResults, Failed, Passed")
 
   public String getStatus() {
     return status;
@@ -236,7 +228,6 @@ public class TestPointShortModel {
    * @return lastTestResultId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getLastTestResultId() {
     return lastTestResultId;
@@ -259,7 +250,6 @@ public class TestPointShortModel {
    * @return iterationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getIterationId() {
     return iterationId;

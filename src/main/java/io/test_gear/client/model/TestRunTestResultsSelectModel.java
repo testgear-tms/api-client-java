@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.GuidExtractionModel;
 import io.test_gear.client.model.TestResultsLocalFilterModel;
 import java.io.IOException;
@@ -74,7 +72,6 @@ public class TestRunTestResultsSelectModel {
    * @return filter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestResultsLocalFilterModel getFilter() {
     return filter;
@@ -97,7 +94,6 @@ public class TestRunTestResultsSelectModel {
    * @return testResultIdsExtractionModel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public GuidExtractionModel getTestResultIdsExtractionModel() {
     return testResultIdsExtractionModel;

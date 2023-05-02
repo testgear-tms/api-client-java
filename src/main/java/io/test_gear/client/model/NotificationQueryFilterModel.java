@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.DateTimeRangeSelectorModel;
 import io.test_gear.client.model.NotificationTypeModel;
 import java.io.IOException;
@@ -57,7 +55,7 @@ import io.test_gear.client.invoker.JSON;
 public class NotificationQueryFilterModel {
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  private Set<NotificationTypeModel> types = null;
+  private Set<NotificationTypeModel> types;
 
   public static final String SERIALIZED_NAME_IS_READ = "isRead";
   @SerializedName(SERIALIZED_NAME_IS_READ)
@@ -77,9 +75,6 @@ public class NotificationQueryFilterModel {
   }
 
   public NotificationQueryFilterModel addTypesItem(NotificationTypeModel typesItem) {
-    if (this.types == null) {
-      this.types = new LinkedHashSet<>();
-    }
     this.types.add(typesItem);
     return this;
   }
@@ -89,7 +84,6 @@ public class NotificationQueryFilterModel {
    * @return types
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<NotificationTypeModel> getTypes() {
     return types;
@@ -112,7 +106,6 @@ public class NotificationQueryFilterModel {
    * @return isRead
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsRead() {
     return isRead;
@@ -135,7 +128,6 @@ public class NotificationQueryFilterModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;

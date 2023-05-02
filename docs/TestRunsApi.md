@@ -225,8 +225,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test runs is required |  -  |
 | **204** | No Content |  -  |
+| **403** | Update permission for test runs is required |  -  |
 
 <a name="apiV2TestRunsIdTestResultsLastModifiedModificationDateGet"></a>
 # **apiV2TestRunsIdTestResultsLastModifiedModificationDateGet**
@@ -293,8 +293,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for test runs is required |  -  |
 | **200** | Success |  -  |
+| **403** | Read permission for test runs is required |  -  |
 
 <a name="apiV2TestRunsSearchPost"></a>
 # **apiV2TestRunsSearchPost**
@@ -440,11 +440,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 | **204** | Successful operation |  -  |
-| **403** | Update permission for test result required |  -  |
-| **401** | Unauthorized |  -  |
 | **400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for test result required |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 
 <a name="createAndFillByAutoTests"></a>
 # **createAndFillByAutoTests**
@@ -513,11 +513,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test results is required |  -  |
-| **404** | Some autotests do not exist |  -  |
-| **401** | Unauthorized |  -  |
 | **201** | Created |  -  |
 | **400** | &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for test results is required |  -  |
+| **404** | Some autotests do not exist |  -  |
 
 <a name="createAndFillByConfigurations"></a>
 # **createAndFillByConfigurations**
@@ -586,11 +586,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test results is required |  -  |
+| **201** | Created |  -  |
 | **400** | &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test results is required |  -  |
 | **404** | Some test points do not exists |  -  |
-| **201** | Created |  -  |
 
 <a name="createAndFillByWorkItems"></a>
 # **createAndFillByWorkItems**
@@ -659,11 +659,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Some test points, work items or configurations do not exist |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Update permission for test results is required |  -  |
 | **400** | &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid |  -  |
 | **201** | Created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Update permission for test results is required |  -  |
+| **404** | Some test points, work items or configurations do not exist |  -  |
 
 <a name="createEmpty"></a>
 # **createEmpty**
@@ -732,10 +732,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | TestRunTesterRequirement permission required |  -  |
-| **403** | Update permission for test result required |  -  |
 | **201** | Successful operation |  -  |
 | **400** | &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! |  -  |
+| **401** | TestRunTesterRequirement permission required |  -  |
+| **403** | Update permission for test result required |  -  |
 | **404** | Can&#39;t find a TestRun with id &#x3D; testRunId |  -  |
 
 <a name="getTestRunById"></a>
@@ -806,9 +806,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
-| **403** | Read permission for test result required |  -  |
 | **200** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Read permission for test result required |  -  |
 
 <a name="setAutoTestResultsForTestRun"></a>
 # **setAutoTestResultsForTestRun**
@@ -879,12 +879,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found |  -  |
 | **422** | &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found |  -  |
-| **403** | Update permission for test results is required |  -  |
 | **200** | Successful operation |  -  |
 | **400** | &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test results is required |  -  |
+| **404** | &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found |  -  |
 
 <a name="startTestRun"></a>
 # **startTestRun**
@@ -953,9 +953,9 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **401** | Unauthorized |  -  |
+| **403** | Update permission for test result required |  -  |
 | **204** | Successful operation |  -  |
 | **400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
-| **403** | Update permission for test result required |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 
 <a name="stopTestRun"></a>
@@ -1024,11 +1024,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 | **204** | Successful operation |  -  |
+| **400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test result required |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 
 <a name="updateEmpty"></a>
 # **updateEmpty**
@@ -1096,9 +1096,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 | **204** | Successful operation |  -  |
 | **400** | &lt;br&gt;Field is required  &lt;br&gt;Name is not valid |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test result required |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 

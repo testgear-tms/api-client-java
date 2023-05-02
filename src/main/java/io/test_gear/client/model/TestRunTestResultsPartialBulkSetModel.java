@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.LinkPostModel;
 import io.test_gear.client.model.TestRunTestResultsSelectModel;
 import java.io.IOException;
@@ -62,11 +60,11 @@ public class TestRunTestResultsPartialBulkSetModel {
 
   public static final String SERIALIZED_NAME_RESULT_REASON_IDS = "resultReasonIds";
   @SerializedName(SERIALIZED_NAME_RESULT_REASON_IDS)
-  private Set<UUID> resultReasonIds = null;
+  private Set<UUID> resultReasonIds;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private Set<LinkPostModel> links = null;
+  private Set<LinkPostModel> links;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -74,7 +72,7 @@ public class TestRunTestResultsPartialBulkSetModel {
 
   public static final String SERIALIZED_NAME_ATTACHMENT_IDS = "attachmentIds";
   @SerializedName(SERIALIZED_NAME_ATTACHMENT_IDS)
-  private Set<UUID> attachmentIds = null;
+  private Set<UUID> attachmentIds;
 
   public TestRunTestResultsPartialBulkSetModel() {
   }
@@ -90,7 +88,6 @@ public class TestRunTestResultsPartialBulkSetModel {
    * @return selector
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestRunTestResultsSelectModel getSelector() {
     return selector;
@@ -109,9 +106,6 @@ public class TestRunTestResultsPartialBulkSetModel {
   }
 
   public TestRunTestResultsPartialBulkSetModel addResultReasonIdsItem(UUID resultReasonIdsItem) {
-    if (this.resultReasonIds == null) {
-      this.resultReasonIds = new LinkedHashSet<>();
-    }
     this.resultReasonIds.add(resultReasonIdsItem);
     return this;
   }
@@ -121,7 +115,6 @@ public class TestRunTestResultsPartialBulkSetModel {
    * @return resultReasonIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique IDs of result reasons to be assigned to test results")
 
   public Set<UUID> getResultReasonIds() {
     return resultReasonIds;
@@ -140,9 +133,6 @@ public class TestRunTestResultsPartialBulkSetModel {
   }
 
   public TestRunTestResultsPartialBulkSetModel addLinksItem(LinkPostModel linksItem) {
-    if (this.links == null) {
-      this.links = new LinkedHashSet<>();
-    }
     this.links.add(linksItem);
     return this;
   }
@@ -152,7 +142,6 @@ public class TestRunTestResultsPartialBulkSetModel {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of links to be assigned to test results")
 
   public Set<LinkPostModel> getLinks() {
     return links;
@@ -175,7 +164,6 @@ public class TestRunTestResultsPartialBulkSetModel {
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment to be added to test results")
 
   public String getComment() {
     return comment;
@@ -194,9 +182,6 @@ public class TestRunTestResultsPartialBulkSetModel {
   }
 
   public TestRunTestResultsPartialBulkSetModel addAttachmentIdsItem(UUID attachmentIdsItem) {
-    if (this.attachmentIds == null) {
-      this.attachmentIds = new LinkedHashSet<>();
-    }
     this.attachmentIds.add(attachmentIdsItem);
     return this;
   }
@@ -206,7 +191,6 @@ public class TestRunTestResultsPartialBulkSetModel {
    * @return attachmentIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique IDs of files to be attached to test results")
 
   public Set<UUID> getAttachmentIds() {
     return attachmentIds;

@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.DateTimeRangeSelectorModel;
 import io.test_gear.client.model.Int32RangeSelectorModel;
 import io.test_gear.client.model.WorkItemEntityTypes;
@@ -67,15 +65,15 @@ public class WorkItemSearchQueryModel {
 
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
-  private Set<UUID> ids = null;
+  private Set<UUID> ids;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds = null;
+  private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Set<String>> attributes = null;
+  private Map<String, Set<String>> attributes;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -83,31 +81,31 @@ public class WorkItemSearchQueryModel {
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds = null;
+  private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  private Set<UUID> sectionIds = null;
+  private Set<UUID> sectionIds;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds = null;
+  private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds = null;
+  private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
-  private Set<WorkItemStates> states = null;
+  private Set<WorkItemStates> states;
 
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
-  private Set<WorkItemPriorityModel> priorities = null;
+  private Set<WorkItemPriorityModel> priorities;
 
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  private Set<WorkItemEntityTypes> types = null;
+  private Set<WorkItemEntityTypes> types;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
@@ -127,11 +125,11 @@ public class WorkItemSearchQueryModel {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Set<String> tags = null;
+  private Set<String> tags;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_IDS = "autoTestIds";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_IDS)
-  private Set<UUID> autoTestIds = null;
+  private Set<UUID> autoTestIds;
 
   public WorkItemSearchQueryModel() {
   }
@@ -147,7 +145,6 @@ public class WorkItemSearchQueryModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of work item")
 
   public String getName() {
     return name;
@@ -166,9 +163,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addIdsItem(UUID idsItem) {
-    if (this.ids == null) {
-      this.ids = new LinkedHashSet<>();
-    }
     this.ids.add(idsItem);
     return this;
   }
@@ -178,7 +172,6 @@ public class WorkItemSearchQueryModel {
    * @return ids
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a work item unique IDs to search for")
 
   public Set<UUID> getIds() {
     return ids;
@@ -197,9 +190,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null) {
-      this.globalIds = new LinkedHashSet<>();
-    }
     this.globalIds.add(globalIdsItem);
     return this;
   }
@@ -209,7 +199,6 @@ public class WorkItemSearchQueryModel {
    * @return globalIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of global (integer) identifiers")
 
   public Set<Long> getGlobalIds() {
     return globalIds;
@@ -228,9 +217,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel putAttributesItem(String key, Set<String> attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -240,7 +226,6 @@ public class WorkItemSearchQueryModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Custom attributes of work item")
 
   public Map<String, Set<String>> getAttributes() {
     return attributes;
@@ -263,7 +248,6 @@ public class WorkItemSearchQueryModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Is result must consist of only actual/deleted work items")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -282,9 +266,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null) {
-      this.projectIds = new LinkedHashSet<>();
-    }
     this.projectIds.add(projectIdsItem);
     return this;
   }
@@ -294,7 +275,6 @@ public class WorkItemSearchQueryModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of project identifiers")
 
   public Set<UUID> getProjectIds() {
     return projectIds;
@@ -313,9 +293,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addSectionIdsItem(UUID sectionIdsItem) {
-    if (this.sectionIds == null) {
-      this.sectionIds = new LinkedHashSet<>();
-    }
     this.sectionIds.add(sectionIdsItem);
     return this;
   }
@@ -325,7 +302,6 @@ public class WorkItemSearchQueryModel {
    * @return sectionIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of section identifiers")
 
   public Set<UUID> getSectionIds() {
     return sectionIds;
@@ -344,9 +320,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
-    }
     this.createdByIds.add(createdByIdsItem);
     return this;
   }
@@ -356,7 +329,6 @@ public class WorkItemSearchQueryModel {
    * @return createdByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of users who created work item")
 
   public Set<UUID> getCreatedByIds() {
     return createdByIds;
@@ -375,9 +347,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addModifiedByIdsItem(UUID modifiedByIdsItem) {
-    if (this.modifiedByIds == null) {
-      this.modifiedByIds = new LinkedHashSet<>();
-    }
     this.modifiedByIds.add(modifiedByIdsItem);
     return this;
   }
@@ -387,7 +356,6 @@ public class WorkItemSearchQueryModel {
    * @return modifiedByIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of users who applied last modification to work item")
 
   public Set<UUID> getModifiedByIds() {
     return modifiedByIds;
@@ -406,9 +374,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addStatesItem(WorkItemStates statesItem) {
-    if (this.states == null) {
-      this.states = new LinkedHashSet<>();
-    }
     this.states.add(statesItem);
     return this;
   }
@@ -418,7 +383,6 @@ public class WorkItemSearchQueryModel {
    * @return states
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of states of work item")
 
   public Set<WorkItemStates> getStates() {
     return states;
@@ -437,9 +401,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addPrioritiesItem(WorkItemPriorityModel prioritiesItem) {
-    if (this.priorities == null) {
-      this.priorities = new LinkedHashSet<>();
-    }
     this.priorities.add(prioritiesItem);
     return this;
   }
@@ -449,7 +410,6 @@ public class WorkItemSearchQueryModel {
    * @return priorities
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of priorities of work item")
 
   public Set<WorkItemPriorityModel> getPriorities() {
     return priorities;
@@ -468,9 +428,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addTypesItem(WorkItemEntityTypes typesItem) {
-    if (this.types == null) {
-      this.types = new LinkedHashSet<>();
-    }
     this.types.add(typesItem);
     return this;
   }
@@ -480,7 +437,6 @@ public class WorkItemSearchQueryModel {
    * @return types
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of types of work item")
 
   public Set<WorkItemEntityTypes> getTypes() {
     return types;
@@ -503,7 +459,6 @@ public class WorkItemSearchQueryModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getCreatedDate() {
     return createdDate;
@@ -526,7 +481,6 @@ public class WorkItemSearchQueryModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public DateTimeRangeSelectorModel getModifiedDate() {
     return modifiedDate;
@@ -549,7 +503,6 @@ public class WorkItemSearchQueryModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Int32RangeSelectorModel getDuration() {
     return duration;
@@ -572,7 +525,6 @@ public class WorkItemSearchQueryModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Is result must consist of only manual/automated work items")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -591,9 +543,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new LinkedHashSet<>();
-    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -603,7 +552,6 @@ public class WorkItemSearchQueryModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of tags")
 
   public Set<String> getTags() {
     return tags;
@@ -622,9 +570,6 @@ public class WorkItemSearchQueryModel {
   }
 
   public WorkItemSearchQueryModel addAutoTestIdsItem(UUID autoTestIdsItem) {
-    if (this.autoTestIds == null) {
-      this.autoTestIds = new LinkedHashSet<>();
-    }
     this.autoTestIds.add(autoTestIdsItem);
     return this;
   }
@@ -634,7 +579,6 @@ public class WorkItemSearchQueryModel {
    * @return autoTestIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of identifiers of linked autotests")
 
   public Set<UUID> getAutoTestIds() {
     return autoTestIds;

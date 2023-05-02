@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -73,7 +71,6 @@ public class WorkItemIdentifierModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format")
 
   public UUID getId() {
     return id;
@@ -96,7 +93,6 @@ public class WorkItemIdentifierModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "")
 
   public Long getGlobalId() {
     return globalId;

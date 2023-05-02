@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -64,6 +62,10 @@ public class TestSuiteV2PutModel {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
+  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  private Boolean isDeleted;
+
   public TestSuiteV2PutModel() {
   }
 
@@ -78,7 +80,6 @@ public class TestSuiteV2PutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -101,7 +102,6 @@ public class TestSuiteV2PutModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getParentId() {
     return parentId;
@@ -124,7 +124,6 @@ public class TestSuiteV2PutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public String getName() {
     return name;
@@ -133,6 +132,28 @@ public class TestSuiteV2PutModel {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public TestSuiteV2PutModel isDeleted(Boolean isDeleted) {
+    
+    this.isDeleted = isDeleted;
+    return this;
+  }
+
+   /**
+   * Get isDeleted
+   * @return isDeleted
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getIsDeleted() {
+    return isDeleted;
+  }
+
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
   }
 
 
@@ -148,7 +169,8 @@ public class TestSuiteV2PutModel {
     TestSuiteV2PutModel testSuiteV2PutModel = (TestSuiteV2PutModel) o;
     return Objects.equals(this.id, testSuiteV2PutModel.id) &&
         Objects.equals(this.parentId, testSuiteV2PutModel.parentId) &&
-        Objects.equals(this.name, testSuiteV2PutModel.name);
+        Objects.equals(this.name, testSuiteV2PutModel.name) &&
+        Objects.equals(this.isDeleted, testSuiteV2PutModel.isDeleted);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -157,7 +179,7 @@ public class TestSuiteV2PutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, name);
+    return Objects.hash(id, parentId, name, isDeleted);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -174,6 +196,7 @@ public class TestSuiteV2PutModel {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -199,6 +222,7 @@ public class TestSuiteV2PutModel {
     openapiFields.add("id");
     openapiFields.add("parentId");
     openapiFields.add("name");
+    openapiFields.add("isDeleted");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
