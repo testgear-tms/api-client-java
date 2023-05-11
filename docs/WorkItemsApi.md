@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**apiV2WorkItemsIdAttachmentsPost**](WorkItemsApi.md#apiV2WorkItemsIdAttachmentsPost) | **POST** /api/v2/workItems/{id}/attachments | Upload and link attachment to WorkItem |
 | [**apiV2WorkItemsIdCheckListTransformToTestCasePost**](WorkItemsApi.md#apiV2WorkItemsIdCheckListTransformToTestCasePost) | **POST** /api/v2/workItems/{id}/checkList/transformTo/testCase | Transform CheckList to TestCase |
 | [**apiV2WorkItemsIdHistoryGet**](WorkItemsApi.md#apiV2WorkItemsIdHistoryGet) | **GET** /api/v2/workItems/{id}/history | Get change history of WorkItem |
 | [**apiV2WorkItemsIdLikeDelete**](WorkItemsApi.md#apiV2WorkItemsIdLikeDelete) | **DELETE** /api/v2/workItems/{id}/like | Delete like from WorkItem |
@@ -25,8 +26,86 @@ All URIs are relative to *http://localhost*
 | [**getWorkItemById**](WorkItemsApi.md#getWorkItemById) | **GET** /api/v2/workItems/{id} | Get Test Case, Checklist or Shared Step by Id or GlobalId |
 | [**getWorkItemChronology**](WorkItemsApi.md#getWorkItemChronology) | **GET** /api/v2/workItems/{id}/chronology | Get WorkItem chronology by Id or GlobalId |
 | [**getWorkItemVersions**](WorkItemsApi.md#getWorkItemVersions) | **GET** /api/v2/workItems/{id}/versions | Get WorkItem versions |
+| [**purgeWorkItem**](WorkItemsApi.md#purgeWorkItem) | **POST** /api/v2/workItems/{id}/purge | Permanently delete test case, checklist or shared steps from archive |
+| [**restoreWorkItem**](WorkItemsApi.md#restoreWorkItem) | **POST** /api/v2/workItems/{id}/restore | Restore test case, checklist or shared steps from archive |
 | [**updateWorkItem**](WorkItemsApi.md#updateWorkItem) | **PUT** /api/v2/workItems | Update Test Case, Checklist or Shared Step |
 
+
+<a name="apiV2WorkItemsIdAttachmentsPost"></a>
+# **apiV2WorkItemsIdAttachmentsPost**
+> UUID apiV2WorkItemsIdAttachmentsPost(id, _file)
+
+Upload and link attachment to WorkItem
+
+&lt;br&gt;Use case  &lt;br&gt;User sets workItemId  &lt;br&gt;User attaches a file  &lt;br&gt;System creates attachment and links it to the work item  &lt;br&gt;System returns attachment identifier
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.WorkItemsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Work item internal identifier (guid format)
+    File _file = new File("/path/to/file"); // File | Select file
+    try {
+      UUID result = apiInstance.apiV2WorkItemsIdAttachmentsPost(id, _file);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdAttachmentsPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Work item internal identifier (guid format) | |
+| **_file** | **File**| Select file | [optional] |
+
+### Return type
+
+[**UUID**](UUID.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
+| **403** | Update permission for test result required |  -  |
+| **400** | Bad Request |  -  |
+| **404** |  |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | Successful operation |  -  |
 
 <a name="apiV2WorkItemsIdCheckListTransformToTestCasePost"></a>
 # **apiV2WorkItemsIdCheckListTransformToTestCasePost**
@@ -95,12 +174,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Update permission for test library required |  -  |
-| **200** | Successful operation |  -  |
 | **404** | Can&#39;t find CheckList with id |  -  |
+| **403** | Update permission for test library required |  -  |
+| **401** | Unauthorized |  -  |
 | **422** | Client Error |  -  |
+| **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="apiV2WorkItemsIdHistoryGet"></a>
 # **apiV2WorkItemsIdHistoryGet**
@@ -179,8 +258,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
+| **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
 | **404** | Can&#39;t find WorkItem with id |  -  |
@@ -251,8 +330,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
+| **204** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
 
 <a name="apiV2WorkItemsIdLikePost"></a>
@@ -638,8 +717,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **200** | Successful operation |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library required |  -  |
 | **404** | Can&#39;t find WorkItem with id |  -  |
@@ -1027,8 +1106,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
+| **200** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Can&#39;t find SharedStep with id |  -  |
 
@@ -1171,11 +1250,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Update permission for test library required |  -  |
-| **204** | No Content |  -  |
-| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Can&#39;t find a WorkItem with workItemId |  -  |
+| **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Update permission for test library required |  -  |
 | **200** | Successful operation |  -  |
 
 <a name="deleteWorkItem"></a>
@@ -1244,11 +1323,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | Delete permission for test library required |  -  |
+| **404** | Can&#39;t find a WorkItem with id |  -  |
 | **204** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Delete permission for test library required |  -  |
-| **404** | Can&#39;t find a WorkItem with id |  -  |
 | **422** | Could not delete Shared Step that has references |  -  |
 
 <a name="getAutoTestsForWorkItem"></a>
@@ -1318,11 +1397,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | Read permission for test library required |  -  |
+| **404** | Can&#39;t find WorkItem with workItemId |  -  |
 | **200** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Read permission for test library required |  -  |
-| **404** | Can&#39;t find WorkItem with workItemId |  -  |
 
 <a name="getIterations"></a>
 # **getIterations**
@@ -1393,9 +1472,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
 | **404** | Can&#39;t find workItem with id |  -  |
 | **400** | Bad Request |  -  |
+| **200** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library required |  -  |
 
@@ -1471,10 +1550,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **404** | Can&#39;t find workItem with id |  -  |
+| **403** | Read permission for test library required |  -  |
 | **200** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Read permission for test library required |  -  |
 
 <a name="getWorkItemChronology"></a>
 # **getWorkItemChronology**
@@ -1543,11 +1622,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | Read permission for test library required |  -  |
 | **404** | Can&#39;t find WorkItem with workItemId |  -  |
 | **200** | Successful operation |  -  |
 | **400** | Not valid workItemId |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Read permission for test library required |  -  |
 
 <a name="getWorkItemVersions"></a>
 # **getWorkItemVersions**
@@ -1620,11 +1699,145 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | Read permission for test library required |  -  |
+| **404** | Can&#39;t find WorkItem with workItemId |  -  |
 | **200** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Read permission for test library required |  -  |
-| **404** | Can&#39;t find WorkItem with workItemId |  -  |
+
+<a name="purgeWorkItem"></a>
+# **purgeWorkItem**
+> purgeWorkItem(id)
+
+Permanently delete test case, checklist or shared steps from archive
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.WorkItemsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+    String id = "id_example"; // String | Unique or global ID of the work item
+    try {
+      apiInstance.purgeWorkItem(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WorkItemsApi#purgeWorkItem");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Unique or global ID of the work item | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Delete permission for test library is required |  -  |
+
+<a name="restoreWorkItem"></a>
+# **restoreWorkItem**
+> restoreWorkItem(id)
+
+Restore test case, checklist or shared steps from archive
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.WorkItemsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+    String id = "id_example"; // String | Unique or global ID of the work item
+    try {
+      apiInstance.restoreWorkItem(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WorkItemsApi#restoreWorkItem");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| Unique or global ID of the work item | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Update permission for test library is required |  -  |
 
 <a name="updateWorkItem"></a>
 # **updateWorkItem**

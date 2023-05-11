@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.SharedStepChangeViewModel;
 import java.io.IOException;
 import java.util.UUID;
@@ -95,7 +93,6 @@ public class WorkItemStepChangeViewModel {
    * @return action
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getAction() {
     return action;
@@ -118,7 +115,6 @@ public class WorkItemStepChangeViewModel {
    * @return expected
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getExpected() {
     return expected;
@@ -141,7 +137,6 @@ public class WorkItemStepChangeViewModel {
    * @return comments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getComments() {
     return comments;
@@ -164,7 +159,6 @@ public class WorkItemStepChangeViewModel {
    * @return testData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getTestData() {
     return testData;
@@ -187,7 +181,6 @@ public class WorkItemStepChangeViewModel {
    * @return index
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getIndex() {
     return index;
@@ -210,7 +203,6 @@ public class WorkItemStepChangeViewModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getWorkItemId() {
     return workItemId;
@@ -233,7 +225,6 @@ public class WorkItemStepChangeViewModel {
    * @return workItem
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public SharedStepChangeViewModel getWorkItem() {
     return workItem;

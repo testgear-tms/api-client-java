@@ -20,13 +20,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -60,7 +57,7 @@ public class ConfigurationByParametersModel {
 
   public static final String SERIALIZED_NAME_PARAMETER_IDS = "parameterIds";
   @SerializedName(SERIALIZED_NAME_PARAMETER_IDS)
-  private Set<UUID> parameterIds = null;
+  private Set<UUID> parameterIds = new LinkedHashSet<>();
 
   public ConfigurationByParametersModel() {
   }
@@ -76,7 +73,6 @@ public class ConfigurationByParametersModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "This property is used to link configuration with project")
 
   public UUID getProjectId() {
     return projectId;
@@ -95,9 +91,6 @@ public class ConfigurationByParametersModel {
   }
 
   public ConfigurationByParametersModel addParameterIdsItem(UUID parameterIdsItem) {
-    if (this.parameterIds == null) {
-      this.parameterIds = new LinkedHashSet<>();
-    }
     this.parameterIds.add(parameterIdsItem);
     return this;
   }
@@ -106,8 +99,7 @@ public class ConfigurationByParametersModel {
    * Get parameterIds
    * @return parameterIds
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public Set<UUID> getParameterIds() {
     return parameterIds;
@@ -133,20 +125,9 @@ public class ConfigurationByParametersModel {
         Objects.equals(this.parameterIds, configurationByParametersModel.parameterIds);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(projectId, parameterIds);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -182,6 +163,7 @@ public class ConfigurationByParametersModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("parameterIds");
   }
 
  /**
@@ -204,11 +186,20 @@ public class ConfigurationByParametersModel {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationByParametersModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ConfigurationByParametersModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
       if ((jsonObj.get("projectId") != null && !jsonObj.get("projectId").isJsonNull()) && !jsonObj.get("projectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("parameterIds") != null && !jsonObj.get("parameterIds").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("parameterIds") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("parameterIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `parameterIds` to be an array in the JSON string but got `%s`", jsonObj.get("parameterIds").toString()));
       }
   }

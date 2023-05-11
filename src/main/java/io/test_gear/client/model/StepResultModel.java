@@ -20,9 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.SharedStepResultModel;
+import io.test_gear.client.model.StepCommentModel;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +68,11 @@ public class StepResultModel {
 
   public static final String SERIALIZED_NAME_SHARED_STEP_RESULTS = "sharedStepResults";
   @SerializedName(SERIALIZED_NAME_SHARED_STEP_RESULTS)
-  private List<SharedStepResultModel> sharedStepResults = null;
+  private List<SharedStepResultModel> sharedStepResults;
+
+  public static final String SERIALIZED_NAME_COMMENT = "comment";
+  @SerializedName(SERIALIZED_NAME_COMMENT)
+  private StepCommentModel comment;
 
   public StepResultModel() {
   }
@@ -85,7 +88,6 @@ public class StepResultModel {
    * @return stepId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getStepId() {
     return stepId;
@@ -108,7 +110,6 @@ public class StepResultModel {
    * @return outcome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getOutcome() {
     return outcome;
@@ -131,7 +132,6 @@ public class StepResultModel {
    * @return sharedStepVersionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getSharedStepVersionId() {
     return sharedStepVersionId;
@@ -150,9 +150,6 @@ public class StepResultModel {
   }
 
   public StepResultModel addSharedStepResultsItem(SharedStepResultModel sharedStepResultsItem) {
-    if (this.sharedStepResults == null) {
-      this.sharedStepResults = new ArrayList<>();
-    }
     this.sharedStepResults.add(sharedStepResultsItem);
     return this;
   }
@@ -162,7 +159,6 @@ public class StepResultModel {
    * @return sharedStepResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<SharedStepResultModel> getSharedStepResults() {
     return sharedStepResults;
@@ -171,6 +167,28 @@ public class StepResultModel {
 
   public void setSharedStepResults(List<SharedStepResultModel> sharedStepResults) {
     this.sharedStepResults = sharedStepResults;
+  }
+
+
+  public StepResultModel comment(StepCommentModel comment) {
+    
+    this.comment = comment;
+    return this;
+  }
+
+   /**
+   * Get comment
+   * @return comment
+  **/
+  @javax.annotation.Nullable
+
+  public StepCommentModel getComment() {
+    return comment;
+  }
+
+
+  public void setComment(StepCommentModel comment) {
+    this.comment = comment;
   }
 
 
@@ -187,7 +205,8 @@ public class StepResultModel {
     return Objects.equals(this.stepId, stepResultModel.stepId) &&
         Objects.equals(this.outcome, stepResultModel.outcome) &&
         Objects.equals(this.sharedStepVersionId, stepResultModel.sharedStepVersionId) &&
-        Objects.equals(this.sharedStepResults, stepResultModel.sharedStepResults);
+        Objects.equals(this.sharedStepResults, stepResultModel.sharedStepResults) &&
+        Objects.equals(this.comment, stepResultModel.comment);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -196,7 +215,7 @@ public class StepResultModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(stepId, outcome, sharedStepVersionId, sharedStepResults);
+    return Objects.hash(stepId, outcome, sharedStepVersionId, sharedStepResults, comment);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -214,6 +233,7 @@ public class StepResultModel {
     sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
     sb.append("    sharedStepVersionId: ").append(toIndentedString(sharedStepVersionId)).append("\n");
     sb.append("    sharedStepResults: ").append(toIndentedString(sharedStepResults)).append("\n");
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -240,6 +260,7 @@ public class StepResultModel {
     openapiFields.add("outcome");
     openapiFields.add("sharedStepVersionId");
     openapiFields.add("sharedStepResults");
+    openapiFields.add("comment");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -287,6 +308,10 @@ public class StepResultModel {
             SharedStepResultModel.validateJsonObject(jsonArraysharedStepResults.get(i).getAsJsonObject());
           };
         }
+      }
+      // validate the optional field `comment`
+      if (jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) {
+        StepCommentModel.validateJsonObject(jsonObj.getAsJsonObject("comment"));
       }
   }
 

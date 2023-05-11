@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -73,7 +71,6 @@ public class TestRunGroupByStatusModel {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getStatus() {
     return status;
@@ -96,7 +93,6 @@ public class TestRunGroupByStatusModel {
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getValue() {
     return value;

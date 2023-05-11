@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.AttachmentModel;
 import io.test_gear.client.model.LinkModel;
 import java.io.IOException;
@@ -74,7 +72,7 @@ public class LastTestResultModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkModel> links = null;
+  private List<LinkModel> links;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
@@ -82,7 +80,7 @@ public class LastTestResultModel {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentModel> attachments = null;
+  private List<AttachmentModel> attachments;
 
   public LastTestResultModel() {
   }
@@ -98,7 +96,6 @@ public class LastTestResultModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -121,7 +118,6 @@ public class LastTestResultModel {
    * @return testRunId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTestRunId() {
     return testRunId;
@@ -144,7 +140,6 @@ public class LastTestResultModel {
    * @return autoTestId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getAutoTestId() {
     return autoTestId;
@@ -167,7 +162,6 @@ public class LastTestResultModel {
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getComment() {
     return comment;
@@ -186,9 +180,6 @@ public class LastTestResultModel {
   }
 
   public LastTestResultModel addLinksItem(LinkModel linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<>();
-    }
     this.links.add(linksItem);
     return this;
   }
@@ -198,7 +189,6 @@ public class LastTestResultModel {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<LinkModel> getLinks() {
     return links;
@@ -221,7 +211,6 @@ public class LastTestResultModel {
    * @return workItemVersionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
@@ -240,9 +229,6 @@ public class LastTestResultModel {
   }
 
   public LastTestResultModel addAttachmentsItem(AttachmentModel attachmentsItem) {
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
-    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -252,7 +238,6 @@ public class LastTestResultModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AttachmentModel> getAttachments() {
     return attachments;

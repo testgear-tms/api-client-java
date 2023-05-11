@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.AttachmentChangeViewModel;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,11 +54,11 @@ import io.test_gear.client.invoker.JSON;
 public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private List<AttachmentChangeViewModel> oldValue = null;
+  private List<AttachmentChangeViewModel> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private List<AttachmentChangeViewModel> newValue = null;
+  private List<AttachmentChangeViewModel> newValue;
 
   public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel() {
   }
@@ -72,9 +70,6 @@ public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
   }
 
   public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel addOldValueItem(AttachmentChangeViewModel oldValueItem) {
-    if (this.oldValue == null) {
-      this.oldValue = new ArrayList<>();
-    }
     this.oldValue.add(oldValueItem);
     return this;
   }
@@ -84,7 +79,6 @@ public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
    * @return oldValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AttachmentChangeViewModel> getOldValue() {
     return oldValue;
@@ -103,9 +97,6 @@ public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
   }
 
   public AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel addNewValueItem(AttachmentChangeViewModel newValueItem) {
-    if (this.newValue == null) {
-      this.newValue = new ArrayList<>();
-    }
     this.newValue.add(newValueItem);
     return this;
   }
@@ -115,7 +106,6 @@ public class AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
    * @return newValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AttachmentChangeViewModel> getNewValue() {
     return newValue;

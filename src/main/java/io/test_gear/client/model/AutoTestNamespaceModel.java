@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -59,7 +57,7 @@ public class AutoTestNamespaceModel {
 
   public static final String SERIALIZED_NAME_CLASSES = "classes";
   @SerializedName(SERIALIZED_NAME_CLASSES)
-  private Set<String> classes = null;
+  private Set<String> classes;
 
   public AutoTestNamespaceModel() {
   }
@@ -75,7 +73,6 @@ public class AutoTestNamespaceModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "WebApi.Core.Tests", value = "")
 
   public String getName() {
     return name;
@@ -94,9 +91,6 @@ public class AutoTestNamespaceModel {
   }
 
   public AutoTestNamespaceModel addClassesItem(String classesItem) {
-    if (this.classes == null) {
-      this.classes = new LinkedHashSet<>();
-    }
     this.classes.add(classesItem);
     return this;
   }
@@ -106,7 +100,6 @@ public class AutoTestNamespaceModel {
    * @return classes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<String> getClasses() {
     return classes;

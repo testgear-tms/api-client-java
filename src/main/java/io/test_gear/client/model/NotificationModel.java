@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.NotificationTypeModel;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -124,7 +122,6 @@ public class NotificationModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -147,7 +144,6 @@ public class NotificationModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -170,7 +166,6 @@ public class NotificationModel {
    * @return isRead
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsRead() {
     return isRead;
@@ -193,7 +188,6 @@ public class NotificationModel {
    * @return entityId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getEntityId() {
     return entityId;
@@ -215,8 +209,7 @@ public class NotificationModel {
    * Get notificationType
    * @return notificationType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public NotificationTypeModel getNotificationType() {
     return notificationType;
@@ -239,7 +232,6 @@ public class NotificationModel {
    * @return projectGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getProjectGlobalId() {
     return projectGlobalId;
@@ -262,7 +254,6 @@ public class NotificationModel {
    * @return projectName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getProjectName() {
     return projectName;
@@ -285,7 +276,6 @@ public class NotificationModel {
    * @return testPlanGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
@@ -308,7 +298,6 @@ public class NotificationModel {
    * @return testPlanName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getTestPlanName() {
     return testPlanName;
@@ -331,7 +320,6 @@ public class NotificationModel {
    * @return workitemGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getWorkitemGlobalId() {
     return workitemGlobalId;
@@ -354,7 +342,6 @@ public class NotificationModel {
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getComment() {
     return comment;
@@ -377,7 +364,6 @@ public class NotificationModel {
    * @return workItemName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getWorkItemName() {
     return workItemName;
@@ -400,7 +386,6 @@ public class NotificationModel {
    * @return attributeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getAttributeName() {
     return attributeName;
@@ -423,7 +408,6 @@ public class NotificationModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -534,6 +518,7 @@ public class NotificationModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("notificationType");
   }
 
  /**
@@ -554,6 +539,13 @@ public class NotificationModel {
       for (Entry<String, JsonElement> entry : entries) {
         if (!NotificationModel.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NotificationModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : NotificationModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {

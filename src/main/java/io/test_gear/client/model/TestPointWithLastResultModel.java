@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.IterationModel;
 import io.test_gear.client.model.LastTestResultModel;
 import io.test_gear.client.model.WorkItemPriorityModel;
@@ -130,11 +128,11 @@ public class TestPointWithLastResultModel {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Object> attributes = null;
+  private Map<String, Object> attributes;
 
   public static final String SERIALIZED_NAME_TAG_NAMES = "tagNames";
   @SerializedName(SERIALIZED_NAME_TAG_NAMES)
-  private List<String> tagNames = null;
+  private List<String> tagNames;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
@@ -146,7 +144,7 @@ public class TestPointWithLastResultModel {
 
   public static final String SERIALIZED_NAME_TEST_SUITE_NAME_BREAD_CRUMBS = "testSuiteNameBreadCrumbs";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_NAME_BREAD_CRUMBS)
-  private List<String> testSuiteNameBreadCrumbs = null;
+  private List<String> testSuiteNameBreadCrumbs;
 
   public static final String SERIALIZED_NAME_GROUP_COUNT = "groupCount";
   @SerializedName(SERIALIZED_NAME_GROUP_COUNT)
@@ -170,7 +168,6 @@ public class TestPointWithLastResultModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -193,7 +190,6 @@ public class TestPointWithLastResultModel {
    * @return workItemName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getWorkItemName() {
     return workItemName;
@@ -216,7 +212,6 @@ public class TestPointWithLastResultModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -239,7 +234,6 @@ public class TestPointWithLastResultModel {
    * @return testerId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTesterId() {
     return testerId;
@@ -262,7 +256,6 @@ public class TestPointWithLastResultModel {
    * @return workItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getWorkItemId() {
     return workItemId;
@@ -285,7 +278,6 @@ public class TestPointWithLastResultModel {
    * @return configurationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getConfigurationId() {
     return configurationId;
@@ -308,7 +300,6 @@ public class TestPointWithLastResultModel {
    * @return testSuiteId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTestSuiteId() {
     return testSuiteId;
@@ -331,7 +322,6 @@ public class TestPointWithLastResultModel {
    * @return lastTestResult
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public LastTestResultModel getLastTestResult() {
     return lastTestResult;
@@ -354,7 +344,6 @@ public class TestPointWithLastResultModel {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getStatus() {
     return status;
@@ -377,7 +366,6 @@ public class TestPointWithLastResultModel {
    * @return workItemGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getWorkItemGlobalId() {
     return workItemGlobalId;
@@ -400,7 +388,6 @@ public class TestPointWithLastResultModel {
    * @return workItemEntityTypeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getWorkItemEntityTypeName() {
     return workItemEntityTypeName;
@@ -423,7 +410,6 @@ public class TestPointWithLastResultModel {
    * @return sectionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getSectionId() {
     return sectionId;
@@ -446,7 +432,6 @@ public class TestPointWithLastResultModel {
    * @return sectionName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getSectionName() {
     return sectionName;
@@ -469,7 +454,6 @@ public class TestPointWithLastResultModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -492,7 +476,6 @@ public class TestPointWithLastResultModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -515,7 +498,6 @@ public class TestPointWithLastResultModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -538,7 +520,6 @@ public class TestPointWithLastResultModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -557,9 +538,6 @@ public class TestPointWithLastResultModel {
   }
 
   public TestPointWithLastResultModel putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -569,7 +547,6 @@ public class TestPointWithLastResultModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, Object> getAttributes() {
     return attributes;
@@ -588,9 +565,6 @@ public class TestPointWithLastResultModel {
   }
 
   public TestPointWithLastResultModel addTagNamesItem(String tagNamesItem) {
-    if (this.tagNames == null) {
-      this.tagNames = new ArrayList<>();
-    }
     this.tagNames.add(tagNamesItem);
     return this;
   }
@@ -600,7 +574,6 @@ public class TestPointWithLastResultModel {
    * @return tagNames
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getTagNames() {
     return tagNames;
@@ -623,7 +596,6 @@ public class TestPointWithLastResultModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getDuration() {
     return duration;
@@ -645,8 +617,7 @@ public class TestPointWithLastResultModel {
    * Get priority
    * @return priority
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public WorkItemPriorityModel getPriority() {
     return priority;
@@ -665,9 +636,6 @@ public class TestPointWithLastResultModel {
   }
 
   public TestPointWithLastResultModel addTestSuiteNameBreadCrumbsItem(String testSuiteNameBreadCrumbsItem) {
-    if (this.testSuiteNameBreadCrumbs == null) {
-      this.testSuiteNameBreadCrumbs = new ArrayList<>();
-    }
     this.testSuiteNameBreadCrumbs.add(testSuiteNameBreadCrumbsItem);
     return this;
   }
@@ -677,7 +645,6 @@ public class TestPointWithLastResultModel {
    * @return testSuiteNameBreadCrumbs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getTestSuiteNameBreadCrumbs() {
     return testSuiteNameBreadCrumbs;
@@ -700,7 +667,6 @@ public class TestPointWithLastResultModel {
    * @return groupCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getGroupCount() {
     return groupCount;
@@ -723,7 +689,6 @@ public class TestPointWithLastResultModel {
    * @return iteration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public IterationModel getIteration() {
     return iteration;
@@ -864,6 +829,7 @@ public class TestPointWithLastResultModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("priority");
   }
 
  /**
@@ -884,6 +850,13 @@ public class TestPointWithLastResultModel {
       for (Entry<String, JsonElement> entry : entries) {
         if (!TestPointWithLastResultModel.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointWithLastResultModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TestPointWithLastResultModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {

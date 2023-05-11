@@ -143,8 +143,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
 | **403** | Read permission for test points is required |  -  |
+| **200** | Success |  -  |
 
 <a name="apiV2TestPointsSearchIdPost"></a>
 # **apiV2TestPointsSearchIdPost**
@@ -221,8 +221,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **403** | Read permission for all requested test plans is required |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 <a name="apiV2TestPointsSearchPost"></a>
 # **apiV2TestPointsSearchPost**

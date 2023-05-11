@@ -227,8 +227,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Admin system role is required |  -  |
 
 <a name="apiV2CustomAttributesTemplatesIdGet"></a>
@@ -298,9 +298,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
 | **404** | Can&#39;t find a CustomAttributeTemplate with identifier |  -  |
+| **400** | Bad Request |  -  |
+| **200** | Success |  -  |
 
 <a name="apiV2CustomAttributesTemplatesNameGet"></a>
 # **apiV2CustomAttributesTemplatesNameGet**
@@ -438,9 +438,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Admin system role is required |  -  |
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Admin system role is required |  -  |
 
 <a name="apiV2CustomAttributesTemplatesPut"></a>
 # **apiV2CustomAttributesTemplatesPut**
@@ -506,8 +506,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
 | **403** | System administrator role is required |  -  |
+| **200** | Success |  -  |
 
 <a name="apiV2CustomAttributesTemplatesSearchPost"></a>
 # **apiV2CustomAttributesTemplatesSearchPost**
@@ -586,6 +586,6 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 

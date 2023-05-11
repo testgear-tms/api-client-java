@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.TagShortModel;
 import io.test_gear.client.model.TestPlanStatusModel;
 import io.test_gear.client.model.TestPointAnalyticResult;
@@ -114,7 +112,7 @@ public class TestPlanWithAnalyticModel {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagShortModel> tags = null;
+  private List<TagShortModel> tags;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -150,7 +148,7 @@ public class TestPlanWithAnalyticModel {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Object> attributes = null;
+  private Map<String, Object> attributes;
 
   public TestPlanWithAnalyticModel() {
   }
@@ -166,7 +164,6 @@ public class TestPlanWithAnalyticModel {
    * @return analytic
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestPointAnalyticResult getAnalytic() {
     return analytic;
@@ -188,8 +185,7 @@ public class TestPlanWithAnalyticModel {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public TestPlanStatusModel getStatus() {
     return status;
@@ -212,7 +208,6 @@ public class TestPlanWithAnalyticModel {
    * @return startedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "Set when test plan is starter (status changed to: In Progress)")
 
   public OffsetDateTime getStartedOn() {
     return startedOn;
@@ -235,7 +230,6 @@ public class TestPlanWithAnalyticModel {
    * @return completedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "set when test plan status is completed (status changed to: Completed)")
 
   public OffsetDateTime getCompletedOn() {
     return completedOn;
@@ -258,7 +252,6 @@ public class TestPlanWithAnalyticModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -281,7 +274,6 @@ public class TestPlanWithAnalyticModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -304,7 +296,6 @@ public class TestPlanWithAnalyticModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -327,7 +318,6 @@ public class TestPlanWithAnalyticModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -350,7 +340,6 @@ public class TestPlanWithAnalyticModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100000", value = "Used for search Test plan")
 
   public Long getGlobalId() {
     return globalId;
@@ -373,7 +362,6 @@ public class TestPlanWithAnalyticModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -396,7 +384,6 @@ public class TestPlanWithAnalyticModel {
    * @return lockedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getLockedDate() {
     return lockedDate;
@@ -419,7 +406,6 @@ public class TestPlanWithAnalyticModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -442,7 +428,6 @@ public class TestPlanWithAnalyticModel {
    * @return lockedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getLockedById() {
     return lockedById;
@@ -461,9 +446,6 @@ public class TestPlanWithAnalyticModel {
   }
 
   public TestPlanWithAnalyticModel addTagsItem(TagShortModel tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -473,7 +455,6 @@ public class TestPlanWithAnalyticModel {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<TagShortModel> getTags() {
     return tags;
@@ -496,7 +477,6 @@ public class TestPlanWithAnalyticModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Base test plan", required = true, value = "")
 
   public String getName() {
     return name;
@@ -519,7 +499,6 @@ public class TestPlanWithAnalyticModel {
    * @return startDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "Used for analytics")
 
   public OffsetDateTime getStartDate() {
     return startDate;
@@ -542,7 +521,6 @@ public class TestPlanWithAnalyticModel {
    * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "Used for analytics")
 
   public OffsetDateTime getEndDate() {
     return endDate;
@@ -565,7 +543,6 @@ public class TestPlanWithAnalyticModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a base test plan", value = "")
 
   public String getDescription() {
     return description;
@@ -588,7 +565,6 @@ public class TestPlanWithAnalyticModel {
    * @return build
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "v.3.0.0-b94f3055", value = "")
 
   public String getBuild() {
     return build;
@@ -611,7 +587,6 @@ public class TestPlanWithAnalyticModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", required = true, value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -634,7 +609,6 @@ public class TestPlanWithAnalyticModel {
    * @return productName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Billing service", value = "")
 
   public String getProductName() {
     return productName;
@@ -657,7 +631,6 @@ public class TestPlanWithAnalyticModel {
    * @return hasAutomaticDurationTimer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getHasAutomaticDurationTimer() {
     return hasAutomaticDurationTimer;
@@ -676,9 +649,6 @@ public class TestPlanWithAnalyticModel {
   }
 
   public TestPlanWithAnalyticModel putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
     this.attributes.put(key, attributesItem);
     return this;
   }
@@ -688,7 +658,6 @@ public class TestPlanWithAnalyticModel {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, Object> getAttributes() {
     return attributes;
@@ -826,6 +795,7 @@ public class TestPlanWithAnalyticModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("status");
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("projectId");

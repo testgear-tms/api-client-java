@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.FailureCategoryModel;
 import io.test_gear.client.model.TestResultOutcome;
 import java.io.IOException;
@@ -58,19 +56,19 @@ import io.test_gear.client.invoker.JSON;
 public class TestResultsFilterModel {
   public static final String SERIALIZED_NAME_TEST_RUN_IDS = "testRunIds";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_IDS)
-  private Set<UUID> testRunIds = null;
+  private Set<UUID> testRunIds;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  private Set<UUID> configurationIds = null;
+  private Set<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
   @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  private Set<TestResultOutcome> outcomes = null;
+  private Set<TestResultOutcome> outcomes;
 
   public static final String SERIALIZED_NAME_FAILURE_CATEGORIES = "failureCategories";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORIES)
-  private Set<FailureCategoryModel> failureCategories = null;
+  private Set<FailureCategoryModel> failureCategories;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
@@ -90,9 +88,6 @@ public class TestResultsFilterModel {
   }
 
   public TestResultsFilterModel addTestRunIdsItem(UUID testRunIdsItem) {
-    if (this.testRunIds == null) {
-      this.testRunIds = new LinkedHashSet<>();
-    }
     this.testRunIds.add(testRunIdsItem);
     return this;
   }
@@ -102,7 +97,6 @@ public class TestResultsFilterModel {
    * @return testRunIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result test run IDs to search for")
 
   public Set<UUID> getTestRunIds() {
     return testRunIds;
@@ -121,9 +115,6 @@ public class TestResultsFilterModel {
   }
 
   public TestResultsFilterModel addConfigurationIdsItem(UUID configurationIdsItem) {
-    if (this.configurationIds == null) {
-      this.configurationIds = new LinkedHashSet<>();
-    }
     this.configurationIds.add(configurationIdsItem);
     return this;
   }
@@ -133,7 +124,6 @@ public class TestResultsFilterModel {
    * @return configurationIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result configuration IDs to search for")
 
   public Set<UUID> getConfigurationIds() {
     return configurationIds;
@@ -152,9 +142,6 @@ public class TestResultsFilterModel {
   }
 
   public TestResultsFilterModel addOutcomesItem(TestResultOutcome outcomesItem) {
-    if (this.outcomes == null) {
-      this.outcomes = new LinkedHashSet<>();
-    }
     this.outcomes.add(outcomesItem);
     return this;
   }
@@ -164,7 +151,6 @@ public class TestResultsFilterModel {
    * @return outcomes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result outcomes to search for")
 
   public Set<TestResultOutcome> getOutcomes() {
     return outcomes;
@@ -183,9 +169,6 @@ public class TestResultsFilterModel {
   }
 
   public TestResultsFilterModel addFailureCategoriesItem(FailureCategoryModel failureCategoriesItem) {
-    if (this.failureCategories == null) {
-      this.failureCategories = new LinkedHashSet<>();
-    }
     this.failureCategories.add(failureCategoriesItem);
     return this;
   }
@@ -195,7 +178,6 @@ public class TestResultsFilterModel {
    * @return failureCategories
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result failure categories to search for")
 
   public Set<FailureCategoryModel> getFailureCategories() {
     return failureCategories;
@@ -218,7 +200,6 @@ public class TestResultsFilterModel {
    * @return namespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result namespace to search for")
 
   public String getNamespace() {
     return namespace;
@@ -241,7 +222,6 @@ public class TestResultsFilterModel {
    * @return className
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a test result class name to search for")
 
   public String getClassName() {
     return className;

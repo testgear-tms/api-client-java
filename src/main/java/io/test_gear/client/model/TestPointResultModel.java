@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.AttachmentModel;
 import io.test_gear.client.model.TestResultShortModel;
 import java.io.IOException;
@@ -78,11 +76,11 @@ public class TestPointResultModel {
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  private List<TestResultShortModel> testResults = null;
+  private List<TestResultShortModel> testResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentModel> attachments = null;
+  private List<AttachmentModel> attachments;
 
   public TestPointResultModel() {
   }
@@ -98,7 +96,6 @@ public class TestPointResultModel {
    * @return testPointId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTestPointId() {
     return testPointId;
@@ -121,7 +118,6 @@ public class TestPointResultModel {
    * @return aggregatedOutcome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getAggregatedOutcome() {
     return aggregatedOutcome;
@@ -144,7 +140,6 @@ public class TestPointResultModel {
    * @return workItemGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getWorkItemGlobalId() {
     return workItemGlobalId;
@@ -167,7 +162,6 @@ public class TestPointResultModel {
    * @return workItemName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getWorkItemName() {
     return workItemName;
@@ -190,7 +184,6 @@ public class TestPointResultModel {
    * @return configurationName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getConfigurationName() {
     return configurationName;
@@ -209,9 +202,6 @@ public class TestPointResultModel {
   }
 
   public TestPointResultModel addTestResultsItem(TestResultShortModel testResultsItem) {
-    if (this.testResults == null) {
-      this.testResults = new ArrayList<>();
-    }
     this.testResults.add(testResultsItem);
     return this;
   }
@@ -221,7 +211,6 @@ public class TestPointResultModel {
    * @return testResults
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<TestResultShortModel> getTestResults() {
     return testResults;
@@ -240,9 +229,6 @@ public class TestPointResultModel {
   }
 
   public TestPointResultModel addAttachmentsItem(AttachmentModel attachmentsItem) {
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
-    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -252,7 +238,6 @@ public class TestPointResultModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AttachmentModel> getAttachments() {
     return attachments;

@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.StepModel;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -58,11 +56,11 @@ import io.test_gear.client.invoker.JSON;
 public class SectionWithStepsModel {
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  private List<StepModel> preconditionSteps = null;
+  private List<StepModel> preconditionSteps;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  private List<StepModel> postconditionSteps = null;
+  private List<StepModel> postconditionSteps;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -110,9 +108,6 @@ public class SectionWithStepsModel {
   }
 
   public SectionWithStepsModel addPreconditionStepsItem(StepModel preconditionStepsItem) {
-    if (this.preconditionSteps == null) {
-      this.preconditionSteps = new ArrayList<>();
-    }
     this.preconditionSteps.add(preconditionStepsItem);
     return this;
   }
@@ -122,7 +117,6 @@ public class SectionWithStepsModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<StepModel> getPreconditionSteps() {
     return preconditionSteps;
@@ -141,9 +135,6 @@ public class SectionWithStepsModel {
   }
 
   public SectionWithStepsModel addPostconditionStepsItem(StepModel postconditionStepsItem) {
-    if (this.postconditionSteps == null) {
-      this.postconditionSteps = new ArrayList<>();
-    }
     this.postconditionSteps.add(postconditionStepsItem);
     return this;
   }
@@ -153,7 +144,6 @@ public class SectionWithStepsModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<StepModel> getPostconditionSteps() {
     return postconditionSteps;
@@ -176,7 +166,6 @@ public class SectionWithStepsModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -199,7 +188,6 @@ public class SectionWithStepsModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getParentId() {
     return parentId;
@@ -222,7 +210,6 @@ public class SectionWithStepsModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -245,7 +232,6 @@ public class SectionWithStepsModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getId() {
     return id;
@@ -268,7 +254,6 @@ public class SectionWithStepsModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -291,7 +276,6 @@ public class SectionWithStepsModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -314,7 +298,6 @@ public class SectionWithStepsModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -337,7 +320,6 @@ public class SectionWithStepsModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -360,7 +342,6 @@ public class SectionWithStepsModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Root section", required = true, value = "")
 
   public String getName() {
     return name;

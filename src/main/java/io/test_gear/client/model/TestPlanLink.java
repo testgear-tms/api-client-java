@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.ExternalLinkModel;
 import io.test_gear.client.model.LinkModel;
 import java.io.IOException;
@@ -96,7 +94,6 @@ public class TestPlanLink {
    * @return bugLink
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public LinkModel getBugLink() {
     return bugLink;
@@ -119,7 +116,6 @@ public class TestPlanLink {
    * @return workItemGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getWorkItemGlobalId() {
     return workItemGlobalId;
@@ -142,7 +138,6 @@ public class TestPlanLink {
    * @return workItemName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getWorkItemName() {
     return workItemName;
@@ -165,7 +160,6 @@ public class TestPlanLink {
    * @return configurationName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getConfigurationName() {
     return configurationName;
@@ -188,7 +182,6 @@ public class TestPlanLink {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -211,7 +204,6 @@ public class TestPlanLink {
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getComment() {
     return comment;
@@ -234,7 +226,6 @@ public class TestPlanLink {
    * @return info
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public ExternalLinkModel getInfo() {
     return info;

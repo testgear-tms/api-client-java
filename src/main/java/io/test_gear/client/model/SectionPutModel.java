@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.StepPutModel;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -73,11 +71,11 @@ public class SectionPutModel {
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  private List<StepPutModel> preconditionSteps = null;
+  private List<StepPutModel> preconditionSteps;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  private List<StepPutModel> postconditionSteps = null;
+  private List<StepPutModel> postconditionSteps;
 
   public SectionPutModel() {
   }
@@ -93,7 +91,6 @@ public class SectionPutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public UUID getId() {
     return id;
@@ -116,7 +113,6 @@ public class SectionPutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", required = true, value = "")
 
   public String getName() {
     return name;
@@ -139,7 +135,6 @@ public class SectionPutModel {
    * @return projectId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", required = true, value = "")
 
   public UUID getProjectId() {
     return projectId;
@@ -162,7 +157,6 @@ public class SectionPutModel {
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getParentId() {
     return parentId;
@@ -181,9 +175,6 @@ public class SectionPutModel {
   }
 
   public SectionPutModel addPreconditionStepsItem(StepPutModel preconditionStepsItem) {
-    if (this.preconditionSteps == null) {
-      this.preconditionSteps = new ArrayList<>();
-    }
     this.preconditionSteps.add(preconditionStepsItem);
     return this;
   }
@@ -193,7 +184,6 @@ public class SectionPutModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<StepPutModel> getPreconditionSteps() {
     return preconditionSteps;
@@ -212,9 +202,6 @@ public class SectionPutModel {
   }
 
   public SectionPutModel addPostconditionStepsItem(StepPutModel postconditionStepsItem) {
-    if (this.postconditionSteps == null) {
-      this.postconditionSteps = new ArrayList<>();
-    }
     this.postconditionSteps.add(postconditionStepsItem);
     return this;
   }
@@ -224,7 +211,6 @@ public class SectionPutModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<StepPutModel> getPostconditionSteps() {
     return postconditionSteps;

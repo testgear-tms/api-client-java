@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.AttachmentModel;
 import io.test_gear.client.model.LinkModel;
 import java.io.IOException;
@@ -117,7 +115,7 @@ public class TestResultHistoryReportModel {
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkModel> links = null;
+  private List<LinkModel> links;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
@@ -141,7 +139,7 @@ public class TestResultHistoryReportModel {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentModel> attachments = null;
+  private List<AttachmentModel> attachments;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
@@ -157,11 +155,11 @@ public class TestResultHistoryReportModel {
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_IDS = "failureClassIds";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_IDS)
-  private List<UUID> failureClassIds = null;
+  private List<UUID> failureClassIds;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters = null;
+  private Map<String, String> parameters;
 
   public TestResultHistoryReportModel() {
   }
@@ -177,7 +175,6 @@ public class TestResultHistoryReportModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getId() {
     return id;
@@ -200,7 +197,6 @@ public class TestResultHistoryReportModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -223,7 +219,6 @@ public class TestResultHistoryReportModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -246,7 +241,6 @@ public class TestResultHistoryReportModel {
    * @return userId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result")
 
   public UUID getUserId() {
     return userId;
@@ -269,7 +263,6 @@ public class TestResultHistoryReportModel {
    * @return testRunId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getTestRunId() {
     return testRunId;
@@ -292,7 +285,6 @@ public class TestResultHistoryReportModel {
    * @return testRunName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Core tests", value = "")
 
   public String getTestRunName() {
     return testRunName;
@@ -315,7 +307,6 @@ public class TestResultHistoryReportModel {
    * @return createdByUserName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example", value = "")
 
   public String getCreatedByUserName() {
     return createdByUserName;
@@ -338,7 +329,6 @@ public class TestResultHistoryReportModel {
    * @return testPlanId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getTestPlanId() {
     return testPlanId;
@@ -361,7 +351,6 @@ public class TestResultHistoryReportModel {
    * @return testPlanGlobalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100000", value = "")
 
   public Long getTestPlanGlobalId() {
     return testPlanGlobalId;
@@ -384,7 +373,6 @@ public class TestResultHistoryReportModel {
    * @return testPlanName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Release 7.13", value = "")
 
   public String getTestPlanName() {
     return testPlanName;
@@ -407,7 +395,6 @@ public class TestResultHistoryReportModel {
    * @return configurationName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Default", value = "If test point related to the test result has configuration, this property will be equal to the test point configuration name. Otherwise, this property will be equal to the test result configuration name")
 
   public String getConfigurationName() {
     return configurationName;
@@ -430,7 +417,6 @@ public class TestResultHistoryReportModel {
    * @return isAutomated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getIsAutomated() {
     return isAutomated;
@@ -453,7 +439,6 @@ public class TestResultHistoryReportModel {
    * @return outcome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Failed", value = "If any test result related to the test run is linked with autotest and the run has an outcome, the outcome value equalsto the worst outcome of the last modified test result.Otherwise, the outcome equals to the outcome of first created test result in the test run")
 
   public String getOutcome() {
     return outcome;
@@ -476,7 +461,6 @@ public class TestResultHistoryReportModel {
    * @return comment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "my first comment", value = "If any test result related to the test run is linked with autotest, comment will have default valueOtherwise, the comment equals to the comment of first created test result in the test run")
 
   public String getComment() {
     return comment;
@@ -495,9 +479,6 @@ public class TestResultHistoryReportModel {
   }
 
   public TestResultHistoryReportModel addLinksItem(LinkModel linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<>();
-    }
     this.links.add(linksItem);
     return this;
   }
@@ -507,7 +488,6 @@ public class TestResultHistoryReportModel {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If any test result related to the test run is linked with autotest, link will be equal to the links of last modified test result.Otherwise, the links equals to the links of first created test result in the test run")
 
   public List<LinkModel> getLinks() {
     return links;
@@ -530,7 +510,6 @@ public class TestResultHistoryReportModel {
    * @return startedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getStartedOn() {
     return startedOn;
@@ -553,7 +532,6 @@ public class TestResultHistoryReportModel {
    * @return completedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-02-28T08:43:24.744582300Z", value = "")
 
   public OffsetDateTime getCompletedOn() {
     return completedOn;
@@ -576,7 +554,6 @@ public class TestResultHistoryReportModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100000", value = "")
 
   public Long getDuration() {
     return duration;
@@ -599,7 +576,6 @@ public class TestResultHistoryReportModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getCreatedById() {
     return createdById;
@@ -622,7 +598,6 @@ public class TestResultHistoryReportModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -641,9 +616,6 @@ public class TestResultHistoryReportModel {
   }
 
   public TestResultHistoryReportModel addAttachmentsItem(AttachmentModel attachmentsItem) {
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
-    }
     this.attachments.add(attachmentsItem);
     return this;
   }
@@ -653,7 +625,6 @@ public class TestResultHistoryReportModel {
    * @return attachments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If any test result related to the test run is linked with autotest, attachments will be equal to the attachments of last modified test result.Otherwise, the attachments equals to the attachments of first created test result in the test run")
 
   public List<AttachmentModel> getAttachments() {
     return attachments;
@@ -676,7 +647,6 @@ public class TestResultHistoryReportModel {
    * @return workItemVersionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getWorkItemVersionId() {
     return workItemVersionId;
@@ -699,7 +669,6 @@ public class TestResultHistoryReportModel {
    * @return workItemVersionNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getWorkItemVersionNumber() {
     return workItemVersionNumber;
@@ -722,7 +691,6 @@ public class TestResultHistoryReportModel {
    * @return launchSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getLaunchSource() {
     return launchSource;
@@ -741,9 +709,6 @@ public class TestResultHistoryReportModel {
   }
 
   public TestResultHistoryReportModel addFailureClassIdsItem(UUID failureClassIdsItem) {
-    if (this.failureClassIds == null) {
-      this.failureClassIds = new ArrayList<>();
-    }
     this.failureClassIds.add(failureClassIdsItem);
     return this;
   }
@@ -753,7 +718,6 @@ public class TestResultHistoryReportModel {
    * @return failureClassIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<UUID> getFailureClassIds() {
     return failureClassIds;
@@ -772,9 +736,6 @@ public class TestResultHistoryReportModel {
   }
 
   public TestResultHistoryReportModel putParametersItem(String key, String parametersItem) {
-    if (this.parameters == null) {
-      this.parameters = new HashMap<>();
-    }
     this.parameters.put(key, parametersItem);
     return this;
   }
@@ -784,7 +745,6 @@ public class TestResultHistoryReportModel {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getParameters() {
     return parameters;

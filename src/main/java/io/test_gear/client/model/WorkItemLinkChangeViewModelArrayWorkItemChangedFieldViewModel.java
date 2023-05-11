@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.WorkItemLinkChangeViewModel;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,11 +54,11 @@ import io.test_gear.client.invoker.JSON;
 public class WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private List<WorkItemLinkChangeViewModel> oldValue = null;
+  private List<WorkItemLinkChangeViewModel> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private List<WorkItemLinkChangeViewModel> newValue = null;
+  private List<WorkItemLinkChangeViewModel> newValue;
 
   public WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel() {
   }
@@ -72,9 +70,6 @@ public class WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
   }
 
   public WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel addOldValueItem(WorkItemLinkChangeViewModel oldValueItem) {
-    if (this.oldValue == null) {
-      this.oldValue = new ArrayList<>();
-    }
     this.oldValue.add(oldValueItem);
     return this;
   }
@@ -84,7 +79,6 @@ public class WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
    * @return oldValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<WorkItemLinkChangeViewModel> getOldValue() {
     return oldValue;
@@ -103,9 +97,6 @@ public class WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
   }
 
   public WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel addNewValueItem(WorkItemLinkChangeViewModel newValueItem) {
-    if (this.newValue == null) {
-      this.newValue = new ArrayList<>();
-    }
     this.newValue.add(newValueItem);
     return this;
   }
@@ -115,7 +106,6 @@ public class WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
    * @return newValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<WorkItemLinkChangeViewModel> getNewValue() {
     return newValue;

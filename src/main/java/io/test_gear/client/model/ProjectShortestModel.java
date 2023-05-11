@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -82,7 +80,6 @@ public class ProjectShortestModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of project")
 
   public UUID getId() {
     return id;
@@ -105,7 +102,6 @@ public class ProjectShortestModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the project is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -128,7 +124,6 @@ public class ProjectShortestModel {
    * @return globalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Global ID of project")
 
   public Long getGlobalId() {
     return globalId;
@@ -151,7 +146,6 @@ public class ProjectShortestModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of project")
 
   public String getName() {
     return name;

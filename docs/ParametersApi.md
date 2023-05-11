@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2ParametersKeyNameNameExistsGet**](ParametersApi.md#apiV2ParametersKeyNameNameExistsGet) | **GET** /api/v2/parameters/key/name/{name}/exists | Check existence parameter key in system |
 | [**apiV2ParametersKeyValuesGet**](ParametersApi.md#apiV2ParametersKeyValuesGet) | **GET** /api/v2/parameters/{key}/values | Get all parameter key values |
 | [**apiV2ParametersKeysGet**](ParametersApi.md#apiV2ParametersKeysGet) | **GET** /api/v2/parameters/keys | Get all parameter keys |
+| [**apiV2ParametersSearchPost**](ParametersApi.md#apiV2ParametersSearchPost) | **POST** /api/v2/parameters/search | Search for parameters |
 | [**createParameter**](ParametersApi.md#createParameter) | **POST** /api/v2/parameters | Create parameter |
 | [**deleteByName**](ParametersApi.md#deleteByName) | **DELETE** /api/v2/parameters/name/{name} | Delete parameter by name |
 | [**deleteByParameterKeyId**](ParametersApi.md#deleteByParameterKeyId) | **DELETE** /api/v2/parameters/keyId/{keyId} | Delete parameters by parameter key identifier |
@@ -87,8 +88,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Created |  -  |
 | **400** | &lt;br&gt;- Parameter model is not valid |  -  |
+| **201** | Created |  -  |
 
 <a name="apiV2ParametersBulkPut"></a>
 # **apiV2ParametersBulkPut**
@@ -156,10 +157,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Invalid user permissions |  -  |
 | **422** | Client Error |  -  |
 | **204** | No Content |  -  |
 | **400** | &lt;br&gt;- Parameter model is not valid |  -  |
+| **403** | Invalid user permissions |  -  |
 
 <a name="apiV2ParametersGroupsGet"></a>
 # **apiV2ParametersGroupsGet**
@@ -240,8 +241,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **401** | Unauthorized |  -  |
 
 <a name="apiV2ParametersKeyNameNameExistsGet"></a>
 # **apiV2ParametersKeyNameNameExistsGet**
@@ -447,6 +448,83 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
 
+<a name="apiV2ParametersSearchPost"></a>
+# **apiV2ParametersSearchPost**
+> List&lt;ParameterModel&gt; apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel)
+
+Search for parameters
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.ParametersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    ParametersApi apiInstance = new ParametersApi(defaultClient);
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    ParameterFilterModel parameterFilterModel = new ParameterFilterModel(); // ParameterFilterModel | 
+    try {
+      List<ParameterModel> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional] |
+
+### Return type
+
+[**List&lt;ParameterModel&gt;**](ParameterModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+
 <a name="createParameter"></a>
 # **createParameter**
 > ParameterModel createParameter(parameterPostModel)
@@ -514,8 +592,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
 | **201** | Created |  -  |
+| **400** | Bad Request |  -  |
 
 <a name="deleteByName"></a>
 # **deleteByName**
@@ -583,8 +661,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | Provided name either is empty or contains only white spaces |  -  |
 | **422** | Parameter is in use in iterations |  -  |
+| **400** | Provided name either is empty or contains only white spaces |  -  |
 | **204** | No Content |  -  |
 
 <a name="deleteByParameterKeyId"></a>
@@ -653,9 +731,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **422** | Parameter is in use in iterations |  -  |
-| **403** | Invalid user permissions |  -  |
 | **204** | No Content |  -  |
+| **403** | Invalid user permissions |  -  |
+| **422** | Parameter is in use in iterations |  -  |
 
 <a name="deleteParameter"></a>
 # **deleteParameter**
@@ -723,8 +801,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
 | **422** | Parameter is in use in iterations |  -  |
+| **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
 | **200** | Success |  -  |
 
 <a name="getAllParameters"></a>
@@ -804,8 +882,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Created |  -  |
 | **403** | Invalid user permissions |  -  |
+| **201** | Created |  -  |
 
 <a name="getParameterById"></a>
 # **getParameterById**
@@ -874,8 +952,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
 | **404** | Parameter with provided ID was not found |  -  |
+| **200** | Success |  -  |
 
 <a name="obsoleteDeleteByName"></a>
 # **obsoleteDeleteByName**
@@ -1009,7 +1087,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
 | **404** | Parameter with provided ID was not found |  -  |
+| **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
+| **204** | No Content |  -  |
 

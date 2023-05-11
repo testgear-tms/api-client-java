@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.CustomAttributeTypesEnum;
 import java.io.IOException;
 import java.util.LinkedHashSet;
@@ -52,7 +50,6 @@ import io.test_gear.client.invoker.JSON;
 /**
  * Collection of filters to apply to search
  */
-@ApiModel(description = "Collection of filters to apply to search")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProjectCustomAttributesTemplatesFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
@@ -61,7 +58,7 @@ public class ProjectCustomAttributesTemplatesFilterModel {
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES)
-  private Set<CustomAttributeTypesEnum> customAttributeTypes = null;
+  private Set<CustomAttributeTypesEnum> customAttributeTypes;
 
   public ProjectCustomAttributesTemplatesFilterModel() {
   }
@@ -77,7 +74,6 @@ public class ProjectCustomAttributesTemplatesFilterModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of custom attribute template")
 
   public String getName() {
     return name;
@@ -96,9 +92,6 @@ public class ProjectCustomAttributesTemplatesFilterModel {
   }
 
   public ProjectCustomAttributesTemplatesFilterModel addCustomAttributeTypesItem(CustomAttributeTypesEnum customAttributeTypesItem) {
-    if (this.customAttributeTypes == null) {
-      this.customAttributeTypes = new LinkedHashSet<>();
-    }
     this.customAttributeTypes.add(customAttributeTypesItem);
     return this;
   }
@@ -108,7 +101,6 @@ public class ProjectCustomAttributesTemplatesFilterModel {
    * @return customAttributeTypes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of custom attributes types")
 
   public Set<CustomAttributeTypesEnum> getCustomAttributeTypes() {
     return customAttributeTypes;

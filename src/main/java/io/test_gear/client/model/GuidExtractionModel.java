@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -56,11 +54,11 @@ import io.test_gear.client.invoker.JSON;
 public class GuidExtractionModel {
   public static final String SERIALIZED_NAME_INCLUDE = "include";
   @SerializedName(SERIALIZED_NAME_INCLUDE)
-  private Set<UUID> include = null;
+  private Set<UUID> include;
 
   public static final String SERIALIZED_NAME_EXCLUDE = "exclude";
   @SerializedName(SERIALIZED_NAME_EXCLUDE)
-  private Set<UUID> exclude = null;
+  private Set<UUID> exclude;
 
   public GuidExtractionModel() {
   }
@@ -72,9 +70,6 @@ public class GuidExtractionModel {
   }
 
   public GuidExtractionModel addIncludeItem(UUID includeItem) {
-    if (this.include == null) {
-      this.include = new LinkedHashSet<>();
-    }
     this.include.add(includeItem);
     return this;
   }
@@ -84,7 +79,6 @@ public class GuidExtractionModel {
    * @return include
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<UUID> getInclude() {
     return include;
@@ -103,9 +97,6 @@ public class GuidExtractionModel {
   }
 
   public GuidExtractionModel addExcludeItem(UUID excludeItem) {
-    if (this.exclude == null) {
-      this.exclude = new LinkedHashSet<>();
-    }
     this.exclude.add(excludeItem);
     return this;
   }
@@ -115,7 +106,6 @@ public class GuidExtractionModel {
    * @return exclude
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Set<UUID> getExclude() {
     return exclude;

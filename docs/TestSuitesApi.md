@@ -5,6 +5,8 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**addTestPointsToTestSuite**](TestSuitesApi.md#addTestPointsToTestSuite) | **POST** /api/v2/testSuites/{id}/test-points | Add test-points to test suite |
+| [**apiV2TestSuitesIdPatch**](TestSuitesApi.md#apiV2TestSuitesIdPatch) | **PATCH** /api/v2/testSuites/{id} | Patch test suite |
+| [**apiV2TestSuitesIdRefreshPost**](TestSuitesApi.md#apiV2TestSuitesIdRefreshPost) | **POST** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method |
 | [**createTestSuite**](TestSuitesApi.md#createTestSuite) | **POST** /api/v2/testSuites | Create TestSuite |
 | [**deleteTestSuite**](TestSuitesApi.md#deleteTestSuite) | **DELETE** /api/v2/testSuites/{id} | Delete TestSuite |
 | [**getConfigurationsByTestSuiteId**](TestSuitesApi.md#getConfigurationsByTestSuiteId) | **GET** /api/v2/testSuites/{id}/configurations | Get Configurations By Id |
@@ -84,12 +86,150 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Successful operation |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
 | **404** | Test suite with provided ID was not found |  -  |
 | **422** | Shared steps cannot be added to test suite |  -  |
-| **400** | Bad Request |  -  |
+| **204** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan is required |  -  |
+
+<a name="apiV2TestSuitesIdPatch"></a>
+# **apiV2TestSuitesIdPatch**
+> apiV2TestSuitesIdPatch(id, operation)
+
+Patch test suite
+
+See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.TestSuitesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Test Suite internal (UUID) identifier
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      apiInstance.apiV2TestSuitesIdPatch(id, operation);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesIdPatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Test Suite internal (UUID) identifier | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Update permission for test suite is required |  -  |
+| **204** | No Content |  -  |
+
+<a name="apiV2TestSuitesIdRefreshPost"></a>
+# **apiV2TestSuitesIdRefreshPost**
+> apiV2TestSuitesIdRefreshPost(id)
+
+Refresh test suite. Only dynamic test suites are supported by this method
+
+### Example
+```java
+// Import classes:
+import io.test_gear.client.invoker.ApiClient;
+import io.test_gear.client.invoker.ApiException;
+import io.test_gear.client.invoker.Configuration;
+import io.test_gear.client.invoker.auth.*;
+import io.test_gear.client.invoker.models.*;
+import io.test_gear.client.api.TestSuitesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | Test Suite internal (UUID) identifier
+    try {
+      apiInstance.apiV2TestSuitesIdRefreshPost(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestSuitesApi#apiV2TestSuitesIdRefreshPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**| Test Suite internal (UUID) identifier | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Update permission for test suite is required |  -  |
 
 <a name="createTestSuite"></a>
 # **createTestSuite**
@@ -158,11 +298,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Successful operation |  -  |
-| **400** | &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 | **401** | Unauthorized |  -  |
+| **201** | Successful operation |  -  |
+| **400** | &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! |  -  |
 
 <a name="deleteTestSuite"></a>
 # **deleteTestSuite**
@@ -230,10 +370,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **403** | Delete permission for test plan required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 | **204** | Successful operation |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
+| **403** | Delete permission for test plan required |  -  |
+| **401** | Unauthorized |  -  |
 
 <a name="getConfigurationsByTestSuiteId"></a>
 # **getConfigurationsByTestSuiteId**
@@ -302,9 +442,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Read permission for test plan required |  -  |
-| **200** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
+| **200** | Successful operation |  -  |
+| **403** | Read permission for test plan required |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 
 <a name="getTestPointsById"></a>
@@ -374,10 +514,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **200** | Successful operation |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 
 <a name="getTestResultsById"></a>
 # **getTestResultsById**
@@ -447,9 +587,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 
 <a name="getTestSuiteById"></a>
 # **getTestSuiteById**
@@ -519,9 +659,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
-| **401** | Unauthorized |  -  |
 
 <a name="getWorkItemsById"></a>
 # **getWorkItemsById**
@@ -602,10 +742,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 | **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
 
 <a name="searchWorkItems"></a>
 # **searchWorkItems**
@@ -613,7 +753,7 @@ public class Example {
 
 Search WorkItems
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;[Optional] User sets filter  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search workitems related to the test points  &lt;br&gt;                      [Optional] User sets filter, system applies filter                     &lt;br&gt;System returns workitems array
+&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;[Optional] User sets filter  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search work items related to the test points  &lt;br&gt;                      [Optional] User sets filter, system applies filter                     &lt;br&gt;System returns work items array
 
 ### Example
 ```java
@@ -686,10 +826,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
 
 <a name="setConfigurationsByTestSuiteId"></a>
@@ -760,11 +900,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **401** | Unauthorized |  -  |
-| **403** | Update permission for test plan required |  -  |
-| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
-| **204** | Successful operation |  -  |
 | **400** | &lt;br&gt;Some of Configurations do not exist in the project, or they are not active |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
+| **401** | Unauthorized |  -  |
+| **204** | Successful operation |  -  |
+| **403** | Update permission for test plan required |  -  |
 
 <a name="setWorkItemsByTestSuiteId"></a>
 # **setWorkItemsByTestSuiteId**
@@ -772,7 +912,7 @@ null (empty response body)
 
 Set WorkItems By TestSuite Id
 
-&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of workitems identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search workitems  &lt;br&gt;System restores(if exist) or creates test points with listed workitems  &lt;br&gt;System returns no content response
+&lt;br&gt;Use case  &lt;br&gt;User sets test suite identifier  &lt;br&gt;User sets collection of work items identifiers  &lt;br&gt;User runs method execution  &lt;br&gt;System search test suite by identifier  &lt;br&gt;System search test points related to the test suite  &lt;br&gt;System search work items  &lt;br&gt;System restores(if exist) or creates test points with listed work items  &lt;br&gt;System returns no content response
 
 ### Example
 ```java
@@ -797,7 +937,7 @@ public class Example {
 
     TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
     UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test suite internal (guid format) identifier\"
-    Set<UUID> UUID = Arrays.asList(); // Set<UUID> | Collection of workitem identifiers\"
+    Set<UUID> UUID = Arrays.asList(); // Set<UUID> | Collection of work item identifiers\"
     try {
       apiInstance.setWorkItemsByTestSuiteId(id, UUID);
     } catch (ApiException e) {
@@ -816,7 +956,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Test suite internal (guid format) identifier\&quot; | |
-| **UUID** | [**Set&lt;UUID&gt;**](UUID.md)| Collection of workitem identifiers\&quot; | [optional] |
+| **UUID** | [**Set&lt;UUID&gt;**](UUID.md)| Collection of work item identifiers\&quot; | [optional] |
 
 ### Return type
 
@@ -835,11 +975,11 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **403** | Update permission for test plan required |  -  |
-| **401** | Unauthorized |  -  |
+| **422** | &lt;br&gt;can&#39;t put a SharedStep in the TestSuite  &lt;br&gt;ProjectId must be the same for TestSuites |  -  |
 | **204** | Successful operation |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | &lt;br&gt;Can&#39;t find a TestSuite with id  &lt;br&gt;Some of WorkItems does not exist or deleted |  -  |
-| **422** | &lt;br&gt;can&#39;t put a SharedStep in the TestSuite  &lt;br&gt;ProjectId must be the same for TestSuites |  -  |
 
 <a name="updateTestSuite"></a>
 # **updateTestSuite**
@@ -907,9 +1047,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
-| **204** | Successful operation |  -  |
-| **403** | Update permission for test plan required |  -  |
-| **400** | &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! |  -  |
 | **401** | Unauthorized |  -  |
+| **204** | Successful operation |  -  |
+| **400** | &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! |  -  |
+| **403** | Update permission for test plan required |  -  |
+| **404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 

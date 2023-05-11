@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -56,7 +54,7 @@ import io.test_gear.client.invoker.JSON;
 public class ValidationProblemDetails {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
-  private Map<String, List<String>> errors = null;
+  private Map<String, List<String>> errors;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -88,9 +86,6 @@ public class ValidationProblemDetails {
   }
 
   public ValidationProblemDetails putErrorsItem(String key, List<String> errorsItem) {
-    if (this.errors == null) {
-      this.errors = new HashMap<>();
-    }
     this.errors.put(key, errorsItem);
     return this;
   }
@@ -100,7 +95,6 @@ public class ValidationProblemDetails {
    * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, List<String>> getErrors() {
     return errors;
@@ -123,7 +117,6 @@ public class ValidationProblemDetails {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -146,7 +139,6 @@ public class ValidationProblemDetails {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getTitle() {
     return title;
@@ -169,7 +161,6 @@ public class ValidationProblemDetails {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getStatus() {
     return status;
@@ -192,7 +183,6 @@ public class ValidationProblemDetails {
    * @return detail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDetail() {
     return detail;
@@ -215,7 +205,6 @@ public class ValidationProblemDetails {
    * @return instance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getInstance() {
     return instance;

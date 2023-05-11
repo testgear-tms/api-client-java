@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.RequestTypeModel;
 import io.test_gear.client.model.WebHookEventTypeModel;
 import java.io.IOException;
@@ -83,11 +81,11 @@ public class WebHookModel {
 
   public static final String SERIALIZED_NAME_HEADERS = "headers";
   @SerializedName(SERIALIZED_NAME_HEADERS)
-  private Map<String, String> headers = null;
+  private Map<String, String> headers;
 
   public static final String SERIALIZED_NAME_QUERY_PARAMETERS = "queryParameters";
   @SerializedName(SERIALIZED_NAME_QUERY_PARAMETERS)
-  private Map<String, String> queryParameters = null;
+  private Map<String, String> queryParameters;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
@@ -155,7 +153,6 @@ public class WebHookModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the webhook")
 
   public String getName() {
     return name;
@@ -177,8 +174,7 @@ public class WebHookModel {
    * Get eventType
    * @return eventType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public WebHookEventTypeModel getEventType() {
     return eventType;
@@ -201,7 +197,6 @@ public class WebHookModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the webhook")
 
   public String getDescription() {
     return description;
@@ -224,7 +219,6 @@ public class WebHookModel {
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Url to which the webhook sends request")
 
   public String getUrl() {
     return url;
@@ -246,8 +240,7 @@ public class WebHookModel {
    * Get requestType
    * @return requestType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public RequestTypeModel getRequestType() {
     return requestType;
@@ -270,7 +263,6 @@ public class WebHookModel {
    * @return shouldSendBody
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the webhook sends body")
 
   public Boolean getShouldSendBody() {
     return shouldSendBody;
@@ -289,9 +281,6 @@ public class WebHookModel {
   }
 
   public WebHookModel putHeadersItem(String key, String headersItem) {
-    if (this.headers == null) {
-      this.headers = new HashMap<>();
-    }
     this.headers.put(key, headersItem);
     return this;
   }
@@ -301,7 +290,6 @@ public class WebHookModel {
    * @return headers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of headers which the webhook sends")
 
   public Map<String, String> getHeaders() {
     return headers;
@@ -320,9 +308,6 @@ public class WebHookModel {
   }
 
   public WebHookModel putQueryParametersItem(String key, String queryParametersItem) {
-    if (this.queryParameters == null) {
-      this.queryParameters = new HashMap<>();
-    }
     this.queryParameters.put(key, queryParametersItem);
     return this;
   }
@@ -332,7 +317,6 @@ public class WebHookModel {
    * @return queryParameters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of query parameters which the webhook sends")
 
   public Map<String, String> getQueryParameters() {
     return queryParameters;
@@ -355,7 +339,6 @@ public class WebHookModel {
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the webhook is active")
 
   public Boolean getIsEnabled() {
     return isEnabled;
@@ -378,7 +361,6 @@ public class WebHookModel {
    * @return shouldSendCustomBody
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the webhook sends custom body")
 
   public Boolean getShouldSendCustomBody() {
     return shouldSendCustomBody;
@@ -401,7 +383,6 @@ public class WebHookModel {
    * @return customBody
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Custom body of the webhook")
 
   public String getCustomBody() {
     return customBody;
@@ -424,7 +405,6 @@ public class WebHookModel {
    * @return customBodyMediaType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "MIME type of body of the webhook")
 
   public String getCustomBodyMediaType() {
     return customBodyMediaType;
@@ -447,7 +427,6 @@ public class WebHookModel {
    * @return shouldReplaceParameters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the webhook injects parameters")
 
   public Boolean getShouldReplaceParameters() {
     return shouldReplaceParameters;
@@ -470,7 +449,6 @@ public class WebHookModel {
    * @return shouldEscapeParameters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the webhook escapes invalid characters in parameters")
 
   public Boolean getShouldEscapeParameters() {
     return shouldEscapeParameters;
@@ -493,7 +471,6 @@ public class WebHookModel {
    * @return createdDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation date of the webhook")
 
   public OffsetDateTime getCreatedDate() {
     return createdDate;
@@ -516,7 +493,6 @@ public class WebHookModel {
    * @return createdById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of user who created the webhook")
 
   public UUID getCreatedById() {
     return createdById;
@@ -539,7 +515,6 @@ public class WebHookModel {
    * @return modifiedDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last modification date of the webhook")
 
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
@@ -562,7 +537,6 @@ public class WebHookModel {
    * @return modifiedById
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of user who modified the webhook last time")
 
   public UUID getModifiedById() {
     return modifiedById;
@@ -585,7 +559,6 @@ public class WebHookModel {
    * @return projectId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of project where the webhook is located")
 
   public UUID getProjectId() {
     return projectId;
@@ -608,7 +581,6 @@ public class WebHookModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the entity")
 
   public UUID getId() {
     return id;
@@ -631,7 +603,6 @@ public class WebHookModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the entity is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -763,6 +734,8 @@ public class WebHookModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("eventType");
+    openapiRequiredFields.add("requestType");
   }
 
  /**
@@ -783,6 +756,13 @@ public class WebHookModel {
       for (Entry<String, JsonElement> entry : entries) {
         if (!WebHookModel.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebHookModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : WebHookModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {

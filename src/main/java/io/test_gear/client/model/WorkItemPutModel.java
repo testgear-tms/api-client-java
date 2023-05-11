@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.AttachmentPutModel;
 import io.test_gear.client.model.AutoTestIdModel;
 import io.test_gear.client.model.IterationPutModel;
@@ -70,11 +68,11 @@ public class WorkItemPutModel {
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  private List<IterationPutModel> iterations = null;
+  private List<IterationPutModel> iterations;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  private List<AutoTestIdModel> autoTests = null;
+  private List<AutoTestIdModel> autoTests;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -147,7 +145,6 @@ public class WorkItemPutModel {
    * @return attachments
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<AttachmentPutModel> getAttachments() {
     return attachments;
@@ -166,9 +163,6 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel addIterationsItem(IterationPutModel iterationsItem) {
-    if (this.iterations == null) {
-      this.iterations = new ArrayList<>();
-    }
     this.iterations.add(iterationsItem);
     return this;
   }
@@ -178,7 +172,6 @@ public class WorkItemPutModel {
    * @return iterations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<IterationPutModel> getIterations() {
     return iterations;
@@ -197,9 +190,6 @@ public class WorkItemPutModel {
   }
 
   public WorkItemPutModel addAutoTestsItem(AutoTestIdModel autoTestsItem) {
-    if (this.autoTests == null) {
-      this.autoTests = new ArrayList<>();
-    }
     this.autoTests.add(autoTestsItem);
     return this;
   }
@@ -209,7 +199,6 @@ public class WorkItemPutModel {
    * @return autoTests
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AutoTestIdModel> getAutoTests() {
     return autoTests;
@@ -231,8 +220,7 @@ public class WorkItemPutModel {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
+  @javax.annotation.Nonnull
 
   public UUID getId() {
     return id;
@@ -255,7 +243,6 @@ public class WorkItemPutModel {
    * @return sectionId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16", value = "")
 
   public UUID getSectionId() {
     return sectionId;
@@ -278,7 +265,6 @@ public class WorkItemPutModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a basic test template", value = "")
 
   public String getDescription() {
     return description;
@@ -301,7 +287,6 @@ public class WorkItemPutModel {
    * @return state
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WorkItemStates getState() {
     return state;
@@ -324,7 +309,6 @@ public class WorkItemPutModel {
    * @return priority
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WorkItemPriorityModel getPriority() {
     return priority;
@@ -352,7 +336,6 @@ public class WorkItemPutModel {
    * @return steps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<StepPutModel> getSteps() {
     return steps;
@@ -380,7 +363,6 @@ public class WorkItemPutModel {
    * @return preconditionSteps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<StepPutModel> getPreconditionSteps() {
     return preconditionSteps;
@@ -408,7 +390,6 @@ public class WorkItemPutModel {
    * @return postconditionSteps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<StepPutModel> getPostconditionSteps() {
     return postconditionSteps;
@@ -433,7 +414,6 @@ public class WorkItemPutModel {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10000", value = "")
 
   public Integer getDuration() {
     return duration;
@@ -461,7 +441,6 @@ public class WorkItemPutModel {
    * @return attributes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public Map<String, Object> getAttributes() {
     return attributes;
@@ -489,7 +468,6 @@ public class WorkItemPutModel {
    * @return tags
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<TagShortModel> getTags() {
     return tags;
@@ -517,7 +495,6 @@ public class WorkItemPutModel {
    * @return links
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<LinkPutModel> getLinks() {
     return links;
@@ -540,7 +517,6 @@ public class WorkItemPutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Basic template", required = true, value = "")
 
   public String getName() {
     return name;
@@ -658,6 +634,7 @@ public class WorkItemPutModel {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("attachments");
+    openapiRequiredFields.add("id");
     openapiRequiredFields.add("state");
     openapiRequiredFields.add("priority");
     openapiRequiredFields.add("steps");
@@ -734,7 +711,7 @@ public class WorkItemPutModel {
           };
         }
       }
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+      if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("sectionId") != null && !jsonObj.get("sectionId").isJsonNull()) && !jsonObj.get("sectionId").isJsonPrimitive()) {

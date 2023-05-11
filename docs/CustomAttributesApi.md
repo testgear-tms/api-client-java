@@ -213,8 +213,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | System administrator role is required |  -  |
 | **201** | Created |  -  |
+| **403** | System administrator role is required |  -  |
 
 <a name="apiV2CustomAttributesIdGet"></a>
 # **apiV2CustomAttributesIdGet**

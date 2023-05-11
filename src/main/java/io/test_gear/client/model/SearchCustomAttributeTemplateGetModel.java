@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.CustomAttributeModel;
 import io.test_gear.client.model.ProjectShortestModel;
 import java.io.IOException;
@@ -70,11 +68,11 @@ public class SearchCustomAttributeTemplateGetModel {
 
   public static final String SERIALIZED_NAME_PROJECT_SHORTEST_MODELS = "projectShortestModels";
   @SerializedName(SERIALIZED_NAME_PROJECT_SHORTEST_MODELS)
-  private List<ProjectShortestModel> projectShortestModels = null;
+  private List<ProjectShortestModel> projectShortestModels;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS = "customAttributeModels";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS)
-  private List<CustomAttributeModel> customAttributeModels = null;
+  private List<CustomAttributeModel> customAttributeModels;
 
   public SearchCustomAttributeTemplateGetModel() {
   }
@@ -90,7 +88,6 @@ public class SearchCustomAttributeTemplateGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -113,7 +110,6 @@ public class SearchCustomAttributeTemplateGetModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -136,7 +132,6 @@ public class SearchCustomAttributeTemplateGetModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -155,9 +150,6 @@ public class SearchCustomAttributeTemplateGetModel {
   }
 
   public SearchCustomAttributeTemplateGetModel addProjectShortestModelsItem(ProjectShortestModel projectShortestModelsItem) {
-    if (this.projectShortestModels == null) {
-      this.projectShortestModels = new ArrayList<>();
-    }
     this.projectShortestModels.add(projectShortestModelsItem);
     return this;
   }
@@ -167,7 +159,6 @@ public class SearchCustomAttributeTemplateGetModel {
    * @return projectShortestModels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<ProjectShortestModel> getProjectShortestModels() {
     return projectShortestModels;
@@ -186,9 +177,6 @@ public class SearchCustomAttributeTemplateGetModel {
   }
 
   public SearchCustomAttributeTemplateGetModel addCustomAttributeModelsItem(CustomAttributeModel customAttributeModelsItem) {
-    if (this.customAttributeModels == null) {
-      this.customAttributeModels = new ArrayList<>();
-    }
     this.customAttributeModels.add(customAttributeModelsItem);
     return this;
   }
@@ -198,7 +186,6 @@ public class SearchCustomAttributeTemplateGetModel {
    * @return customAttributeModels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<CustomAttributeModel> getCustomAttributeModels() {
     return customAttributeModels;

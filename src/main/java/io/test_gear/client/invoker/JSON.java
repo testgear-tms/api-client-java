@@ -93,6 +93,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter);
         gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
+        gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ApiV2AttachmentsPostRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.AttachmentChangeViewModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.AttachmentModel.CustomTypeAdapterFactory());
@@ -119,6 +120,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.AutotestSelectModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.AutotestsExtractionModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.AutotestsSelectModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.BackgroundJobAttachmentModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.BackgroundJobModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.BooleanNullableTestPlanChangedFieldViewModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.BooleanTestPlanChangedFieldViewModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.BooleanWorkItemChangedFieldViewModel.CustomTypeAdapterFactory());
@@ -140,7 +143,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.CustomAttributeTemplatePutModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.CustomAttributeTemplateSearchQueryModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.CustomAttributeTestPlanProjectRelationPutModel.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.DateRangeModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.DateTimeRangeSelectorModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ExternalLinkModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.FailureClassModel.CustomTypeAdapterFactory());
@@ -168,6 +170,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.NoContentResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.NotificationModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.NotificationQueryFilterModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.Operation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ParameterFilterModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ParameterGroupModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ParameterIterationModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ParameterModel.CustomTypeAdapterFactory());
@@ -186,6 +190,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ProjectPostModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ProjectPutModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ProjectShortestModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ProjectTestPlansFilterModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.ProjectsFilterModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.PublicTestPointModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.PublicTestRunModel.CustomTypeAdapterFactory());
@@ -225,7 +230,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPlanModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPlanPostModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPlanPutModel.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPlanSearchQueryModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPlanShortModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPlanWithAnalyticModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPlanWithTestSuiteTreeModel.CustomTypeAdapterFactory());
@@ -236,10 +240,12 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPointFilterModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPointPutModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPointResultModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPointSelectModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPointSelector.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPointShortGetModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPointShortModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPointWithLastResultModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestPointsExtractionModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestResultChangeViewModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestResultChangeViewModelTestPlanChangedFieldViewModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.test_gear.client.model.TestResultChronologyModel.CustomTypeAdapterFactory());

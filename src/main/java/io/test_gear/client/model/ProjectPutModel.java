@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -64,6 +62,10 @@ public class ProjectPutModel {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
+  @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
+  private Boolean isFavorite;
+
   public ProjectPutModel() {
   }
 
@@ -78,7 +80,6 @@ public class ProjectPutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID of the project")
 
   public UUID getId() {
     return id;
@@ -101,7 +102,6 @@ public class ProjectPutModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the project")
 
   public String getDescription() {
     return description;
@@ -124,7 +124,6 @@ public class ProjectPutModel {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the project")
 
   public String getName() {
     return name;
@@ -133,6 +132,28 @@ public class ProjectPutModel {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public ProjectPutModel isFavorite(Boolean isFavorite) {
+    
+    this.isFavorite = isFavorite;
+    return this;
+  }
+
+   /**
+   * Indicates if the project is marked as favorite
+   * @return isFavorite
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getIsFavorite() {
+    return isFavorite;
+  }
+
+
+  public void setIsFavorite(Boolean isFavorite) {
+    this.isFavorite = isFavorite;
   }
 
 
@@ -148,7 +169,8 @@ public class ProjectPutModel {
     ProjectPutModel projectPutModel = (ProjectPutModel) o;
     return Objects.equals(this.id, projectPutModel.id) &&
         Objects.equals(this.description, projectPutModel.description) &&
-        Objects.equals(this.name, projectPutModel.name);
+        Objects.equals(this.name, projectPutModel.name) &&
+        Objects.equals(this.isFavorite, projectPutModel.isFavorite);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -157,7 +179,7 @@ public class ProjectPutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, description, name);
+    return Objects.hash(id, description, name, isFavorite);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -174,6 +196,7 @@ public class ProjectPutModel {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -199,6 +222,7 @@ public class ProjectPutModel {
     openapiFields.add("id");
     openapiFields.add("description");
     openapiFields.add("name");
+    openapiFields.add("isFavorite");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

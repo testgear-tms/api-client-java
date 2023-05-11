@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.CustomAttributeOptionModel;
 import io.test_gear.client.model.CustomAttributeTypesEnum;
 import java.io.IOException;
@@ -62,7 +60,7 @@ public class CustomAttributeGetModel {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<CustomAttributeOptionModel> options = null;
+  private List<CustomAttributeOptionModel> options;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -102,7 +100,6 @@ public class CustomAttributeGetModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the attribute")
 
   public UUID getId() {
     return id;
@@ -121,9 +118,6 @@ public class CustomAttributeGetModel {
   }
 
   public CustomAttributeGetModel addOptionsItem(CustomAttributeOptionModel optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<>();
-    }
     this.options.add(optionsItem);
     return this;
   }
@@ -133,7 +127,6 @@ public class CustomAttributeGetModel {
    * @return options
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Collection of the attribute options")
 
   public List<CustomAttributeOptionModel> getOptions() {
     return options;
@@ -155,8 +148,7 @@ public class CustomAttributeGetModel {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public CustomAttributeTypesEnum getType() {
     return type;
@@ -179,7 +171,6 @@ public class CustomAttributeGetModel {
    * @return isDeleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the attribute is deleted")
 
   public Boolean getIsDeleted() {
     return isDeleted;
@@ -202,7 +193,6 @@ public class CustomAttributeGetModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the attribute")
 
   public String getName() {
     return name;
@@ -225,7 +215,6 @@ public class CustomAttributeGetModel {
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the attribute is enabled")
 
   public Boolean getIsEnabled() {
     return isEnabled;
@@ -248,7 +237,6 @@ public class CustomAttributeGetModel {
    * @return isRequired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the attribute is mandatory to specify")
 
   public Boolean getIsRequired() {
     return isRequired;
@@ -271,7 +259,6 @@ public class CustomAttributeGetModel {
    * @return isGlobal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates if the attribute is available across all projects")
 
   public Boolean getIsGlobal() {
     return isGlobal;
@@ -364,6 +351,7 @@ public class CustomAttributeGetModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("type");
   }
 
  /**
@@ -384,6 +372,13 @@ public class CustomAttributeGetModel {
       for (Entry<String, JsonElement> entry : entries) {
         if (!CustomAttributeGetModel.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeGetModel` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : CustomAttributeGetModel.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {

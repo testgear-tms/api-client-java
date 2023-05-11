@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.RequestTypeModel;
 import io.test_gear.client.model.WebHookEventTypeModel;
 import java.io.IOException;
@@ -62,15 +60,15 @@ public class SearchWebhooksQueryModel {
 
   public static final String SERIALIZED_NAME_EVENT_TYPES = "eventTypes";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPES)
-  private Set<WebHookEventTypeModel> eventTypes = null;
+  private Set<WebHookEventTypeModel> eventTypes;
 
   public static final String SERIALIZED_NAME_METHODS = "methods";
   @SerializedName(SERIALIZED_NAME_METHODS)
-  private Set<RequestTypeModel> methods = null;
+  private Set<RequestTypeModel> methods;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds = null;
+  private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
@@ -90,7 +88,6 @@ public class SearchWebhooksQueryModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a webhook name to search for")
 
   public String getName() {
     return name;
@@ -109,9 +106,6 @@ public class SearchWebhooksQueryModel {
   }
 
   public SearchWebhooksQueryModel addEventTypesItem(WebHookEventTypeModel eventTypesItem) {
-    if (this.eventTypes == null) {
-      this.eventTypes = new LinkedHashSet<>();
-    }
     this.eventTypes.add(eventTypesItem);
     return this;
   }
@@ -121,7 +115,6 @@ public class SearchWebhooksQueryModel {
    * @return eventTypes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a webhook event types to search for")
 
   public Set<WebHookEventTypeModel> getEventTypes() {
     return eventTypes;
@@ -140,9 +133,6 @@ public class SearchWebhooksQueryModel {
   }
 
   public SearchWebhooksQueryModel addMethodsItem(RequestTypeModel methodsItem) {
-    if (this.methods == null) {
-      this.methods = new LinkedHashSet<>();
-    }
     this.methods.add(methodsItem);
     return this;
   }
@@ -152,7 +142,6 @@ public class SearchWebhooksQueryModel {
    * @return methods
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a webhook methods to search for")
 
   public Set<RequestTypeModel> getMethods() {
     return methods;
@@ -171,9 +160,6 @@ public class SearchWebhooksQueryModel {
   }
 
   public SearchWebhooksQueryModel addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null) {
-      this.projectIds = new LinkedHashSet<>();
-    }
     this.projectIds.add(projectIdsItem);
     return this;
   }
@@ -183,7 +169,6 @@ public class SearchWebhooksQueryModel {
    * @return projectIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a webhook project IDs to search for")
 
   public Set<UUID> getProjectIds() {
     return projectIds;
@@ -206,7 +191,6 @@ public class SearchWebhooksQueryModel {
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies a webhook deleted status to search for")
 
   public Boolean getIsEnabled() {
     return isEnabled;

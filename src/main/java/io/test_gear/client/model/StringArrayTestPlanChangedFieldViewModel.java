@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,11 +53,11 @@ import io.test_gear.client.invoker.JSON;
 public class StringArrayTestPlanChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private List<String> oldValue = null;
+  private List<String> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private List<String> newValue = null;
+  private List<String> newValue;
 
   public StringArrayTestPlanChangedFieldViewModel() {
   }
@@ -71,9 +69,6 @@ public class StringArrayTestPlanChangedFieldViewModel {
   }
 
   public StringArrayTestPlanChangedFieldViewModel addOldValueItem(String oldValueItem) {
-    if (this.oldValue == null) {
-      this.oldValue = new ArrayList<>();
-    }
     this.oldValue.add(oldValueItem);
     return this;
   }
@@ -83,7 +78,6 @@ public class StringArrayTestPlanChangedFieldViewModel {
    * @return oldValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getOldValue() {
     return oldValue;
@@ -102,9 +96,6 @@ public class StringArrayTestPlanChangedFieldViewModel {
   }
 
   public StringArrayTestPlanChangedFieldViewModel addNewValueItem(String newValueItem) {
-    if (this.newValue == null) {
-      this.newValue = new ArrayList<>();
-    }
     this.newValue.add(newValueItem);
     return this;
   }
@@ -114,7 +105,6 @@ public class StringArrayTestPlanChangedFieldViewModel {
    * @return newValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getNewValue() {
     return newValue;

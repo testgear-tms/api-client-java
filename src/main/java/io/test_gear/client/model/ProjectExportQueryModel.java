@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -56,11 +54,11 @@ import io.test_gear.client.invoker.JSON;
 public class ProjectExportQueryModel {
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  private Set<UUID> sectionIds = null;
+  private Set<UUID> sectionIds;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_IDS = "workItemIds";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS)
-  private Set<UUID> workItemIds = null;
+  private Set<UUID> workItemIds;
 
   public ProjectExportQueryModel() {
   }
@@ -72,9 +70,6 @@ public class ProjectExportQueryModel {
   }
 
   public ProjectExportQueryModel addSectionIdsItem(UUID sectionIdsItem) {
-    if (this.sectionIds == null) {
-      this.sectionIds = new LinkedHashSet<>();
-    }
     this.sectionIds.add(sectionIdsItem);
     return this;
   }
@@ -84,7 +79,6 @@ public class ProjectExportQueryModel {
    * @return sectionIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the IDs of the sections you want to export.<br />  Use this parameter if you want to export certain parts of the project.<br />  In this parameter, \"<b>string</b>\" values are IDs of the test library sections.")
 
   public Set<UUID> getSectionIds() {
     return sectionIds;
@@ -103,9 +97,6 @@ public class ProjectExportQueryModel {
   }
 
   public ProjectExportQueryModel addWorkItemIdsItem(UUID workItemIdsItem) {
-    if (this.workItemIds == null) {
-      this.workItemIds = new LinkedHashSet<>();
-    }
     this.workItemIds.add(workItemIdsItem);
     return this;
   }
@@ -115,7 +106,6 @@ public class ProjectExportQueryModel {
    * @return workItemIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the work items you want to export from a project.<br />  Use this parameter if you want to export certain work items.<br />  In this parameter, \"<b>string</b>\" values are IDs of the work items.")
 
   public Set<UUID> getWorkItemIds() {
     return workItemIds;

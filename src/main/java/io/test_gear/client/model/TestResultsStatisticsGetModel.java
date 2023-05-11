@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.TestRunStatisticsErrorCategoriesGetModel;
 import io.test_gear.client.model.TestRunStatisticsStatusesGetModel;
 import java.io.IOException;
@@ -74,7 +72,6 @@ public class TestResultsStatisticsGetModel {
    * @return statuses
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestRunStatisticsStatusesGetModel getStatuses() {
     return statuses;
@@ -97,7 +94,6 @@ public class TestResultsStatisticsGetModel {
    * @return failureCategories
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TestRunStatisticsErrorCategoriesGetModel getFailureCategories() {
     return failureCategories;

@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -77,7 +75,6 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Custom attribute internal unique identifier")
 
   public UUID getId() {
     return id;
@@ -100,7 +97,6 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
    * @return isEnabled
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Flag that defines if custom attribute is enabled")
 
   public Boolean getIsEnabled() {
     return isEnabled;
@@ -123,7 +119,6 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
    * @return isRequired
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Flag that defines if custom attribute is required")
 
   public Boolean getIsRequired() {
     return isRequired;

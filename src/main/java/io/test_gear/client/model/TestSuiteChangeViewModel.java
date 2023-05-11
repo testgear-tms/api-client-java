@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.test_gear.client.model.ShortConfiguration;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -65,7 +63,7 @@ public class TestSuiteChangeViewModel {
 
   public static final String SERIALIZED_NAME_CONFIGURATIONS = "configurations";
   @SerializedName(SERIALIZED_NAME_CONFIGURATIONS)
-  private List<ShortConfiguration> configurations = null;
+  private List<ShortConfiguration> configurations;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_COUNT = "workItemCount";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_COUNT)
@@ -85,7 +83,6 @@ public class TestSuiteChangeViewModel {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -108,7 +105,6 @@ public class TestSuiteChangeViewModel {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -127,9 +123,6 @@ public class TestSuiteChangeViewModel {
   }
 
   public TestSuiteChangeViewModel addConfigurationsItem(ShortConfiguration configurationsItem) {
-    if (this.configurations == null) {
-      this.configurations = new ArrayList<>();
-    }
     this.configurations.add(configurationsItem);
     return this;
   }
@@ -139,7 +132,6 @@ public class TestSuiteChangeViewModel {
    * @return configurations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<ShortConfiguration> getConfigurations() {
     return configurations;
@@ -162,7 +154,6 @@ public class TestSuiteChangeViewModel {
    * @return workItemCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getWorkItemCount() {
     return workItemCount;

@@ -214,8 +214,8 @@ public class TestPointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test points is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPointsIdWorkItemGetCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -283,8 +283,8 @@ public class TestPointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test points is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public WorkItemModel apiV2TestPointsIdWorkItemGet(UUID id) throws ApiException {
@@ -301,8 +301,8 @@ public class TestPointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test points is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WorkItemModel> apiV2TestPointsIdWorkItemGetWithHttpInfo(UUID id) throws ApiException {
@@ -321,8 +321,8 @@ public class TestPointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test points is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPointsIdWorkItemGetAsync(UUID id, final ApiCallback<WorkItemModel> _callback) throws ApiException {
@@ -346,8 +346,8 @@ public class TestPointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPointsSearchIdPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel, final ApiCallback _callback) throws ApiException {
@@ -435,8 +435,8 @@ public class TestPointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public List<UUID> apiV2TestPointsSearchIdPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel) throws ApiException {
@@ -458,8 +458,8 @@ public class TestPointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public ApiResponse<List<UUID>> apiV2TestPointsSearchIdPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel) throws ApiException {
@@ -483,8 +483,8 @@ public class TestPointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
         <tr><td> 403 </td><td> Read permission for all requested test plans is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
      </table>
      */
     public okhttp3.Call apiV2TestPointsSearchIdPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, TestPointFilterModel testPointFilterModel, final ApiCallback<List<UUID>> _callback) throws ApiException {

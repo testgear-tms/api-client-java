@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +61,7 @@ public class AutoTestStepModel {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<AutoTestStepModel> steps = null;
+  private List<AutoTestStepModel> steps;
 
   public AutoTestStepModel() {
   }
@@ -79,7 +77,6 @@ public class AutoTestStepModel {
    * @return title
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Step name.")
 
   public String getTitle() {
     return title;
@@ -102,7 +99,6 @@ public class AutoTestStepModel {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Detailed step description. It appears when the step is unfolded.")
 
   public String getDescription() {
     return description;
@@ -121,9 +117,6 @@ public class AutoTestStepModel {
   }
 
   public AutoTestStepModel addStepsItem(AutoTestStepModel stepsItem) {
-    if (this.steps == null) {
-      this.steps = new ArrayList<>();
-    }
     this.steps.add(stepsItem);
     return this;
   }
@@ -133,7 +126,6 @@ public class AutoTestStepModel {
    * @return steps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Includes a nested step inside another step. The maximum nesting level is 15.")
 
   public List<AutoTestStepModel> getSteps() {
     return steps;
